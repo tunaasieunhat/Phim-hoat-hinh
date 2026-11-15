@@ -22,7 +22,6 @@ export const KidsThumbnail: React.FC = () => {
   const dadPose = P({ lean: 10, tilt: 14, aL: [-36, -128], aR: [40, 70], lL: [-8, -2], lR: [10, 4] });
   const dj = joints("dad", 560, 900, 1.55, dadPose);
   const miaPose = P({ aL: [-96, -140], aR: [96, 140], lL: [-40, 20], lR: [36, -24], dy: -10 });
-  const outline = { stroke: INK, strokeWidth: 14, paintOrder: "stroke fill" as const, strokeLinejoin: "round" as const };
   return (
     <AbsoluteFill style={{ background: "#fff" }}>
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}>

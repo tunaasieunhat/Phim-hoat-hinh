@@ -8,6 +8,8 @@ export const HAND = "KidsHand";
 export const SANS = "KidsSans";
 export const COOL = "#e8eef5", WARM = "#fff3d6";
 export const FPS = 30;
+// true while a scene is drawn inside the 9:16 frame (KidsVideo portrait): labels move to the top band
+export const PortraitCtx = React.createContext(false);
 
 // sentence start / end in local frames
 export const cue = (sc: SceneData) => ({
@@ -17,16 +19,18 @@ export const cue = (sc: SceneData) => ({
 
 export const Split: React.FC<{ f: number; divider?: number; merge?: number; children?: React.ReactNode }> = ({ divider = 1, merge = 0 }) => (
   <g>
-    <rect x={0} y={0} width={MID} height={H} fill={COOL} />
-    <rect x={MID} y={0} width={MID} height={H} fill={WARM} />
-    {merge > 0 && <rect x={0} y={0} width={W} height={H} fill="#f6f1e6" opacity={merge} />}
+    <rect x={-1400} y={-1400} width={MID + 1400} height={H + 2800} fill={COOL} />
+    <rect x={MID} y={-1400} width={MID + 1400} height={H + 2800} fill={WARM} />
+    {merge > 0 && <rect x={-1400} y={-1400} width={W + 2800} height={H + 2800} fill="#f6f1e6" opacity={merge} />}
     <line x1={40} y1={GROUND} x2={W - 40} y2={GROUND} stroke="#9aa6b5" strokeWidth={4} strokeLinecap="round" opacity={0.7} />
     <line x1={MID} y1={0} x2={MID} y2={H * divider} stroke={INK} strokeWidth={6} strokeDasharray="2 18" strokeLinecap="round" opacity={0.55 * (1 - merge)} />
   </g>
 );
 
 export const Label: React.FC<{ f: number; text: string; x?: number }> = ({ f, text, x = MID }) => {
+  const portrait = React.useContext(PortraitCtx);
   const k = pop(f, 6, 16);
+  if (portrait) return null;
   return (
     <g transform={`translate(${x} 86) scale(${k}) rotate(-1.5)`}>
       <rect x={-text.length * 13 - 30} y={-40} width={text.length * 26 + 60} height={76} rx={14} fill="#fff" stroke={INK} strokeWidth={5} />

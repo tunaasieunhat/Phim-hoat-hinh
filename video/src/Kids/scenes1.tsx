@@ -3,7 +3,7 @@ import React from "react";
 import { useCurrentFrame } from "remotion";
 import type { SceneData } from "./data";
 import { alive, BLUE, DAD, Figure, INK, joints, mix, ORANGE, P, pop, poseAt, STAND, tw, walk } from "./rig";
-import { Alarm, Bed, Blanket, Bubble, Car, Cloud, COOL, cue, Envelope, GROUND, H, HAND, Heart, Label, MID, Mug, Phone, QMark, RabbitCloud, Split, Star, Table, Tag, W, WARM, Zzz } from "./stage";
+import { Alarm, Bed, Blanket, Bubble, Car, Cloud, COOL, cue, PortraitCtx, Envelope, GROUND, H, HAND, Heart, Label, MID, Mug, Phone, QMark, RabbitCloud, Split, Star, Table, Tag, W, WARM, Zzz } from "./stage";
 
 const MS = 0.62; // Mia's scale
 type SP = { sc: SceneData };
@@ -22,9 +22,9 @@ export const Scene1: React.FC<SP> = ({ sc }) => {
   const arc = tw(f, S(2) + 70, S(2) + 230);
   return (
     <g>
-      <rect width={W} height={H} fill="#fdfcf8" />
-      <rect x={0} y={0} width={MID} height={H} fill={COOL} opacity={split} />
-      <rect x={MID} y={0} width={MID} height={H} fill={WARM} opacity={split} />
+      <rect x={-1400} y={-1400} width={W + 2800} height={H + 2800} fill="#fdfcf8" />
+      <rect x={-1400} y={-1400} width={MID + 1400} height={H + 2800} fill={COOL} opacity={split} />
+      <rect x={MID} y={-1400} width={MID + 1400} height={H + 2800} fill={WARM} opacity={split} />
       <line x1={40} y1={GROUND} x2={W - 40} y2={GROUND} stroke="#9aa6b5" strokeWidth={4} strokeLinecap="round" opacity={0.7} />
       <line x1={MID} y1={0} x2={MID} y2={H * split} stroke={INK} strokeWidth={6} strokeDasharray="2 18" strokeLinecap="round" opacity={0.55} />
       {/* same house, same breakfast, same sun */}
@@ -147,6 +147,7 @@ export const Scene2: React.FC<SP> = ({ sc }) => {
 /* ---------- 3. Breakfast ---------- */
 export const Scene3: React.FC<SP> = ({ sc }) => {
   const f = useCurrentFrame();
+  const portrait = React.useContext(PortraitCtx);
   const { S } = cue(sc);
   const sip = Math.max(pulse(f, S(0) + 60, 50), pulse(f, S(1) + 150, 50), pulse(f, S(4) + 6, 44));
   const dadPose = alive(mix(P({ aR: [34, 118], aL: [-36, -128], tilt: -8, lean: -2 }), P({ aR: [70, 172], aL: [-36, -128], tilt: 6, lean: -2 }), sip), f, 0.7);
@@ -193,7 +194,7 @@ export const Scene3: React.FC<SP> = ({ sc }) => {
       </g>
       {talk >= 0 && <Bubble x={talk === 0 ? 1380 : 1790} y={talk === 0 ? 400 : 400} w={110} h={76} k={pop(f, S(2) + Math.floor((f - S(2)) / 34) * 34, 10)} tail={talk === 0 ? "left" : "right"}><text x={0} y={16} textAnchor="middle" fontFamily={HAND} fontSize={50} fill={INK}>{["hi!", "…", "ha!", "?", "yum"][Math.floor((f - S(2)) / 34) % 5]}</text></Bubble>}
       {/* same table, same food */}
-      <g transform={`translate(${MID} 430) scale(${pop(f, S(3) + 6, 14) * tw(f, S(4) - 10, S(4) + 6, 1, 0)})`}>
+      <g transform={`translate(${MID} 430) scale(${portrait ? 0 : pop(f, S(3) + 6, 14) * tw(f, S(4) - 10, S(4) + 6, 1, 0)})`}>
         <circle r={56} fill="#fff" stroke={INK} strokeWidth={6} />
         <text x={0} y={26} textAnchor="middle" fontFamily={HAND} fontSize={90} fill={INK}>=</text>
       </g>

@@ -3,7 +3,7 @@ import React from "react";
 import { useCurrentFrame } from "remotion";
 import type { SceneData } from "./data";
 import { alive, BLUE, DAD, Figure, INK, joints, mix, ORANGE, P, pop, poseAt, STAND, tw, walk } from "./rig";
-import { Bed, Blanket, Bubble, Cloud, cue, GROUND, H, HAND, Heart, Label, MID, Phone, QMark, RabbitCloud, Shield, Split, Star, Table, Tag, Tear, W, Zzz } from "./stage";
+import { Bed, Blanket, Bubble, Cloud, cue, PortraitCtx, GROUND, H, HAND, Heart, Label, MID, Phone, QMark, RabbitCloud, Shield, Split, Star, Table, Tag, Tear, W, Zzz } from "./stage";
 
 const MS = 0.62;
 type SP = { sc: SceneData };
@@ -151,14 +151,16 @@ export const Scene8: React.FC<SP> = ({ sc }) => {
   return (
     <g>
       <defs><linearGradient id="s8sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#cdbdf0" /><stop offset="0.6" stopColor="#fbd3a4" /><stop offset="1" stopColor="#fde9c9" /></linearGradient></defs>
-      <rect width={W} height={H} fill="url(#s8sky)" />
+      <rect x={-1400} y={-1400} width={W + 2800} height={1400} fill="#cdbdf0" />
+      <rect x={-1400} width={W + 2800} height={H} fill="url(#s8sky)" />
       <circle cx={1560} cy={GROUND - 60 + dusk * 110} r={110} fill="#fbbf24" opacity={0.9} />
-      <rect width={W} height={GROUND} fill="#312e81" opacity={dusk * 0.22} />
+      <rect x={-1400} y={-1400} width={W + 2800} height={GROUND + 1400} fill="#312e81" opacity={dusk * 0.22} />
       {[[300, 170], [820, 110], [1260, 200], [1700, 130], [560, 260], [1500, 90]].map(([x, y], i) => <Star key={i} x={x} y={y} s={dusk * (0.5 + 0.4 * Math.sin(f / 9 + i * 2))} fill="#fff" rot={f} />)}
       <Cloud x={380 + f * 0.25} y={240} s={0.9} stroke="#b5a8d6" />
       <Cloud x={1500 - f * 0.18} y={150} s={0.6} stroke="#b5a8d6" />
       <RabbitCloud x={rabX} y={300} s={1.25} />
       <path d={`M 0 ${GROUND} Q 480 ${GROUND - 46} 960 ${GROUND - 10} T 1920 ${GROUND - 20} L 1920 ${H} L 0 ${H} Z`} fill="#a9d08e" stroke="#6a994e" strokeWidth={5} />
+      <rect x={-1400} y={H - 2} width={W + 2800} height={1400} fill="#a9d08e" />
       {Array.from({ length: 16 }).map((_, i) => <path key={i} d={`M ${60 + i * 122} ${GROUND + 40 + (i % 3) * 40} q 6 -24 12 0 q 6 -30 12 0`} fill="none" stroke="#6a994e" strokeWidth={5} strokeLinecap="round" />)}
       <Label f={f} text="6:30 PM" />
       <g transform={`rotate(${-90 * lie} ${dadX} ${gy})`}><Figure kind="dad" x={dadX} y={gy} pose={dadPose} f={f} face={{ eyes: laugh ? "happy" : lie > 0.8 ? "open" : "tired", mouth: laugh ? "laugh" : lie > 0.8 ? "smile" : "flat", look: lie > 0.5 ? 0.9 : go > 0 ? 0.5 : -0.8 }} /></g>
@@ -186,8 +188,8 @@ export const Scene9: React.FC<SP> = ({ sc }) => {
   const book: [number, number] = [(dj.handL[0] + dj.handR[0]) / 2, (dj.handL[1] + dj.handR[1]) / 2 - 10];
   return (
     <g>
-      <rect width={W} height={H} fill="#dfe5f6" />
-      <rect x={0} y={GROUND} width={W} height={H - GROUND} fill="#cfc4b4" />
+      <rect x={-1400} y={-1400} width={W + 2800} height={H + 2800} fill="#dfe5f6" />
+      <rect x={-1400} y={GROUND} width={W + 2800} height={H - GROUND + 1400} fill="#cfc4b4" />
       <line x1={0} y1={GROUND} x2={W} y2={GROUND} stroke="#9a8f80" strokeWidth={5} />
       {/* the window: moon and stars */}
       <rect x={1440} y={150} width={330} height={330} rx={12} fill="#27325c" stroke={INK} strokeWidth={8} />
@@ -219,7 +221,7 @@ export const Scene9: React.FC<SP> = ({ sc }) => {
       </g>
       <Cloud x={dj.head[0]} y={dj.head[1] - 150} s={0.7 * (1 - quiet)} fill="#6b7280" stroke={INK} />
       <Heart x={dj.head[0] - 10} y={dj.head[1] - 130} s={pop(f, S(4) + 20, 16) * 0.9} fill="#fb7185" />
-      <rect width={W} height={H} fill="#1e1b4b" opacity={tw(f, S(1), sc.frames, 0, 0.16)} />
+      <rect x={-1400} y={-1400} width={W + 2800} height={H + 2800} fill="#1e1b4b" opacity={tw(f, S(1), sc.frames, 0, 0.16)} />
     </g>
   );
 };
@@ -227,6 +229,7 @@ export const Scene9: React.FC<SP> = ({ sc }) => {
 /* ---------- 10. The lesson ---------- */
 export const Scene10: React.FC<SP & { hold: number }> = ({ sc }) => {
   const f = useCurrentFrame();
+  const portrait = React.useContext(PortraitCtx);
   const { S } = cue(sc);
   const lessons = tw(f, S(4) - 24, S(4) - 6, 1, 0);
   const kid = ["Be curious", "Make mistakes", "Notice the small things"];
@@ -234,25 +237,29 @@ export const Scene10: React.FC<SP & { hold: number }> = ({ sc }) => {
   const fin = f > S(4);
   const dadPose = alive(fin ? P({ aR: [70, 76], aL: [-150, -165 - Math.sin(f / 5) * 20] }) : P({ aR: [70, 76], tilt: f > S(3) + 60 ? -14 : 0 }), f, 0.8);
   const miaPose = alive(fin ? P({ aL: [-70, -76], aR: [150, 165 + Math.sin(f / 4) * 22], dy: -Math.abs(Math.sin(f / 6)) * 18 }) : P({ aL: [-70, -76], aR: f > S(3) + 10 && f < S(3) + 90 ? [150, 160] : [20, 30] }), f, 1.2, 5);
+  // landscape: figures left, words right. 9:16: words stacked above the figures (crop centred on x 960)
+  const L = portrait
+    ? { dad: 830, mia: 1000, kx: 960, ky: [-150, -50, 50], line: [560, 1360, 120], gx: [690, 930, 1200], gy: 210, gs: 50, heart: [1290, 560], bub: [1250, 420], rab: [1330, -60], fx: 960, fy: [-110, 60], fs: [140, 104] }
+    : { dad: 300, mia: 470, kx: 1240, ky: [240, 352, 464], line: [900, 1580, 556], gx: [930, 1200, 1500], gy: 650, gs: 60, heart: [760, 500], bub: [640, 250], rab: [1700, 130], fx: 1180, fy: [330, 540], fs: [190, 150] };
   return (
     <g>
-      <rect width={W} height={H} fill="#fdfcf8" />
-      <line x1={40} y1={GROUND} x2={W - 40} y2={GROUND} stroke="#9aa6b5" strokeWidth={4} strokeLinecap="round" opacity={0.7} />
-      <Figure kind="dad" x={300} y={GROUND} pose={dadPose} f={f} face={{ eyes: fin ? "happy" : "open", mouth: fin ? "grin" : "smile", look: f > S(3) + 60 && !fin ? 0.5 : 0.3 }} />
-      <Figure kind="mia" x={470} y={GROUND} s={MS} pose={miaPose} f={f} face={{ eyes: "happy", mouth: "grin", look: 0.2 }} />
+      <rect x={-1400} y={-1400} width={W + 2800} height={H + 2800} fill="#fdfcf8" />
+      <line x1={-400} y1={GROUND} x2={W + 400} y2={GROUND} stroke="#9aa6b5" strokeWidth={4} strokeLinecap="round" opacity={0.7} />
+      <Figure kind="dad" x={L.dad} y={GROUND} pose={dadPose} f={f} face={{ eyes: fin ? "happy" : "open", mouth: fin ? "grin" : "smile", look: f > S(3) + 60 && !fin ? 0.5 : 0.3 }} />
+      <Figure kind="mia" x={L.mia} y={GROUND} s={MS} pose={miaPose} f={f} face={{ eyes: "happy", mouth: "grin", look: 0.2 }} />
       <g opacity={lessons}>
-        {kid.map((t, i) => <Tag key={t} x={1240} y={240 + i * 112} text={t} k={pop(f, S(0) + 16 + i * 52, 16)} size={96} color={ORANGE} rot={-2 + i} />)}
-        <line x1={900} y1={556} x2={1580} y2={556} stroke={INK} strokeWidth={5} strokeDasharray="2 16" strokeLinecap="round" opacity={tw(f, S(1), S(1) + 20) * 0.5} />
-        {grown.map((t, i) => <Tag key={t} x={[930, 1200, 1500][i]} y={650} text={`Be ${t}`} k={pop(f, S(1) + 30 + i * 38, 16)} size={60} color={BLUE} rot={i - 1} />)}
-        <Heart x={760} y={500} s={pop(f, S(2) + 40, 18) * (1.3 + 0.1 * Math.sin(f / 6))} />
-        <Bubble x={640} y={250} w={130} h={110} k={pop(f, S(3) + 30, 14)} tail="left"><QMark x={0} y={30} s={1} /></Bubble>
-        <RabbitCloud x={1700} y={130} s={0.7} opacity={tw(f, S(3) + 80, S(3) + 100)} />
+        {kid.map((t, i) => <Tag key={t} x={L.kx} y={L.ky[i]} text={t} k={pop(f, S(0) + 16 + i * 52, 16)} size={portrait ? 88 : 96} color={ORANGE} rot={-2 + i} />)}
+        <line x1={L.line[0]} y1={L.line[2]} x2={L.line[1]} y2={L.line[2]} stroke={INK} strokeWidth={5} strokeDasharray="2 16" strokeLinecap="round" opacity={tw(f, S(1), S(1) + 20) * 0.5} />
+        {grown.map((t, i) => <Tag key={t} x={L.gx[i]} y={L.gy} text={`Be ${t}`} k={pop(f, S(1) + 30 + i * 38, 16)} size={L.gs} color={BLUE} rot={i - 1} />)}
+        <Heart x={L.heart[0]} y={L.heart[1]} s={pop(f, S(2) + 40, 18) * (1.3 + 0.1 * Math.sin(f / 6))} />
+        <Bubble x={L.bub[0]} y={L.bub[1]} w={130} h={110} k={pop(f, S(3) + 30, 14)} tail="left"><QMark x={0} y={30} s={1} /></Bubble>
+        <RabbitCloud x={L.rab[0]} y={L.rab[1]} s={0.7} opacity={tw(f, S(3) + 80, S(3) + 100)} />
       </g>
       {fin && (
         <g>
-          <Tag x={1180} y={330} text="Grow up," k={pop(f, S(4) + 6, 18)} size={190} color={DAD} rot={-2} />
-          <Tag x={1180} y={540} text="but don't grow old." k={pop(f, S(4) + 40, 18)} size={150} color={ORANGE} rot={-1} />
-          {[0, 1, 2, 3, 4, 5].map((i) => <Star key={i} x={760 + i * 170} y={130 + (i % 2) * 520 + Math.sin(f / 9 + i) * 10} s={pop(f, S(4) + 70 + i * 6) * 1.3} rot={f * 2} fill={i % 2 ? "#fbbf24" : "#f472b6"} />)}
+          <Tag x={L.fx} y={L.fy[0]} text="Grow up," k={pop(f, S(4) + 6, 18)} size={L.fs[0]} color={DAD} rot={-2} />
+          <Tag x={L.fx} y={L.fy[1]} text="but don't grow old." k={pop(f, S(4) + 40, 18)} size={L.fs[1]} color={ORANGE} rot={-1} />
+          {[0, 1, 2, 3, 4, 5].map((i) => <Star key={i} x={(portrait ? 470 : 760) + i * (portrait ? 190 : 170)} y={(portrait ? -260 : 130) + (i % 2) * (portrait ? 420 : 520) + Math.sin(f / 9 + i) * 10} s={pop(f, S(4) + 70 + i * 6) * 1.3} rot={f * 2} fill={i % 2 ? "#fbbf24" : "#f472b6"} />)}
         </g>
       )}
     </g>

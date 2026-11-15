@@ -1,6 +1,6 @@
 """Gentle piano bed for "Grown-ups vs. Kids" (original, synthesized, royalty-free).
 Bright and bouncy for scenes 1–6, slower and calmer from scene 7, a soft ending. Length follows src/Kids/data.ts.
-usage: python3 scripts/make_kids_music.py public/kids/music.wav"""
+usage: python3 scripts/make_kids_music.py public/kids/music.wav [data.ts | data3.ts]"""
 import json
 import os
 import sys
@@ -9,7 +9,7 @@ import wave
 import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-s = open(os.path.join(ROOT, 'src', 'Kids', 'data.ts'), encoding='utf-8').read()
+s = open(os.path.join(ROOT, 'src', 'Kids', sys.argv[2] if len(sys.argv) > 2 else 'data.ts'), encoding='utf-8').read()
 scenes = json.loads(s[s.index('= [') + 2:s.rindex(';')])
 starts, t = [], 0.0
 for sc in scenes:
