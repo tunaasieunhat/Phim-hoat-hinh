@@ -1,6 +1,12 @@
 {
   "version": 2,
   "skills": {
+    "animate": {
+      "source": "cth9191/animate",
+      "sourceType": "github",
+      "skillPath": "plugins/animate/skills/animate/SKILL.md",
+      "computedHash": "e7202e825e71ff830ae37daaafda62ea561ce7f080938284b9ceec0ab401ba55"
+    },
     "cartoon-3d-short": {
       "source": "mromidev/claude-animated-shorts",
       "sourceType": "github",
