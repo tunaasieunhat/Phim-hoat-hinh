@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tri ân thầy cô — 20/11</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #1b1714; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas { height: min(100vh, calc(100vw * 16 / 9)); width: auto; aspect-ratio: 9 / 16; display: block; cursor: pointer; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+"use strict";
+// =====================================================================
+//  TRI ÂN THẦY CÔ — 20/11. 9:16, ~50.6s, 24fps, voice-led (VieNeu-TTS "Thùy Dung").
+//  A girl grows up across school years; each era she brings her teacher an orange paper flower.
+//  Twenty years later she is the teacher, and a small child brings the flower to her.
+//  Orange = the flower (gratitude) only. Identity cue of the hero: two pigtails with teal clips.
+//  Build: node .claude/skills/animate/tools/build.mjs pieces/nha-giao-2011
+// =====================================================================
+const FPS = 24, W = 1080, H = 1920;
+const BPM = 120, BEAT = 60 / BPM, E8 = BEAT / 2, E16 = BEAT / 4;
+const DURATION = +(Math.round(VOICE_DUR() * FPS) / FPS).toFixed(4);
+function VOICE_DUR() { return typeof VOICE !== 'undefined' ? VOICE.duration : 50.625; }
+const NFRAMES = Math.round(DURATION * FPS);
+const LOOP_T = NFRAMES / FPS;
+const SAFE = { top: 240, bottom: 420, right: 140 };
+// Patrick Hand (SIL OFL) is installed locally and covers Vietnamese; the rest are fallbacks
+const HAND = '"Patrick Hand", "Ink Free", "Segoe Print", "Comic Sans MS", cursive';
+const CX = 470;
+const onBeat = (t) => +(Math.round(t / E8) * E8).toFixed(4);
+
+// ---- the voice is the clock: VL(id) = a line {t0, t1}; VW(id, word, n) = when its n-th `word` starts
+const VL = (id) => (typeof VOICE !== 'undefined' ? VOICE.lines.find((l) => l.id === id) : null) || { t0: 0, t1: 0, words: [] };
+const VW = (id, w, n = 1) => { const L = VL(id); let k = 0; for (const x of L.words || []) if (x.w.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '') === w && ++k === n) return x.t0; return L.t0; };
+
+// era boundaries (morph centres on the 8th grid, ~0.3–1s after a sentence ends)
+const T1 = onBeat(VL('l01-mother').t1 + 1.0);    // the clasped hands become hand-over-hand
+const T2 = onBeat(VL('l02-write').t1 + 0.8);     // the letter o becomes the globe
+const T3 = onBeat(VL('l03-stars').t1 + 0.9);     // a star becomes a raindrop
+const T4 = onBeat(VL('l05-umbrella').t1 + 0.9);  // the umbrella becomes the graduation cap
+const T5 = onBeat(VL('l06-grow').t1 + 1.25);     // the bus window becomes the classroom window
+const CUT = onBeat(VL('l08-teacher').t0 - 1.1);  // the one hard cut: the payoff, in the silence before the line
+const T7 = onBeat(VL('l08-teacher').t1 + 0.6);   // her hand becomes the small hand
+const T8 = onBeat(VL('l09-small').t1 + 1.1);     // the flower becomes the bouquet
+const ERA_LIST = [
+  [0, T1, () => sGate()],
+  [T1, T2, () => sWrite()],
+  [T2, T3, () => sStars()],
+  [T3, T4, () => sRain()],
+  [T4, T5, () => sGrow()],
+  [T5, CUT, () => sReturn()],
+  [CUT, T7, () => sBoard()],
+  [T7, T8, () => sGate({ end: true })],
+  [T8, DURATION, () => sThanks()],
+];
+const SHOTS = [
+  ['gate',    0, 0,    T1,       'Lớp 1: the first day, holding mother\'s hand, an orange flower for the teacher'],
+  ['write',   1, T1,   T2,       'extreme close-up: the teacher\'s hand guides hers, the letter a'],
+  ['stars',   2, T2,   T3,       'Lớp 5: maps, a globe, paper stars, "vì sao?"'],
+  ['rain',    3, T3,   T4,       'Lớp 9: a bad mark in the rain; the teacher\'s yellow umbrella; 3 becomes 9'],
+  ['grow',    4, T4,   T5,       '18: graduation, the bus, the city — the world runs past, she holds her spot'],
+  ['return',  5, T5,   CUT,      '20 năm sau: the empty old classroom; silence'],
+  ['board',   6, CUT,  T7,       'the hard cut: she is at the board with chalk — the loudest hit'],
+  ['small',   7, T7,   T8,       'the gate again, changed: a small girl holds her mother\'s hand and offers her the flower'],
+  ['thanks',  8, T8,   DURATION, 'the bouquet; Tri ân thầy cô · 20.11'],
+];
+const TIMELINE = {
+  width: W, height: H, fps: FPS, bpm: BPM, duration: DURATION, frames: NFRAMES, loop: LOOP_T, safe: SAFE,
+  format: 'morph-chain',
+  shots: SHOTS.map(([key, era, t0, t1, title], i) => ({ id: i + 1, key, era, t0, t1, title })),
+  cuts: [CUT],
+  morphs: [T1, T2, T3, T4, T5, T7, T8],
+  cues: {
+    give: onBeat(VL('l01-mother').t1 - 0.2),
+    write: VL('l02-write').t0 + 0.4,
+    why: VW('l03-stars', 'sao', 2),
+    mark: VL('l04-rain').t0 + 0.3,
+    umbrella: onBeat(VL('l05-umbrella').t0 - 0.25),
+    redo: VW('l05-umbrella', 'làm', 1),
+    door: VL('l07-return').t0 + 0.2,
+    hush: VL('l07-return').t1 + 0.1,
+    offer: VW('l09-small', 'nhỏ', 1),
+    title: VL('l10-thanks').t0 + 0.2,
+    thanks: VW('l10-thanks', 'cảm', 1),
+  },
+  acts: [
+    { name: '1 First day', role: 'build',   t0: 0, t1: T3 },
+    { name: '2 Rain',      role: 'winter',  t0: T3, t1: T4 },
+    { name: '3 Grow',      role: 'peak',    t0: T4, t1: T5 },
+    { name: '4 Return',    role: 'silence', t0: VL('l07-return').t1 + 0.1, t1: CUT },
+    { name: '5 Teacher',   role: 'gift',    t0: CUT, t1: T7 },
+    { name: '6 Small hand', role: 'connection', t0: T7, t1: T8 },
+    { name: '7 Thanks',    role: 'title',   t0: T8, t1: DURATION },
+  ],
+  board: [
+    { t: T1 - 1.2, title: '1 Lớp 1: tay mẹ, bông hoa cam', sound: 'trống trường; pluck nhẹ', next: 'tay nắm tay → tay cô cầm tay em' },
+    { t: T2 - 1.0, title: '2 Nét chữ đầu tiên (cận cảnh)', sound: 'bút sột soạt', next: 'chữ o → quả địa cầu' },
+    { t: T3 - 1.2, title: '3 Lớp 5: bản đồ, vì sao?', sound: 'chuông leng keng', next: 'ngôi sao → giọt mưa' },
+    { t: VL('l04-rain').t1 - 0.4, title: '4 Lớp 9: điểm kém dưới mưa', sound: 'mưa, nhạc trầm', next: '(cùng cảnh)' },
+    { t: T4 - 1.1, title: '5 Ô vàng: làm lại, 9 điểm', sound: 'nhạc ấm lên', next: 'chiếc ô → mũ tốt nghiệp' },
+    { t: T5 - 1.0, title: '6 18 tuổi: đi thật xa', sound: 'nhạc dày nhất', next: 'cửa xe → cửa sổ lớp' },
+    { t: CUT - 0.4, title: '7 20 năm sau: lớp học cũ', sound: 'im lặng', next: 'CẮT CẢNH (cú đánh to nhất)' },
+    { t: T7 - 0.8, title: '8 Lần này, em là cô giáo', sound: 'tiếng vang to nhất, hợp âm', next: 'tay cô → bàn tay nhỏ' },
+    { t: T8 - 1.0, title: '9 Bàn tay nhỏ, bông hoa cam', sound: 'hợp âm ấm', next: 'bông hoa → bó hoa' },
+    { t: DURATION - 1.6, title: '10 Tri ân thầy cô · 20.11', sound: 'nhỏ dần', next: 'hết' },
+  ],
+  narration: typeof VOICE !== 'undefined' ? VOICE.lines.map((l) => ({ t0: l.t0, t1: l.t1, text: l.text })) : [],
+};
+window.TIMELINE = TIMELINE;

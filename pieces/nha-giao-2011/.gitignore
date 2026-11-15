@@ -1,0 +1,8 @@
+# rebuilt by tools/export.mjs and tools/review.mjs
+frames/
+renders/
+review/
+tile*.png
+# unused VieNeu takes (pick_takes.py keeps the best one per line as voice/<id>.wav)
+voice/raw/
+voice/voice.wav

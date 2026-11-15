@@ -1,0 +1,66 @@
+{
+ "lead": 1.4,
+ "tail": 3.0,
+ "lines": [
+  {
+   "id": "l01-mother",
+   "text": "Ngày đầu tiên đi học, em nắm chặt tay mẹ, không dám buông.",
+   "file": "l01-mother.wav",
+   "after": 2.0
+  },
+  {
+   "id": "l02-write",
+   "text": "Cô dịu dàng cầm tay em, viết nét chữ đầu tiên.",
+   "file": "l02-write.wav",
+   "after": 1.8
+  },
+  {
+   "id": "l03-stars",
+   "text": "Rồi thầy dạy em đọc bản đồ, đếm những vì sao, và hỏi: vì sao?",
+   "file": "l03-stars.wav",
+   "after": 2.0
+  },
+  {
+   "id": "l04-rain",
+   "text": "Có năm em bị điểm kém, ngồi khóc một mình dưới mưa.",
+   "file": "l04-rain.wav",
+   "after": 1.0
+  },
+  {
+   "id": "l05-umbrella",
+   "text": "Thầy che ô cho em và nói: không sao, mình làm lại.",
+   "file": "l05-umbrella.wav",
+   "after": 1.8
+  },
+  {
+   "id": "l06-grow",
+   "text": "Em lớn lên, rời mái trường, đi thật xa.",
+   "file": "l06-grow.wav",
+   "after": 2.2
+  },
+  {
+   "id": "l07-return",
+   "text": "Hai mươi năm sau, em trở về lớp học cũ.",
+   "file": "l07-return.wav",
+   "after": 2.4
+  },
+  {
+   "id": "l08-teacher",
+   "text": "Lần này, em là cô giáo.",
+   "file": "l08-teacher.wav",
+   "after": 1.8
+  },
+  {
+   "id": "l09-small",
+   "text": "Và có một bàn tay nhỏ, đang nắm chặt tay mẹ, không dám buông.",
+   "file": "l09-small.wav",
+   "after": 2.0
+  },
+  {
+   "id": "l10-thanks",
+   "text": "Ngày Nhà giáo Việt Nam, hai mươi tháng mười một. Cảm ơn thầy cô, những người viết nên chúng em.",
+   "file": "l10-thanks.wav",
+   "after": 0.4
+  }
+ ]
+}

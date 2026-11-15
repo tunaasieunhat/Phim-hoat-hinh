@@ -1,0 +1,46 @@
+{
+ "name": "nha-giao-2011",
+ "title": "Tri ân thầy cô — 20/11",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 24,
+  "bpm": 120
+ },
+ "storyFormat": "F2 morph chain across worlds, voice-led (one hard cut on the payoff)",
+ "style": "cut-paper",
+ "voice": {
+  "file": "voice/voice.wav",
+  "music": -14
+ },
+ "review": {
+  "safe": {
+   "top": 240,
+   "bottom": 420,
+   "right": 140
+  },
+  "refs": {},
+  "textIgnore": [
+   [
+    4.0,
+    5.0,
+    "the camera pushes into the clasped hands, past the school sign, on purpose"
+   ],
+   [
+    39.5,
+    41.5,
+    "the camera pushes in on the offered flower; the school sign slides under the year tag on purpose"
+   ],
+   [
+    14.5,
+    15.0,
+    "the push up to the paper star passes the ? tag on purpose"
+   ]
+  ]
+ },
+ "scenes": [
+  "src/chars.js",
+  "src/scenes.js",
+  "src/scenes2.js"
+ ]
+}

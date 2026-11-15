@@ -1,0 +1,62 @@
+[
+ {
+  "id": "l01-mother",
+  "wer": 0.154,
+  "take": "raw/l01-mother.t1.wav",
+  "heard": "Nên đầu tiên đi học, em nắm chặt tay mẹ không dám môn."
+ },
+ {
+  "id": "l02-write",
+  "wer": 0.273,
+  "take": "raw/l02-write.t2.wav",
+  "heard": "cô Dựa Giang cầm tay em, viết nét chưa đầu tiên."
+ },
+ {
+  "id": "l03-stars",
+  "wer": 0.267,
+  "take": "raw/l03-stars.t1.wav",
+  "heard": "Rồi thay dạy em đọc bánh rồ đến những vì sao và hỏi vì sao."
+ },
+ {
+  "id": "l04-rain",
+  "wer": 0.25,
+  "take": "raw/l04-rain.t1.wav",
+  "heard": "Có nằm em đi điểm kén ngồi khóc một mình dưới mưa."
+ },
+ {
+  "id": "l05-umbrella",
+  "wer": 0.167,
+  "take": "raw/l05-umbrella.t0.wav",
+  "heard": "Tại chơi ô cho em và nói, không sao, mình làm lại."
+ },
+ {
+  "id": "l06-grow",
+  "wer": 0.333,
+  "take": "raw/l06-grow.t0.wav",
+  "heard": "Em đứng lên, rồi máy trường đi thật xa."
+ },
+ {
+  "id": "l07-return",
+  "wer": 0.0,
+  "take": "raw/l07-return.t0.wav",
+  "heard": "hai mươi năm sau, em trở về lớp học cũ."
+ },
+ {
+  "id": "l08-teacher",
+  "wer": 0.0,
+  "take": "raw/l08-teacher.t0.wav",
+  "heard": "Lần này em là cô giáo"
+ },
+ {
+  "id": "l09-small",
+  "wer": 0.143,
+  "take": "raw/l09-small.t2.wav",
+  "heard": "và có một bàn tay nhỏ đang nắm chặt tay mẹ không giám bôn."
+ },
+ {
+  "id": "l10-thanks",
+  "wer": 0.1,
+  "take": "raw/l10-thanks.t0.wav",
+  "heard": "Này nhà giáo Việt Nam, hai mươi tháng mười một, cảm ơn thầy cô, những người viết nên trúng em."
+ }
+]

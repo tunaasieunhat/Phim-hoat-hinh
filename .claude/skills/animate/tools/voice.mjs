@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Voice-over: place the script's lines on the timeline and time every word, so the picture can cue on the voice.
-//   usage: node tools/voice.mjs pieces/<name> [--scratch] [--model small.en] [--rate 0]
+//   usage: node tools/voice.mjs pieces/<name> [--scratch] [--model small.en] [--lang en] [--rate 0]
+//   other languages: --model small --lang vi (a multilingual whisper model and the spoken language)
 // reads  <piece>/voice/script.json:
 //   { "lead": 0.8, "tail": 1.5, "lines": [ { "id": "open", "text": "As it is spoken.", "file": "open.mp3", "after": 0.4 }, ... ] }
 //   file   the line's audio, relative to <piece>/voice/: a text-to-speech take (e.g. the ElevenLabs MCP's download link,
@@ -69,9 +70,10 @@ const wav = path.join(VDIR, 'voice.wav');
 fs.writeFileSync(wav, Buffer.concat([hdr, out]));
 
 // ---- word times: what the recogniser heard, matched to the script's words line by line
-const norm = (w) => w.toLowerCase().replace(/[^a-z0-9]/g, '');
+// Unicode-aware: strip diacritics (Vietnamese, French, ...) and đ → d before comparing
+const norm = (w) => w.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[đĐ]/g, 'd').toLowerCase().replace(/[^a-z0-9]/g, '');
 let heard = null;
-const py = spawnSync(process.platform === 'win32' ? 'python' : 'python3', [path.join(HERE, 'voice_words.py'), wav, '--model', opt('--model', 'small.en')], { maxBuffer: 1 << 26 });
+const py = spawnSync(process.platform === 'win32' ? 'python' : 'python3', [path.join(HERE, 'voice_words.py'), wav, '--model', opt('--model', 'small.en'), '--lang', opt('--lang', 'en')], { maxBuffer: 1 << 26 });
 if (py.status === 0) { try { heard = JSON.parse(py.stdout.toString().trim().split('\n').pop()); } catch { heard = null; } }
 if (!heard) console.warn('word times: faster-whisper unavailable (pip install faster-whisper) — estimating from the letters');
 let matched = 0, totalWords = 0;
