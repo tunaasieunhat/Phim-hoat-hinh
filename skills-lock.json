@@ -13,6 +13,12 @@
       "skillPath": "SKILL.md",
       "computedHash": "5e22407caaa66b02af5a6cb28b0a436da726cc857dfd4f09d03ee006aaa1fa28"
     },
+    "directing-stickman-videos": {
+      "source": "kaomei/stickman-video-director",
+      "sourceType": "github",
+      "skillPath": "skills/directing-stickman-videos/SKILL.md",
+      "computedHash": "a99cbef29a1f5291cbdc7c5a2663e265dae8a440a10923b4868b026bd30d467d"
+    },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",

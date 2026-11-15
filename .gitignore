@@ -1,3 +1,7 @@
 # Third-party reference frames (style study only, do not publish)
 .claude/skills/cartoon-3d-short/references/frames/
 .claude/skills/cartoon-3d-short/references/sheets/
+
+# directing-stickman-videos is ~490MB (sample media); restore it from skills-lock.json:
+#   npx skills add kaomei/stickman-video-director -a claude-code -y
+.claude/skills/directing-stickman-videos/
