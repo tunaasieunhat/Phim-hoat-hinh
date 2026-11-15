@@ -1,0 +1,674 @@
+{
+"words": [
+{
+"word": "Pov,",
+"start": 0.0,
+"end": 0.3
+},
+{
+"word": "you",
+"start": 0.56,
+"end": 0.56
+},
+{
+"word": "chose",
+"start": 0.56,
+"end": 0.76
+},
+{
+"word": "medicine.",
+"start": 0.76,
+"end": 1.24
+},
+{
+"word": "Your",
+"start": 1.78,
+"end": 1.88
+},
+{
+"word": "alarm",
+"start": 1.88,
+"end": 2.22
+},
+{
+"word": "chose",
+"start": 2.22,
+"end": 2.56
+},
+{
+"word": "violence.",
+"start": 2.56,
+"end": 3.08
+},
+{
+"word": "530,",
+"start": 4.26,
+"end": 4.26
+},
+{
+"word": "coffee",
+"start": 4.88,
+"end": 5.12
+},
+{
+"word": "number",
+"start": 5.12,
+"end": 5.34
+},
+{
+"word": "one.",
+"start": 5.34,
+"end": 5.68
+},
+{
+"word": "Your",
+"start": 6.1,
+"end": 6.18
+},
+{
+"word": "eyes",
+"start": 6.18,
+"end": 6.5
+},
+{
+"word": "are",
+"start": 6.5,
+"end": 6.68
+},
+{
+"word": "open.",
+"start": 6.68,
+"end": 7.0
+},
+{
+"word": "Your",
+"start": 7.38,
+"end": 7.48
+},
+{
+"word": "brain",
+"start": 7.48,
+"end": 7.78
+},
+{
+"word": "is",
+"start": 7.78,
+"end": 7.98
+},
+{
+"word": "still",
+"start": 7.98,
+"end": 8.2
+},
+{
+"word": "loading.",
+"start": 8.2,
+"end": 8.58
+},
+{
+"word": "7am,",
+"start": 9.68,
+"end": 10.24
+},
+{
+"word": "ward",
+"start": 10.9,
+"end": 10.96
+},
+{
+"word": "rounds.",
+"start": 10.96,
+"end": 11.46
+},
+{
+"word": "You",
+"start": 12.18,
+"end": 12.2
+},
+{
+"word": "follow",
+"start": 12.2,
+"end": 12.48
+},
+{
+"word": "the",
+"start": 12.48,
+"end": 12.7
+},
+{
+"word": "doctors",
+"start": 12.7,
+"end": 13.06
+},
+{
+"word": "like",
+"start": 13.06,
+"end": 13.3
+},
+{
+"word": "a",
+"start": 13.3,
+"end": 13.44
+},
+{
+"word": "duckling",
+"start": 13.44,
+"end": 13.82
+},
+{
+"word": "with",
+"start": 13.82,
+"end": 13.96
+},
+{
+"word": "a",
+"start": 13.96,
+"end": 14.08
+},
+{
+"word": "notebook,",
+"start": 14.08,
+"end": 14.46
+},
+{
+"word": "praying",
+"start": 14.72,
+"end": 14.94
+},
+{
+"word": "for",
+"start": 14.94,
+"end": 15.18
+},
+{
+"word": "one",
+"start": 15.18,
+"end": 15.38
+},
+{
+"word": "thing,",
+"start": 15.38,
+"end": 15.64
+},
+{
+"word": "please",
+"start": 16.02,
+"end": 16.18
+},
+{
+"word": "don't",
+"start": 16.18,
+"end": 16.44
+},
+{
+"word": "ask",
+"start": 16.44,
+"end": 16.66
+},
+{
+"word": "me.",
+"start": 16.66,
+"end": 16.88
+},
+{
+"word": "They",
+"start": 17.34,
+"end": 17.5
+},
+{
+"word": "ask",
+"start": 17.5,
+"end": 17.78
+},
+{
+"word": "you.",
+"start": 17.78,
+"end": 18.14
+},
+{
+"word": "9,",
+"start": 18.86,
+"end": 19.16
+},
+{
+"word": "anatomy",
+"start": 19.9,
+"end": 19.9
+},
+{
+"word": "lab.",
+"start": 19.9,
+"end": 20.3
+},
+{
+"word": "206",
+"start": 21.34,
+"end": 21.34
+},
+{
+"word": "bones",
+"start": 21.34,
+"end": 22.02
+},
+{
+"word": "to",
+"start": 22.02,
+"end": 22.3
+},
+{
+"word": "memorize,",
+"start": 22.3,
+"end": 22.86
+},
+{
+"word": "and",
+"start": 23.22,
+"end": 23.36
+},
+{
+"word": "the",
+"start": 23.36,
+"end": 23.46
+},
+{
+"word": "most",
+"start": 23.46,
+"end": 23.64
+},
+{
+"word": "relaxed",
+"start": 23.64,
+"end": 24.1
+},
+{
+"word": "one",
+"start": 24.1,
+"end": 24.28
+},
+{
+"word": "in",
+"start": 24.28,
+"end": 24.4
+},
+{
+"word": "the",
+"start": 24.4,
+"end": 24.48
+},
+{
+"word": "room",
+"start": 24.48,
+"end": 24.7
+},
+{
+"word": "is",
+"start": 24.7,
+"end": 24.96
+},
+{
+"word": "the",
+"start": 24.96,
+"end": 25.14
+},
+{
+"word": "skeleton.",
+"start": 25.14,
+"end": 25.44
+},
+{
+"word": "Noon,",
+"start": 26.42,
+"end": 26.5
+},
+{
+"word": "lunch",
+"start": 26.78,
+"end": 27.0
+},
+{
+"word": "break,",
+"start": 27.0,
+"end": 27.3
+},
+{
+"word": "four",
+"start": 27.6,
+"end": 27.72
+},
+{
+"word": "minutes.",
+"start": 27.72,
+"end": 27.94
+},
+{
+"word": "You",
+"start": 28.36,
+"end": 28.66
+},
+{
+"word": "eat",
+"start": 28.66,
+"end": 28.82
+},
+{
+"word": "a",
+"start": 28.82,
+"end": 28.98
+},
+{
+"word": "sandwich",
+"start": 28.98,
+"end": 29.28
+},
+{
+"word": "standing",
+"start": 29.28,
+"end": 29.6
+},
+{
+"word": "up",
+"start": 29.6,
+"end": 29.9
+},
+{
+"word": "like",
+"start": 29.9,
+"end": 30.08
+},
+{
+"word": "a",
+"start": 30.08,
+"end": 30.22
+},
+{
+"word": "horse.",
+"start": 30.22,
+"end": 30.62
+},
+{
+"word": "Skills",
+"start": 31.58,
+"end": 31.58
+},
+{
+"word": "lab,",
+"start": 31.58,
+"end": 31.92
+},
+{
+"word": "you",
+"start": 32.3,
+"end": 32.42
+},
+{
+"word": "practice",
+"start": 32.42,
+"end": 32.74
+},
+{
+"word": "stitches",
+"start": 32.74,
+"end": 33.16
+},
+{
+"word": "on",
+"start": 33.16,
+"end": 33.34
+},
+{
+"word": "a",
+"start": 33.34,
+"end": 33.46
+},
+{
+"word": "pig's",
+"start": 33.46,
+"end": 33.7
+},
+{
+"word": "foot.",
+"start": 33.7,
+"end": 33.9
+},
+{
+"word": "The",
+"start": 34.34,
+"end": 34.5
+},
+{
+"word": "pig's",
+"start": 34.5,
+"end": 34.8
+},
+{
+"word": "foot",
+"start": 34.8,
+"end": 34.96
+},
+{
+"word": "looks",
+"start": 34.96,
+"end": 35.18
+},
+{
+"word": "better",
+"start": 35.18,
+"end": 35.46
+},
+{
+"word": "than",
+"start": 35.46,
+"end": 35.64
+},
+{
+"word": "you.",
+"start": 35.64,
+"end": 35.9
+},
+{
+"word": "4pm,",
+"start": 36.5,
+"end": 37.1
+},
+{
+"word": "your",
+"start": 37.48,
+"end": 37.56
+},
+{
+"word": "first",
+"start": 37.56,
+"end": 37.86
+},
+{
+"word": "real",
+"start": 37.86,
+"end": 38.1
+},
+{
+"word": "patient.",
+"start": 38.1,
+"end": 38.56
+},
+{
+"word": "You",
+"start": 39.06,
+"end": 39.16
+},
+{
+"word": "check",
+"start": 39.16,
+"end": 39.36
+},
+{
+"word": "her",
+"start": 39.36,
+"end": 39.54
+},
+{
+"word": "blood",
+"start": 39.54,
+"end": 39.76
+},
+{
+"word": "pressure,",
+"start": 39.76,
+"end": 40.16
+},
+{
+"word": "yours",
+"start": 40.58,
+"end": 40.76
+},
+{
+"word": "is",
+"start": 40.76,
+"end": 41.02
+},
+{
+"word": "higher.",
+"start": 41.02,
+"end": 41.36
+},
+{
+"word": "Evening,",
+"start": 42.08,
+"end": 42.38
+},
+{
+"word": "library,",
+"start": 42.6,
+"end": 42.86
+},
+{
+"word": "300",
+"start": 43.44,
+"end": 43.74
+},
+{
+"word": "flashcards,",
+"start": 43.74,
+"end": 44.38
+},
+{
+"word": "you",
+"start": 44.68,
+"end": 44.76
+},
+{
+"word": "finished",
+"start": 44.76,
+"end": 45.02
+},
+{
+"word": "three.",
+"start": 45.02,
+"end": 45.38
+},
+{
+"word": "Midnight,",
+"start": 45.98,
+"end": 46.4
+},
+{
+"word": "just",
+"start": 46.82,
+"end": 46.92
+},
+{
+"word": "one",
+"start": 46.92,
+"end": 47.1
+},
+{
+"word": "more",
+"start": 47.1,
+"end": 47.26
+},
+{
+"word": "chapter,",
+"start": 47.26,
+"end": 47.64
+},
+{
+"word": "you",
+"start": 48.04,
+"end": 48.18
+},
+{
+"word": "lie",
+"start": 48.18,
+"end": 48.34
+},
+{
+"word": "to",
+"start": 48.34,
+"end": 48.5
+},
+{
+"word": "yourself.",
+"start": 48.5,
+"end": 48.82
+},
+{
+"word": "530,",
+"start": 49.52,
+"end": 50.12
+},
+{
+"word": "the",
+"start": 50.42,
+"end": 50.54
+},
+{
+"word": "alarm",
+"start": 50.54,
+"end": 50.84
+},
+{
+"word": "again,",
+"start": 50.84,
+"end": 51.18
+},
+{
+"word": "and",
+"start": 51.36,
+"end": 51.46
+},
+{
+"word": "honestly,",
+"start": 51.46,
+"end": 51.82
+},
+{
+"word": "you'd",
+"start": 52.16,
+"end": 52.3
+},
+{
+"word": "still",
+"start": 52.3,
+"end": 52.5
+},
+{
+"word": "choose",
+"start": 52.5,
+"end": 52.76
+},
+{
+"word": "this,",
+"start": 52.76,
+"end": 53.08
+},
+{
+"word": "would",
+"start": 53.4,
+"end": 53.56
+},
+{
+"word": "you?",
+"start": 53.56,
+"end": 53.82
+}
+]
+}

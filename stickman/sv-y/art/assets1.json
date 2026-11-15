@@ -1,0 +1,119 @@
+{
+ "bed_sleep": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/bed_sleep.png",
+  "w": 800,
+  "h": 500
+ },
+ "bed_awake": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/bed_awake.png",
+  "w": 800,
+  "h": 500
+ },
+ "bed_smile": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/bed_smile.png",
+  "w": 800,
+  "h": 500
+ },
+ "alarm": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/alarm.png",
+  "w": 230,
+  "h": 260
+ },
+ "window_night": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/window_night.png",
+  "w": 300,
+  "h": 300
+ },
+ "coffee_shoulder": [
+  187.87469826095224,
+  224.63546013728026
+ ],
+ "coffee_body": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/coffee_body.png",
+  "w": 420,
+  "h": 560
+ },
+ "mug_top": [
+  141.63087472839555,
+  117.7390575112737
+ ],
+ "arm_mug": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/arm_mug.png",
+  "w": 300,
+  "h": 260
+ },
+ "steam": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/steam.png",
+  "w": 90,
+  "h": 120
+ },
+ "brain": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/brain.png",
+  "w": 240,
+  "h": 190
+ },
+ "loadbar_frame": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/loadbar_frame.png",
+  "w": 520,
+  "h": 80
+ },
+ "loadbar_fill1": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/loadbar_fill1.png",
+  "w": 28,
+  "h": 40
+ },
+ "loadbar_fill2": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/loadbar_fill2.png",
+  "w": 50,
+  "h": 40
+ },
+ "loadbar_fill3": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/loadbar_fill3.png",
+  "w": 68,
+  "h": 40
+ },
+ "doctor1": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/doctor1.png",
+  "w": 330,
+  "h": 560
+ },
+ "doctor2": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/doctor2.png",
+  "w": 330,
+  "h": 560
+ },
+ "note_pen": [
+  223.48779111132302,
+  194.21025008832447
+ ],
+ "student_note": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/student_note.png",
+  "w": 360,
+  "h": 560
+ },
+ "duck": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/duck.png",
+  "w": 150,
+  "h": 140
+ },
+ "thought": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/thought.png",
+  "w": 560,
+  "h": 240
+ },
+ "ask_doctor": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/ask_doctor.png",
+  "w": 440,
+  "h": 560
+ },
+ "ask_student": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/ask_student.png",
+  "w": 440,
+  "h": 560
+ },
+ "drop": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/drop.png",
+  "w": 60,
+  "h": 80
+ }
+}

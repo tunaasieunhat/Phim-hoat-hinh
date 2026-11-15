@@ -1,0 +1,1670 @@
+{
+  "schema_version": 1,
+  "purpose": "project_selected_audio",
+  "catalog_sha256": "1d2e391b5042c92b9b989e7df2de2f4c0bbe53265fe3ee89d567da17780e3660",
+  "assets": [
+    {
+      "id": "the-shop-theshopcollection-convenience-store-drinks-fridge-drone",
+      "title": "TheShopCollection convenience store drinks fridge drone",
+      "kind": "sfx",
+      "category": "indoor-appliance-ambience",
+      "tags": [
+        "indoor-appliance-ambience",
+        "ambience-bed"
+      ],
+      "author": "LEGIT Audio",
+      "source_id": "the-shop",
+      "source_url": "https://opengameart.org/content/the-shop",
+      "original_filename": "TheShopCollection_convenience_store_drinks_fridge_drone.wav",
+      "original_sha256": "222545244c0eed4bb924a3616d1103156d942776681634698f7fa3b11fe99b9d",
+      "sha256": "222545244c0eed4bb924a3616d1103156d942776681634698f7fa3b11fe99b9d",
+      "canonical_pcm_sha256": "09dbbafec532654d47f0d26ea5788354e2dfe92fcf290d28cc2e318b7f1cfeb3",
+      "duration": 11.437302,
+      "sample_rate": 96000,
+      "channels": 2,
+      "bytes": 9245316,
+      "path": "audio/the-shop/TheShopCollection_convenience_store_drinks_fridge_drone.wav",
+      "roles": [
+        "appliance-bed",
+        "environment-bed"
+      ],
+      "loopable_from_source": false,
+      "source_role": "ambience-bed",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Complete-stream decode passed. Choose level and timing by listening in the destination shot. Drinks-fridge mechanical hum/drone, not clean neutral roomtone or cafe chatter. Full original WAV retains embedded non-audio cover artwork; renderer should map audio stream only. No seamless loop claim.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/the-shop/source.html.txt",
+          "evidence/the-shop/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "The Shop - free OpenGameArt samples — LEGIT Audio (https://opengameart.org/content/the-shop), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Downloaded original unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B8"
+      ]
+    },
+    {
+      "id": "bgm-fluffing-a-duck",
+      "title": "Fluffing a Duck",
+      "kind": "music",
+      "category": "cartoon",
+      "tags": [
+        "cartoon",
+        "comedy",
+        "bouncy"
+      ],
+      "recommended_use_zh": "卡通失误、快速动作喜剧；原文件含两个小版本",
+      "author": "Kevin MacLeod",
+      "source_id": "bgm-fluffing-a-duck",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100768",
+      "path": "audio/music/bgm-fluffing-a-duck.mp3",
+      "sha256": "cb23b1833c35e391de10d998d6a40cfc760565ce31d23014c86025523ca8239b",
+      "original_sha256": "cb23b1833c35e391de10d998d6a40cfc760565ce31d23014c86025523ca8239b",
+      "original_filename": "Fluffing a Duck.mp3",
+      "bytes": 2696840,
+      "duration": 67.368,
+      "sample_rate": 48000,
+      "channels": 2,
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "evidence_paths": [
+          "licenses/CC-BY-4.0.txt",
+          "evidence/incompetech/licenses.html.txt",
+          "evidence/bgm-fluffing-a-duck/source.html.txt",
+          "evidence/bgm-fluffing-a-duck/official-record.json",
+          "evidence/bgm-fluffing-a-duck/acquisition.json"
+        ],
+        "attribution_required": true,
+        "attribution": "\"Fluffing a Duck\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\nSource: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100768\nLibrary copy: original MP3 unchanged. In a finished video, disclose actual edits/synchronization.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "official_metadata": {
+        "length": "00:01:07",
+        "bpm": "122",
+        "instruments": "Tuba, Flute, Trombones, Bass Clarinet, Clarinet, Percussion",
+        "feel": "Bouncy, Bright, Humorous",
+        "uploaded": "2010-10-31"
+      },
+      "roles": [
+        "comic-bed",
+        "meme-bed"
+      ],
+      "style_hints": [
+        "B5",
+        "B6"
+      ]
+    },
+    {
+      "id": "kenney-impact-impact-bell-heavy-000",
+      "title": "Impact Bell Heavy 000",
+      "kind": "sfx",
+      "category": "impact",
+      "tags": [
+        "bell",
+        "contact",
+        "heavy",
+        "material",
+        "碰撞"
+      ],
+      "author": "Kenney",
+      "source_id": "kenney-impact",
+      "source_url": "https://kenney.nl/assets/impact-sounds",
+      "path": "audio/kenney-impact/impactBell_heavy_000.ogg",
+      "sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+      "original_sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+      "original_filename": "impactBell_heavy_000.ogg",
+      "canonical_pcm_sha256": "66df7d56de07bef4f7c462ee810e4a1a08897938ebb1f334fd143835a878677f",
+      "duration": 1.480181,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 13915,
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/kenney-impact/source.html.txt",
+          "evidence/kenney-impact/original-license-1.txt",
+          "evidence/kenney-impact/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "Impact Sounds — Kenney (CC0 1.0)",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass",
+        "peak_dbfs": 1.87,
+        "rms_dbfs": -23.25,
+        "near_full_scale_samples": 30
+      },
+      "roles": [],
+      "style_hints": []
+    },
+    {
+      "id": "aeva-boing-boing",
+      "title": "boing",
+      "kind": "sfx",
+      "category": "comedy-boing",
+      "tags": [
+        "comedy-boing",
+        "one-shot"
+      ],
+      "author": "Aeva",
+      "source_id": "aeva-boing",
+      "source_url": "https://opengameart.org/content/boing",
+      "original_filename": "boing.flac",
+      "original_sha256": "9c6af38ca79332ad3fa66ad1229179d2a91655c1157d3620e21ef676f54d9fdd",
+      "sha256": "9c6af38ca79332ad3fa66ad1229179d2a91655c1157d3620e21ef676f54d9fdd",
+      "canonical_pcm_sha256": "b11e7463d11d786b8e35dd5b7bd413fb2d5be665318bfb3a34d18d84a899dbf8",
+      "duration": 3.651701,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 194024,
+      "path": "audio/aeva-boing/boing.flac",
+      "roles": [
+        "comic-reaction"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/aeva-boing/source.html.txt",
+          "evidence/aeva-boing/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "BOING! - Aeva (https://opengameart.org/content/boing), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Original audio unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B5",
+        "B6",
+        "B7"
+      ]
+    },
+    {
+      "id": "owlish-home-202-drink-drink-01",
+      "title": "Drink 01",
+      "kind": "sfx",
+      "category": "drinking-foley",
+      "tags": [
+        "drinking-foley",
+        "one-shot"
+      ],
+      "author": "OwlishMedia",
+      "source_id": "owlish-home-202",
+      "source_url": "https://opengameart.org/content/202-more-sound-effects",
+      "original_filename": "Drink/Drink_01.wav",
+      "original_sha256": "11f6f90b8be847968e868a6a643fbb017c7116959ae3907216357949d8c1fe91",
+      "sha256": "11f6f90b8be847968e868a6a643fbb017c7116959ae3907216357949d8c1fe91",
+      "canonical_pcm_sha256": "fc19ef60692bf3f6243bc2751874f1237b365ebda7a2106ae784401d5d872481",
+      "duration": 0.499025,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bytes": 54644,
+      "path": "audio/owlish-home-202/Drink/Drink_01.wav",
+      "roles": [
+        "drinking-contact"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/owlish-home-202/source.html.txt",
+          "evidence/owlish-home-202/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "202 More Sound Effects - OwlishMedia (https://opengameart.org/content/202-more-sound-effects), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Original audio unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": []
+    },
+    {
+      "id": "rubberduck-general-100-2-sfx100v2-footstep-01",
+      "title": "sfx100v2 footstep 01",
+      "kind": "sfx",
+      "category": "footsteps",
+      "tags": [
+        "footsteps",
+        "one-shot"
+      ],
+      "author": "rubberduck",
+      "source_id": "rubberduck-general-100-2",
+      "source_url": "https://opengameart.org/content/100-cc0-sfx-2",
+      "original_filename": "sfx100v2_footstep_01.ogg",
+      "original_sha256": "007a96c62d6c335df0d292bdc5cf44fef768b7e2f14378759d03673be6be7ec6",
+      "sha256": "007a96c62d6c335df0d292bdc5cf44fef768b7e2f14378759d03673be6be7ec6",
+      "canonical_pcm_sha256": "34e18f95548714690fa8dbc76d9d47326d9d7539745c4fbe84c226bfbaca8c2c",
+      "duration": 0.417354,
+      "sample_rate": 48000,
+      "channels": 2,
+      "bytes": 8134,
+      "path": "audio/rubberduck-general-100-2/sfx100v2_footstep_01.ogg",
+      "roles": [
+        "walk"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/rubberduck-general-100-2/source.html.txt",
+          "evidence/rubberduck-general-100-2/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "100 CC0 SFX #2 - rubberduck (https://opengameart.org/content/100-cc0-sfx-2), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Original audio unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B8"
+      ]
+    },
+    {
+      "id": "rubberduck-general-100-2-sfx100v2-footstep-02",
+      "title": "sfx100v2 footstep 02",
+      "kind": "sfx",
+      "category": "footsteps",
+      "tags": [
+        "footsteps",
+        "one-shot"
+      ],
+      "author": "rubberduck",
+      "source_id": "rubberduck-general-100-2",
+      "source_url": "https://opengameart.org/content/100-cc0-sfx-2",
+      "original_filename": "sfx100v2_footstep_02.ogg",
+      "original_sha256": "8b478a7245bbe358fcddaa5047f8f4e29c8eca52ff79c25d489b5f378747228c",
+      "sha256": "8b478a7245bbe358fcddaa5047f8f4e29c8eca52ff79c25d489b5f378747228c",
+      "canonical_pcm_sha256": "e2d8b14571d6b1bc157a20499db609c9dfe9c6348b653f743db040048fca7048",
+      "duration": 0.355167,
+      "sample_rate": 48000,
+      "channels": 2,
+      "bytes": 8318,
+      "path": "audio/rubberduck-general-100-2/sfx100v2_footstep_02.ogg",
+      "roles": [
+        "walk"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/rubberduck-general-100-2/source.html.txt",
+          "evidence/rubberduck-general-100-2/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "100 CC0 SFX #2 - rubberduck (https://opengameart.org/content/100-cc0-sfx-2), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Original audio unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B8"
+      ]
+    },
+    {
+      "id": "bart-squeak-toys-squeak-toy-squeak-toy-squeak1",
+      "title": "squeak toy   squeak1",
+      "kind": "sfx",
+      "category": "comedy-squeak",
+      "tags": [
+        "comedy-squeak",
+        "one-shot"
+      ],
+      "author": "bart",
+      "source_id": "bart-squeak-toys",
+      "source_url": "https://opengameart.org/content/squeak-toy-sounds",
+      "original_filename": "squeak toy/squeak toy - squeak1.wav",
+      "original_sha256": "a89853f355ce7c6c60ee9695f5e725250c6a74f4a177b549afa0a30ff98ff362",
+      "sha256": "a89853f355ce7c6c60ee9695f5e725250c6a74f4a177b549afa0a30ff98ff362",
+      "canonical_pcm_sha256": "824e767d3f71a18599dd2856a13aef3088ccf294d914f840cd126e9758bd040b",
+      "duration": 0.768231,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 271388,
+      "path": "audio/bart-squeak-toys/squeak toy/squeak toy - squeak1.wav",
+      "roles": [
+        "comic-reaction"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/bart-squeak-toys/source.html.txt",
+          "evidence/bart-squeak-toys/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "Squeak toy sounds - bart (https://opengameart.org/content/squeak-toy-sounds), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Original audio unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B5",
+        "B6",
+        "B7"
+      ]
+    },
+    {
+      "id": "bart-squeak-toys-squeak-toy-squeak-toy-squeak3",
+      "title": "squeak toy   squeak3",
+      "kind": "sfx",
+      "category": "comedy-squeak",
+      "tags": [
+        "comedy-squeak",
+        "one-shot"
+      ],
+      "author": "bart",
+      "source_id": "bart-squeak-toys",
+      "source_url": "https://opengameart.org/content/squeak-toy-sounds",
+      "original_filename": "squeak toy/squeak toy - squeak3.wav",
+      "original_sha256": "bb51223dc20b0f4e691ce624330747a2c866edaf1150c2cdd2b53280154b7212",
+      "sha256": "bb51223dc20b0f4e691ce624330747a2c866edaf1150c2cdd2b53280154b7212",
+      "canonical_pcm_sha256": "7e5e4ceb5dc77bf89ad4e164a4836a7f93e3c6723c3f674b1ff5165c33b3a31b",
+      "duration": 0.845079,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 298500,
+      "path": "audio/bart-squeak-toys/squeak toy/squeak toy - squeak3.wav",
+      "roles": [
+        "comic-reaction"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/bart-squeak-toys/source.html.txt",
+          "evidence/bart-squeak-toys/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "Squeak toy sounds - bart (https://opengameart.org/content/squeak-toy-sounds), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Original audio unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B5",
+        "B6",
+        "B7"
+      ]
+    },
+    {
+      "id": "record-scratch-160909-raccoonanimator-scratch-speed",
+      "title": "160909  raccoonanimator  scratch-speed",
+      "kind": "sfx",
+      "category": "record-scratch",
+      "tags": [
+        "record-scratch",
+        "one-shot"
+      ],
+      "author": "Racche (formerly Raccoonanimator)",
+      "source_id": "record-scratch",
+      "source_url": "https://opengameart.org/content/scratch-speed",
+      "original_filename": "160909__raccoonanimator__scratch-speed.wav",
+      "original_sha256": "37cececf082f70009e37c1b84ccfffd27c38875f1df754441ad66252df006a2e",
+      "sha256": "37cececf082f70009e37c1b84ccfffd27c38875f1df754441ad66252df006a2e",
+      "canonical_pcm_sha256": "a6373c53d7ad7472267eeec8573df48ebc22cceb141f354be75cfd2e7affad9d",
+      "duration": 0.377846,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 133386,
+      "path": "audio/record-scratch/160909__raccoonanimator__scratch-speed.wav",
+      "roles": [
+        "comic-punctuation",
+        "comic-reaction"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Complete-stream decode passed. Choose level and timing by listening in the destination shot. Original author account is now Racche; historic credited name Raccoonanimator retained. Not a branded film/meme sample.",
+      "license": {
+        "id": "CC-BY-3.0",
+        "url": "https://creativecommons.org/licenses/by/3.0/",
+        "evidence_paths": [
+          "licenses/CC-BY-3.0-legalcode.html.txt",
+          "evidence/record-scratch/source.html.txt",
+          "evidence/record-scratch/original-author.html.txt",
+          "evidence/record-scratch/acquisition.json"
+        ],
+        "attribution_required": true,
+        "attribution": "Scratch Speed.wav — Racche (formerly Raccoonanimator) (https://opengameart.org/content/scratch-speed), CC-BY-3.0 (https://creativecommons.org/licenses/by/3.0/). Downloaded original unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B5",
+        "B6",
+        "B7"
+      ]
+    },
+    {
+      "id": "kevin-rimshot-bah-dum",
+      "title": "bah-dum",
+      "kind": "sfx",
+      "category": "comedy-percussion",
+      "tags": [
+        "comedy-percussion",
+        "comedy-sting"
+      ],
+      "author": "Kevin MacLeod",
+      "source_id": "kevin-rimshot",
+      "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Rimshots.zip",
+      "original_filename": "bah-dum.wav",
+      "original_sha256": "eaaca6f24fb059435fb3f1b24d571f8e6849126fe64f3535caf38b50026e1252",
+      "sha256": "eaaca6f24fb059435fb3f1b24d571f8e6849126fe64f3535caf38b50026e1252",
+      "canonical_pcm_sha256": "c3525f854884891bfe8083e25611ee330188b4e3db338e84008c2a71e6df6d9b",
+      "duration": 7.99805,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 1411004,
+      "path": "audio/kevin-rimshot/bah-dum.wav",
+      "roles": [
+        "comic-punctuation",
+        "comic-reaction"
+      ],
+      "loopable_from_source": false,
+      "source_role": "comedy-sting",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Complete-stream decode passed. Choose level and timing by listening in the destination shot. Original WAV includes silence/decay padding; do not stretch it to fit a short joke. Set an in-point/tail in the shot, or make a separately labelled trimmed derivative.",
+      "license": {
+        "id": "CC-BY-3.0",
+        "url": "https://creativecommons.org/licenses/by/3.0/",
+        "evidence_paths": [
+          "licenses/CC-BY-3.0-legalcode.html.txt",
+          "evidence/kevin-rimshot/source.html.txt",
+          "evidence/kevin-rimshot/4-second-roll-license.html.txt",
+          "evidence/kevin-rimshot/commons-additional-byte-matches.json",
+          "evidence/kevin-rimshot/commons-byte-match.json",
+          "evidence/kevin-rimshot/commons-original-matches.json",
+          "evidence/kevin-rimshot/kdum-keesh-license.html.txt",
+          "evidence/kevin-rimshot/official-agent-license.html.txt",
+          "evidence/kevin-rimshot/acquisition.json"
+        ],
+        "attribution_required": true,
+        "attribution": "“Assorted Rimshots” (bah-dum) — Kevin MacLeod (https://incompetech.com/), licensed under Creative Commons: By Attribution 3.0 (https://creativecommons.org/licenses/by/3.0/). Original WAV unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B5",
+        "B6",
+        "B7"
+      ]
+    },
+    {
+      "id": "joedeshon-slide-whistle-79671-joedeshon-slide-whistle-down-01",
+      "title": "79671 joedeshon slide whistle down 01",
+      "kind": "sfx",
+      "category": "comedy-whistle",
+      "tags": [
+        "comedy-whistle",
+        "one-shot"
+      ],
+      "author": "Joe DeShon (joedeshon)",
+      "source_id": "joedeshon-slide-whistle",
+      "source_url": "https://opengameart.org/content/slide-whistle-down",
+      "original_filename": "79671__joedeshon__slide-whistle-down-01.wav",
+      "original_sha256": "3e857b2bf1640d51e1cfe2b5a7967c6087da6f589aead349453e4c7e72ab107d",
+      "sha256": "3e857b2bf1640d51e1cfe2b5a7967c6087da6f589aead349453e4c7e72ab107d",
+      "canonical_pcm_sha256": "de460c2a09e1adea551c43ee912d39ff92494eb21e9326b2c21c9d0cd7caa619",
+      "duration": 1.182494,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 208636,
+      "path": "audio/joedeshon-slide-whistle/79671__joedeshon__slide-whistle-down-01.wav",
+      "roles": [
+        "comic-reaction"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC-BY-3.0",
+        "url": "https://creativecommons.org/licenses/by/3.0/",
+        "evidence_paths": [
+          "licenses/CC-BY-3.0-legalcode.html.txt",
+          "evidence/joedeshon-slide-whistle/source.html.txt",
+          "evidence/joedeshon-slide-whistle/original-author-source.html.txt",
+          "evidence/joedeshon-slide-whistle/acquisition.json"
+        ],
+        "attribution_required": true,
+        "attribution": "Slide whistle down - Joe DeShon (joedeshon) (https://opengameart.org/content/slide-whistle-down), CC-BY-3.0 (https://creativecommons.org/licenses/by/3.0/). Original audio unchanged.\nOriginal title: slide_whistle_down_01.wav. Original creator page: https://freesound.org/people/joedeshon/sounds/79671/.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B5",
+        "B6",
+        "B7"
+      ]
+    },
+    {
+      "id": "ez-boings-bing-01-0",
+      "title": "bing 01 0",
+      "kind": "sfx",
+      "category": "comedy-boing",
+      "tags": [
+        "comedy-boing",
+        "one-shot"
+      ],
+      "author": "EZduzziteh",
+      "source_id": "ez-boings",
+      "source_url": "https://opengameart.org/content/boings",
+      "original_filename": "bing_01_0.mp3",
+      "original_sha256": "c09d39344940ff552c87f95b712313536be922c6d4c1ac8abb6ecf3ad049caff",
+      "sha256": "c09d39344940ff552c87f95b712313536be922c6d4c1ac8abb6ecf3ad049caff",
+      "canonical_pcm_sha256": "eb75be405a0a771ba739fe1c6ac8168efd4265f55445d456af618a460485d93a",
+      "duration": 0.322177,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 6076,
+      "path": "audio/ez-boings/bing_01_0.mp3",
+      "roles": [
+        "comic-reaction"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/ez-boings/source.html.txt",
+          "evidence/ez-boings/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "Boings - EZduzziteh (https://opengameart.org/content/boings), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Original audio unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B5",
+        "B6",
+        "B7"
+      ]
+    },
+    {
+      "id": "kenney-rpg-book-flip1",
+      "title": "Book Flip1",
+      "kind": "sfx",
+      "category": "paper-book",
+      "tags": [
+        "book",
+        "page",
+        "paper",
+        "纸张",
+        "翻书"
+      ],
+      "author": "Kenney",
+      "source_id": "kenney-rpg",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "path": "audio/kenney-rpg/bookFlip1.ogg",
+      "sha256": "fa81ac2fedc8c641661b87e349630a36c9800e795e0c800e029214efdbe26a7d",
+      "original_sha256": "fa81ac2fedc8c641661b87e349630a36c9800e795e0c800e029214efdbe26a7d",
+      "original_filename": "bookFlip1.ogg",
+      "canonical_pcm_sha256": "2a6087442ad7e21c426eaa57da125d7187eb51ae4a25beb920e7ca69f15db8a8",
+      "duration": 0.768646,
+      "sample_rate": 48000,
+      "channels": 2,
+      "bytes": 18248,
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/kenney-rpg/source.html.txt",
+          "evidence/kenney-rpg/original-license-1.txt",
+          "evidence/kenney-rpg/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "RPG Audio — Kenney (CC0 1.0)",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass",
+        "peak_dbfs": 3.28,
+        "rms_dbfs": -26.99,
+        "near_full_scale_samples": 23
+      },
+      "roles": [
+        "paper-contact",
+        "prop-contact"
+      ],
+      "style_hints": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B8",
+        "B9"
+      ]
+    },
+    {
+      "id": "owlish-home-202-paper-stationery-stationery-01",
+      "title": "Stationery 01",
+      "kind": "sfx",
+      "category": "paper-stationery",
+      "tags": [
+        "paper-stationery",
+        "one-shot"
+      ],
+      "author": "OwlishMedia",
+      "source_id": "owlish-home-202",
+      "source_url": "https://opengameart.org/content/202-more-sound-effects",
+      "original_filename": "Paper & Stationery/Stationery_01.wav",
+      "original_sha256": "c9665c85a609aa97400c6f938a82846bcb1b54aa759d860ed9846c2535f2edd7",
+      "sha256": "c9665c85a609aa97400c6f938a82846bcb1b54aa759d860ed9846c2535f2edd7",
+      "canonical_pcm_sha256": "bf17d3ba87676387c5abbb5daf07ed638fb4b607ecd90d4934b9da3160475be5",
+      "duration": 0.822426,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bytes": 83168,
+      "path": "audio/owlish-home-202/Paper & Stationery/Stationery_01.wav",
+      "roles": [
+        "paper-contact",
+        "prop-contact"
+      ],
+      "loopable_from_source": false,
+      "source_role": "one-shot",
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "review_note": "Source-description and source-filename category only; no invented detailed action labels. Level and timing must be auditioned in the destination shot.",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "evidence_paths": [
+          "licenses/CC0-1.0-legalcode.html.txt",
+          "evidence/owlish-home-202/source.html.txt",
+          "evidence/owlish-home-202/acquisition.json"
+        ],
+        "attribution_required": false,
+        "attribution": "202 More Sound Effects - OwlishMedia (https://opengameart.org/content/202-more-sound-effects), CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Original audio unchanged.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "style_hints": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B8",
+        "B9"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "the-shop",
+      "title": "The Shop - free OpenGameArt samples",
+      "author": "LEGIT Audio",
+      "source_url": "https://opengameart.org/content/the-shop",
+      "license_id": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_declaration_urls": [
+        "https://opengameart.org/content/the-shop"
+      ],
+      "retrieved_at": "2026-11-14",
+      "description": "Two convenience-store drinks-fridge drone/room-tone samples. These are mechanical interior beds, not neutral restaurant walla.",
+      "attribution_notice": "CC0 only applies to free sounds provided via opengameart.org. Other licences apply to sounds purchased outside OpenGameArt.",
+      "license_declaration": "CC0 only applies to the free sounds provided via OpenGameArt. No paid full-library material is included.",
+      "downloads": [
+        {
+          "url": "https://opengameart.org/sites/default/files/legit_audio_-_the_shop_free_sfx_wav.zip",
+          "filename": "legit_audio_-_the_shop_free_sfx_wav.zip",
+          "sha256": "87d49c4431fdf5647f3c434455b3bcd402fc757f97f2640b2ef84e2e5db9d86e",
+          "bytes": 19385775
+        }
+      ],
+      "download_url": "https://opengameart.org/sites/default/files/legit_audio_-_the_shop_free_sfx_wav.zip",
+      "source_page_sha256": "d2f269c00b3ac255b93b068fde9c0cb01732bc7aa7b7bbbca041a6df0c8e0626",
+      "evidence_paths": [
+        "licenses/CC0-1.0-legalcode.html.txt",
+        "evidence/the-shop/source.html.txt",
+        "evidence/the-shop/acquisition.json"
+      ]
+    },
+    {
+      "id": "bgm-fluffing-a-duck",
+      "title": "Fluffing a Duck",
+      "author": "Kevin MacLeod",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100768",
+      "download_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Fluffing%20a%20Duck.mp3",
+      "license_id": "CC-BY-4.0",
+      "evidence_paths": [
+        "licenses/CC-BY-4.0.txt",
+        "evidence/incompetech/licenses.html.txt",
+        "evidence/bgm-fluffing-a-duck/source.html.txt",
+        "evidence/bgm-fluffing-a-duck/official-record.json",
+        "evidence/bgm-fluffing-a-duck/acquisition.json"
+      ]
+    },
+    {
+      "id": "kenney-impact",
+      "title": "Impact Sounds",
+      "author": "Kenney",
+      "source_url": "https://kenney.nl/assets/impact-sounds",
+      "download_url": "https://kenney.nl/download/6173736574732f696d706163742d736f756e6473/d8303d7a4447be023ad19dd0aadea4c571227b3052f44e8fae5d600bfc706eb2?expires=1794639049",
+      "license_spdx": "CC0-1.0",
+      "verified_at": "2026-11-14",
+      "archive_sha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8",
+      "archive_bytes": 800850,
+      "source_page_sha256": "a2957c50738113cfd5159fbd5c32b4fcbbe920fd6bb798a1383291afd759933d",
+      "note": "Download signatures may expire; use the source page. Original audio bytes retained. Web snapshots are inert text.",
+      "license_id": "CC0-1.0",
+      "evidence_paths": [
+        "licenses/CC0-1.0-legalcode.html.txt",
+        "evidence/kenney-impact/source.html.txt",
+        "evidence/kenney-impact/original-license-1.txt",
+        "evidence/kenney-impact/acquisition.json"
+      ]
+    },
+    {
+      "id": "aeva-boing",
+      "title": "BOING!",
+      "author": "Aeva",
+      "source_url": "https://opengameart.org/content/boing",
+      "license_id": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_declaration_urls": [
+        "http://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "retrieved_at": "2026-11-14T07:06:32.099746+00:00",
+      "description": "A springy BOING sound, like that of a large spring. Made with an Arturia MicroFreak.",
+      "attribution_notice": "",
+      "license_declaration": "License(s): CC0",
+      "downloads": [
+        {
+          "url": "https://opengameart.org/sites/default/files/boing.flac",
+          "filename": "boing.flac",
+          "sha256": "9c6af38ca79332ad3fa66ad1229179d2a91655c1157d3620e21ef676f54d9fdd",
+          "bytes": 194024
+        }
+      ],
+      "download_url": "https://opengameart.org/sites/default/files/boing.flac",
+      "source_page_sha256": "687e707d95352f15b06f01da3b1141b593c7d2f1668aed3973ad5bade4768e79",
+      "evidence_paths": [
+        "licenses/CC0-1.0-legalcode.html.txt",
+        "evidence/aeva-boing/source.html.txt",
+        "evidence/aeva-boing/acquisition.json"
+      ]
+    },
+    {
+      "id": "owlish-home-202",
+      "title": "202 More Sound Effects",
+      "author": "OwlishMedia",
+      "source_url": "https://opengameart.org/content/202-more-sound-effects",
+      "license_id": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_declaration_urls": [
+        "http://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "retrieved_at": "2026-11-14T07:06:32.242612+00:00",
+      "description": "I recorded some more sounds around my home. Included: Camera sounds Cloth sounds Drinking water sounds Keys, locking and unlocking, opening doors Kitchen items and appliances Coins and money Paper, scissors, masking tape, stapler Phone Plastic crinkling Velcro Fidget spinner Nasal spray pump",
+      "attribution_notice": "",
+      "license_declaration": "License(s): CC0",
+      "downloads": [
+        {
+          "url": "https://opengameart.org/sites/default/files/MoreSounds.zip",
+          "filename": "MoreSounds.zip",
+          "sha256": "9428c1437137d9ea06ba94e13da12488d4c57990a1c32d83db9e7707e69fb3af",
+          "bytes": 14937403
+        }
+      ],
+      "download_url": "https://opengameart.org/sites/default/files/MoreSounds.zip",
+      "source_page_sha256": "f6d6d9c55cf004fd9b0782e5171104466f8fadf9e1dca6f9802f86583c6c69e2",
+      "evidence_paths": [
+        "licenses/CC0-1.0-legalcode.html.txt",
+        "evidence/owlish-home-202/source.html.txt",
+        "evidence/owlish-home-202/acquisition.json"
+      ]
+    },
+    {
+      "id": "rubberduck-general-100-2",
+      "title": "100 CC0 SFX #2",
+      "author": "rubberduck",
+      "source_url": "https://opengameart.org/content/100-cc0-sfx-2",
+      "license_id": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_declaration_urls": [
+        "http://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "retrieved_at": "2026-11-14T07:07:36.173537+00:00",
+      "description": "another pack with 100 CC0 sfx Note: the preview does not contain all sounds, it also contains loopable sfx which are shorter in the preview. Included are: air flowing, door, various footstep, glass, hit, item, loops (ambient, machine, construction site, highway / street, flowing water), metal / metal hit, misc, stones, switch, thunder and wood / wood hit - sounds",
+      "attribution_notice": "",
+      "license_declaration": "License(s): CC0",
+      "downloads": [
+        {
+          "url": "https://opengameart.org/sites/default/files/sfx_100_v2.zip",
+          "filename": "sfx_100_v2.zip",
+          "sha256": "0fc61b4494e2e893c0c015ced4877b3f689c7d84a48cb61daecd7ddb52db797b",
+          "bytes": 2367871
+        }
+      ],
+      "download_url": "https://opengameart.org/sites/default/files/sfx_100_v2.zip",
+      "source_page_sha256": "15a1e167aa334a903c7f973234de3848cd5641b189e9dae215ad8eb0f93ddf47",
+      "evidence_paths": [
+        "licenses/CC0-1.0-legalcode.html.txt",
+        "evidence/rubberduck-general-100-2/source.html.txt",
+        "evidence/rubberduck-general-100-2/acquisition.json"
+      ]
+    },
+    {
+      "id": "bart-squeak-toys",
+      "title": "Squeak toy sounds",
+      "author": "bart",
+      "source_url": "https://opengameart.org/content/squeak-toy-sounds",
+      "license_id": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_declaration_urls": [
+        "http://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "retrieved_at": "2026-11-14T07:06:34.684955+00:00",
+      "description": "Attribution appreciated. :)",
+      "attribution_notice": "",
+      "license_declaration": "License(s): CC0",
+      "downloads": [
+        {
+          "url": "https://opengameart.org/sites/default/files/squeak_toy.zip",
+          "filename": "squeak_toy.zip",
+          "sha256": "3ba6419b05ebf8e0b7dd4395b3c10f26811c037e357143f10a159acdb2dabfb8",
+          "bytes": 898071
+        }
+      ],
+      "download_url": "https://opengameart.org/sites/default/files/squeak_toy.zip",
+      "source_page_sha256": "0cefb876520ae87a904b4551a2890935163f52c9832263474c85d7b9ecae62cf",
+      "evidence_paths": [
+        "licenses/CC0-1.0-legalcode.html.txt",
+        "evidence/bart-squeak-toys/source.html.txt",
+        "evidence/bart-squeak-toys/acquisition.json"
+      ]
+    },
+    {
+      "id": "record-scratch",
+      "title": "Scratch Speed.wav",
+      "author": "Racche (formerly Raccoonanimator)",
+      "source_url": "https://opengameart.org/content/scratch-speed",
+      "license_id": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_declaration_urls": [
+        "https://opengameart.org/content/scratch-speed"
+      ],
+      "retrieved_at": "2026-11-14",
+      "description": "Original Scratch Speed.wav mirrored unchanged by OpenGameArt. Original author has renamed account from Raccoonanimator to Racche; original sound ID, title, duration and licence match.",
+      "attribution_notice": "",
+      "license_declaration": "CC BY 3.0 on both OpenGameArt mirror and original Freesound author page.",
+      "downloads": [
+        {
+          "url": "https://opengameart.org/sites/default/files/160909__raccoonanimator__scratch-speed.wav",
+          "filename": "160909__raccoonanimator__scratch-speed.wav",
+          "sha256": "37cececf082f70009e37c1b84ccfffd27c38875f1df754441ad66252df006a2e",
+          "bytes": 133386
+        }
+      ],
+      "download_url": "https://opengameart.org/sites/default/files/160909__raccoonanimator__scratch-speed.wav",
+      "original_author_source_url": "https://freesound.org/people/Racche/sounds/160909/",
+      "source_page_sha256": "aeb12509098d3c83bf76ab4ef46d81fc00bf2a9b891d17fbefbb17fcc45c160d",
+      "evidence_paths": [
+        "licenses/CC-BY-3.0-legalcode.html.txt",
+        "evidence/record-scratch/source.html.txt",
+        "evidence/record-scratch/original-author.html.txt",
+        "evidence/record-scratch/acquisition.json"
+      ]
+    },
+    {
+      "id": "kevin-rimshot",
+      "title": "Assorted Rimshots",
+      "author": "Kevin MacLeod",
+      "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Rimshots.zip",
+      "license_id": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_declaration_urls": [
+        "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_assorted_rimshots_-_Bah-dum.wav",
+        "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_assorted_rimshots_-_Kdum-keesh.wav",
+        "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_assorted_rimshots_-_4-second_roll.wav",
+        "https://incompetech.com/agent-section/"
+      ],
+      "retrieved_at": "2026-11-14",
+      "description": "Three unchanged original WAVs selected from the author-hosted Rimshots.zip. Each has an exact matching CC BY 3.0 Wikimedia original; official author current blanket licence is also preserved. The old specific title is absent from the current dynamic pieces.json, so the conservative original BY 3.0 designation is retained.",
+      "attribution_notice": "Assorted Rimshots — Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 3.0 License. https://creativecommons.org/licenses/by/3.0/",
+      "license_declaration": "CC BY 3.0 Unported on byte-identical historical Wikimedia originals, with author-hosted original ZIP and current author common CC BY 4.0 declaration retained as corroboration. No inference of CC0 from Wikimedia site UI.",
+      "downloads": [
+        {
+          "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Rimshots.zip",
+          "filename": "Rimshots.zip",
+          "sha256": "4fa26395b664cbcd938b187eb04344fa9af93ba5fe3f6ba48f834bb805796c56",
+          "bytes": 9344238
+        }
+      ],
+      "download_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Rimshots.zip",
+      "source_page_sha256": "dd20669059e1af107dac5d0e732339c7422a2ed42f1d6721ea1193c37a036060",
+      "evidence_paths": [
+        "licenses/CC-BY-3.0-legalcode.html.txt",
+        "evidence/kevin-rimshot/source.html.txt",
+        "evidence/kevin-rimshot/4-second-roll-license.html.txt",
+        "evidence/kevin-rimshot/commons-additional-byte-matches.json",
+        "evidence/kevin-rimshot/commons-byte-match.json",
+        "evidence/kevin-rimshot/commons-original-matches.json",
+        "evidence/kevin-rimshot/kdum-keesh-license.html.txt",
+        "evidence/kevin-rimshot/official-agent-license.html.txt",
+        "evidence/kevin-rimshot/acquisition.json"
+      ]
+    },
+    {
+      "id": "joedeshon-slide-whistle",
+      "title": "Slide whistle down",
+      "author": "Joe DeShon (joedeshon)",
+      "source_url": "https://opengameart.org/content/slide-whistle-down",
+      "license_id": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_declaration_urls": [
+        "http://creativecommons.org/licenses/by/3.0/"
+      ],
+      "retrieved_at": "2026-11-14T07:07:57.816814+00:00",
+      "description": "An orchestral slide whistle sliding one note down. This sample is at normal speed. Source: http://freesound.org/people/joedeshon/sounds/79671/",
+      "attribution_notice": "",
+      "license_declaration": "License(s): CC-BY 3.0",
+      "downloads": [
+        {
+          "url": "https://opengameart.org/sites/default/files/79671__joedeshon__slide-whistle-down-01.wav",
+          "filename": "79671__joedeshon__slide-whistle-down-01.wav",
+          "sha256": "3e857b2bf1640d51e1cfe2b5a7967c6087da6f589aead349453e4c7e72ab107d",
+          "bytes": 208636
+        }
+      ],
+      "download_url": "https://opengameart.org/sites/default/files/79671__joedeshon__slide-whistle-down-01.wav",
+      "original_author_source_url": "https://freesound.org/people/joedeshon/sounds/79671/",
+      "source_page_sha256": "529e2f520de70e1493a6a236b90ab09f6a22fbdd7809d442feadc47961e55695",
+      "evidence_paths": [
+        "licenses/CC-BY-3.0-legalcode.html.txt",
+        "evidence/joedeshon-slide-whistle/source.html.txt",
+        "evidence/joedeshon-slide-whistle/original-author-source.html.txt",
+        "evidence/joedeshon-slide-whistle/acquisition.json"
+      ]
+    },
+    {
+      "id": "ez-boings",
+      "title": "Boings",
+      "author": "EZduzziteh",
+      "source_url": "https://opengameart.org/content/boings",
+      "license_id": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_declaration_urls": [
+        "http://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "retrieved_at": "2026-11-14T07:06:34.042047+00:00",
+      "description": "Some boing sfx for a game im working on Made for my game about squishing bugs: https://ezduzziteh.itch.io/bugsplat",
+      "attribution_notice": "",
+      "license_declaration": "License(s): CC0",
+      "downloads": [
+        {
+          "url": "https://opengameart.org/sites/default/files/bung_01.mp3",
+          "filename": "bung_01.mp3",
+          "sha256": "a2ed9251698dfa9d7ec9952117095da7c0bfd13b3b0ef456382581f711b2ee7f",
+          "bytes": 7224
+        },
+        {
+          "url": "https://opengameart.org/sites/default/files/bing_02.mp3",
+          "filename": "bing_02.mp3",
+          "sha256": "f2e0ddaa3bb8bca1674bcd4e48497ce271cf1eaa1c104f227c075dfb852b8fc4",
+          "bytes": 5685
+        },
+        {
+          "url": "https://opengameart.org/sites/default/files/bing_01_0.mp3",
+          "filename": "bing_01_0.mp3",
+          "sha256": "c09d39344940ff552c87f95b712313536be922c6d4c1ac8abb6ecf3ad049caff",
+          "bytes": 6076
+        }
+      ],
+      "download_url": "https://opengameart.org/sites/default/files/bung_01.mp3",
+      "source_page_sha256": "660dfaf43d12b040136f1cf749b9b42e8adcbbf493789c11fd1e8e9dc50851ce",
+      "evidence_paths": [
+        "licenses/CC0-1.0-legalcode.html.txt",
+        "evidence/ez-boings/source.html.txt",
+        "evidence/ez-boings/acquisition.json"
+      ]
+    },
+    {
+      "id": "kenney-rpg",
+      "title": "RPG Audio",
+      "author": "Kenney",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "download_url": "https://kenney.nl/download/6173736574732f7270672d617564696f/078b3986e98a32f978d652ae77c61e7662e5630299251160188db11db33e5eff?expires=1794639049",
+      "license_spdx": "CC0-1.0",
+      "verified_at": "2026-11-14",
+      "archive_sha256": "6dbeaf8544da958d8f2adcb4a4a4b76c1ade34a05f8ab9edccd327da7375f38b",
+      "archive_bytes": 964837,
+      "source_page_sha256": "f7dab478d045be8d5083c514d63860e9dd3c37db08d3a99baf1114381cd87ecf",
+      "note": "Download signatures may expire; use the source page. Original audio bytes retained. Web snapshots are inert text.",
+      "license_id": "CC0-1.0",
+      "evidence_paths": [
+        "licenses/CC0-1.0-legalcode.html.txt",
+        "evidence/kenney-rpg/source.html.txt",
+        "evidence/kenney-rpg/original-license-1.txt",
+        "evidence/kenney-rpg/acquisition.json"
+      ]
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "licenses/CC0-1.0-legalcode.html.txt",
+      "sha256": "b43732f4c1463b087cf10d4daf8d8766514b2bf8f21bc5ef50905f95be227726"
+    },
+    {
+      "path": "evidence/the-shop/source.html.txt",
+      "sha256": "d2f269c00b3ac255b93b068fde9c0cb01732bc7aa7b7bbbca041a6df0c8e0626"
+    },
+    {
+      "path": "evidence/the-shop/acquisition.json",
+      "sha256": "4dd54c25a0533fdfba80f3934acff531b10b473b3f8faffecbcb4c82e344d579"
+    },
+    {
+      "path": "licenses/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "evidence/incompetech/licenses.html.txt",
+      "sha256": "479019ed42fd8384c63c04bd95dc6d0e0e0da505ddd6f567a13018c724f8416d"
+    },
+    {
+      "path": "evidence/bgm-fluffing-a-duck/source.html.txt",
+      "sha256": "0aaccc3d496fc4ae189e27e3fe2d4f5216266e3bcccf2e0ba77fb1b57a28fa94"
+    },
+    {
+      "path": "evidence/bgm-fluffing-a-duck/official-record.json",
+      "sha256": "0d746dbca33f91db0bed687f707ca001f6e9d33da3e76405d4882945dd4af3f8"
+    },
+    {
+      "path": "evidence/bgm-fluffing-a-duck/acquisition.json",
+      "sha256": "902ac8491a3baf49bcf2c4ffe1c52d4e59ed271ad66aa2fe2a4d5fb53c3cc6bd"
+    },
+    {
+      "path": "evidence/kenney-impact/source.html.txt",
+      "sha256": "a2957c50738113cfd5159fbd5c32b4fcbbe920fd6bb798a1383291afd759933d"
+    },
+    {
+      "path": "evidence/kenney-impact/original-license-1.txt",
+      "sha256": "b49aa9c56b04528b95913de13e506a0f7c5e807b9925db9bfef86af1f91120db"
+    },
+    {
+      "path": "evidence/kenney-impact/acquisition.json",
+      "sha256": "6bf5346b2072407a7d73e67b345c0ce6cdb8ca50f04d5a9212b1def8a711bed3"
+    },
+    {
+      "path": "evidence/aeva-boing/source.html.txt",
+      "sha256": "687e707d95352f15b06f01da3b1141b593c7d2f1668aed3973ad5bade4768e79"
+    },
+    {
+      "path": "evidence/aeva-boing/acquisition.json",
+      "sha256": "8335bd1710390837d81016ea9a0c63f2504d59e7fe99d1a17a3e323c8349797b"
+    },
+    {
+      "path": "evidence/owlish-home-202/source.html.txt",
+      "sha256": "f6d6d9c55cf004fd9b0782e5171104466f8fadf9e1dca6f9802f86583c6c69e2"
+    },
+    {
+      "path": "evidence/owlish-home-202/acquisition.json",
+      "sha256": "945262cb9be63059f72567aa6a4e37b4cef52a9ab647132ab33c526f83ac3eb6"
+    },
+    {
+      "path": "evidence/rubberduck-general-100-2/source.html.txt",
+      "sha256": "15a1e167aa334a903c7f973234de3848cd5641b189e9dae215ad8eb0f93ddf47"
+    },
+    {
+      "path": "evidence/rubberduck-general-100-2/acquisition.json",
+      "sha256": "d43b1df356a81be0b8437da6ee4c40f6e6fd8aed8a06b5940c39a4c1e2912b3f"
+    },
+    {
+      "path": "evidence/bart-squeak-toys/source.html.txt",
+      "sha256": "0cefb876520ae87a904b4551a2890935163f52c9832263474c85d7b9ecae62cf"
+    },
+    {
+      "path": "evidence/bart-squeak-toys/acquisition.json",
+      "sha256": "5bc75a892a5d2fd7fff2b33391ed233b960f17422811a0bc6c46bdda6390a0a6"
+    },
+    {
+      "path": "licenses/CC-BY-3.0-legalcode.html.txt",
+      "sha256": "967a3670bcbfdc50614e71062b18effed899007a0e364541328ebdb863520132"
+    },
+    {
+      "path": "evidence/record-scratch/source.html.txt",
+      "sha256": "aeb12509098d3c83bf76ab4ef46d81fc00bf2a9b891d17fbefbb17fcc45c160d"
+    },
+    {
+      "path": "evidence/record-scratch/original-author.html.txt",
+      "sha256": "c1b9d079ff193974c7c1cad9fdc3d5866f9b4814942287e7908c3cfda19bb405"
+    },
+    {
+      "path": "evidence/record-scratch/acquisition.json",
+      "sha256": "cfe0c4617f99c5c5f04c2a9535e3d85e913bf5d656a693e688412f84a0bcacfe"
+    },
+    {
+      "path": "evidence/kevin-rimshot/source.html.txt",
+      "sha256": "dd20669059e1af107dac5d0e732339c7422a2ed42f1d6721ea1193c37a036060"
+    },
+    {
+      "path": "evidence/kevin-rimshot/4-second-roll-license.html.txt",
+      "sha256": "e0d7c99845f4735d2b4a4af84766fa1713a5658c87845ba2692490660392fecb"
+    },
+    {
+      "path": "evidence/kevin-rimshot/commons-additional-byte-matches.json",
+      "sha256": "25884027a3b85eb697d6799c9b31f8394ae0239d1b02f495238a1f9ed710f058"
+    },
+    {
+      "path": "evidence/kevin-rimshot/commons-byte-match.json",
+      "sha256": "0168cdd948d5cd6985744a8dbc54ca0b049d11428a9895b46816d2a7b719ea5d"
+    },
+    {
+      "path": "evidence/kevin-rimshot/commons-original-matches.json",
+      "sha256": "998f62a1c488a5117a3eccb265bd1af0966ed1ff3af0068dcb73522573cf1ebb"
+    },
+    {
+      "path": "evidence/kevin-rimshot/kdum-keesh-license.html.txt",
+      "sha256": "2945f6271ab95e812981aa37651c04c0dd0c1e352cbc85c9fa58249831fe1059"
+    },
+    {
+      "path": "evidence/kevin-rimshot/official-agent-license.html.txt",
+      "sha256": "b83ac239ebeda3d569f64f197b2384392c3dd2c2481ccc280a33ed3690327c29"
+    },
+    {
+      "path": "evidence/kevin-rimshot/acquisition.json",
+      "sha256": "e58f2a5e5ffbf5aaf187d5a1c38a9ebe71231be7c10d2b88d8d843fa6e7b63ec"
+    },
+    {
+      "path": "evidence/joedeshon-slide-whistle/source.html.txt",
+      "sha256": "529e2f520de70e1493a6a236b90ab09f6a22fbdd7809d442feadc47961e55695"
+    },
+    {
+      "path": "evidence/joedeshon-slide-whistle/original-author-source.html.txt",
+      "sha256": "ccd482be95031b1340b840f5d049ec63180c0d6bc4bee64cf81bbc8d64a8df1f"
+    },
+    {
+      "path": "evidence/joedeshon-slide-whistle/acquisition.json",
+      "sha256": "93c285aa7c5113b541309c34021fc4e1f886a15601b89b414e1624e4a1c70e38"
+    },
+    {
+      "path": "evidence/ez-boings/source.html.txt",
+      "sha256": "660dfaf43d12b040136f1cf749b9b42e8adcbbf493789c11fd1e8e9dc50851ce"
+    },
+    {
+      "path": "evidence/ez-boings/acquisition.json",
+      "sha256": "876deb70d937d9b872b3c94fd9dbadd0bcaa0871e78bf8f78518cb538031507d"
+    },
+    {
+      "path": "evidence/kenney-rpg/source.html.txt",
+      "sha256": "f7dab478d045be8d5083c514d63860e9dd3c37db08d3a99baf1114381cd87ecf"
+    },
+    {
+      "path": "evidence/kenney-rpg/original-license-1.txt",
+      "sha256": "5735dfd72cb64cbbceda4ebc00c380c41ca680edb82ff153aa7c9ab97614c539"
+    },
+    {
+      "path": "evidence/kenney-rpg/acquisition.json",
+      "sha256": "df97ca5836684f7dd9fc1274aecfde86bb158f409969e21a9a0f644c29bef6f2"
+    }
+  ],
+  "required_credits_path": "CREDITS.md",
+  "files": [
+    {
+      "path": "audio/the-shop/TheShopCollection_convenience_store_drinks_fridge_drone.wav",
+      "sha256": "222545244c0eed4bb924a3616d1103156d942776681634698f7fa3b11fe99b9d",
+      "bytes": 9245316,
+      "role": "audio"
+    },
+    {
+      "path": "licenses/CC0-1.0-legalcode.html.txt",
+      "sha256": "b43732f4c1463b087cf10d4daf8d8766514b2bf8f21bc5ef50905f95be227726",
+      "bytes": 32223,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/the-shop/source.html.txt",
+      "sha256": "d2f269c00b3ac255b93b068fde9c0cb01732bc7aa7b7bbbca041a6df0c8e0626",
+      "bytes": 26364,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/the-shop/acquisition.json",
+      "sha256": "4dd54c25a0533fdfba80f3934acff531b10b473b3f8faffecbcb4c82e344d579",
+      "bytes": 1305,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/music/bgm-fluffing-a-duck.mp3",
+      "sha256": "cb23b1833c35e391de10d998d6a40cfc760565ce31d23014c86025523ca8239b",
+      "bytes": 2696840,
+      "role": "audio"
+    },
+    {
+      "path": "licenses/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "bytes": 18657,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/incompetech/licenses.html.txt",
+      "sha256": "479019ed42fd8384c63c04bd95dc6d0e0e0da505ddd6f567a13018c724f8416d",
+      "bytes": 12146,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/bgm-fluffing-a-duck/source.html.txt",
+      "sha256": "0aaccc3d496fc4ae189e27e3fe2d4f5216266e3bcccf2e0ba77fb1b57a28fa94",
+      "bytes": 26826,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/bgm-fluffing-a-duck/official-record.json",
+      "sha256": "0d746dbca33f91db0bed687f707ca001f6e9d33da3e76405d4882945dd4af3f8",
+      "bytes": 848,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/bgm-fluffing-a-duck/acquisition.json",
+      "sha256": "902ac8491a3baf49bcf2c4ffe1c52d4e59ed271ad66aa2fe2a4d5fb53c3cc6bd",
+      "bytes": 1137,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/kenney-impact/impactBell_heavy_000.ogg",
+      "sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+      "bytes": 13915,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/kenney-impact/source.html.txt",
+      "sha256": "a2957c50738113cfd5159fbd5c32b4fcbbe920fd6bb798a1383291afd759933d",
+      "bytes": 17702,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kenney-impact/original-license-1.txt",
+      "sha256": "b49aa9c56b04528b95913de13e506a0f7c5e807b9925db9bfef86af1f91120db",
+      "bytes": 608,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kenney-impact/acquisition.json",
+      "sha256": "6bf5346b2072407a7d73e67b345c0ce6cdb8ca50f04d5a9212b1def8a711bed3",
+      "bytes": 703,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/aeva-boing/boing.flac",
+      "sha256": "9c6af38ca79332ad3fa66ad1229179d2a91655c1157d3620e21ef676f54d9fdd",
+      "bytes": 194024,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/aeva-boing/source.html.txt",
+      "sha256": "687e707d95352f15b06f01da3b1141b593c7d2f1668aed3973ad5bade4768e79",
+      "bytes": 21245,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/aeva-boing/acquisition.json",
+      "sha256": "8335bd1710390837d81016ea9a0c63f2504d59e7fe99d1a17a3e323c8349797b",
+      "bytes": 956,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/owlish-home-202/Drink/Drink_01.wav",
+      "sha256": "11f6f90b8be847968e868a6a643fbb017c7116959ae3907216357949d8c1fe91",
+      "bytes": 54644,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/owlish-home-202/source.html.txt",
+      "sha256": "f6d6d9c55cf004fd9b0782e5171104466f8fadf9e1dca6f9802f86583c6c69e2",
+      "bytes": 29895,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/owlish-home-202/acquisition.json",
+      "sha256": "945262cb9be63059f72567aa6a4e37b4cef52a9ab647132ab33c526f83ac3eb6",
+      "bytes": 1223,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/rubberduck-general-100-2/sfx100v2_footstep_01.ogg",
+      "sha256": "007a96c62d6c335df0d292bdc5cf44fef768b7e2f14378759d03673be6be7ec6",
+      "bytes": 8134,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/rubberduck-general-100-2/source.html.txt",
+      "sha256": "15a1e167aa334a903c7f973234de3848cd5641b189e9dae215ad8eb0f93ddf47",
+      "bytes": 37829,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/rubberduck-general-100-2/acquisition.json",
+      "sha256": "d43b1df356a81be0b8437da6ee4c40f6e6fd8aed8a06b5940c39a4c1e2912b3f",
+      "bytes": 1286,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/rubberduck-general-100-2/sfx100v2_footstep_02.ogg",
+      "sha256": "8b478a7245bbe358fcddaa5047f8f4e29c8eca52ff79c25d489b5f378747228c",
+      "bytes": 8318,
+      "role": "audio"
+    },
+    {
+      "path": "audio/bart-squeak-toys/squeak toy/squeak toy - squeak1.wav",
+      "sha256": "a89853f355ce7c6c60ee9695f5e725250c6a74f4a177b549afa0a30ff98ff362",
+      "bytes": 271388,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/bart-squeak-toys/source.html.txt",
+      "sha256": "0cefb876520ae87a904b4551a2890935163f52c9832263474c85d7b9ecae62cf",
+      "bytes": 22583,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/bart-squeak-toys/acquisition.json",
+      "sha256": "5bc75a892a5d2fd7fff2b33391ed233b960f17422811a0bc6c46bdda6390a0a6",
+      "bytes": 940,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/bart-squeak-toys/squeak toy/squeak toy - squeak3.wav",
+      "sha256": "bb51223dc20b0f4e691ce624330747a2c866edaf1150c2cdd2b53280154b7212",
+      "bytes": 298500,
+      "role": "audio"
+    },
+    {
+      "path": "audio/record-scratch/160909__raccoonanimator__scratch-speed.wav",
+      "sha256": "37cececf082f70009e37c1b84ccfffd27c38875f1df754441ad66252df006a2e",
+      "bytes": 133386,
+      "role": "audio"
+    },
+    {
+      "path": "licenses/CC-BY-3.0-legalcode.html.txt",
+      "sha256": "967a3670bcbfdc50614e71062b18effed899007a0e364541328ebdb863520132",
+      "bytes": 51105,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/record-scratch/source.html.txt",
+      "sha256": "aeb12509098d3c83bf76ab4ef46d81fc00bf2a9b891d17fbefbb17fcc45c160d",
+      "bytes": 21702,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/record-scratch/original-author.html.txt",
+      "sha256": "c1b9d079ff193974c7c1cad9fdc3d5866f9b4814942287e7908c3cfda19bb405",
+      "bytes": 46460,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/record-scratch/acquisition.json",
+      "sha256": "cfe0c4617f99c5c5f04c2a9535e3d85e913bf5d656a693e688412f84a0bcacfe",
+      "bytes": 1316,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/kevin-rimshot/bah-dum.wav",
+      "sha256": "eaaca6f24fb059435fb3f1b24d571f8e6849126fe64f3535caf38b50026e1252",
+      "bytes": 1411004,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/kevin-rimshot/source.html.txt",
+      "sha256": "dd20669059e1af107dac5d0e732339c7422a2ed42f1d6721ea1193c37a036060",
+      "bytes": 97681,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kevin-rimshot/4-second-roll-license.html.txt",
+      "sha256": "e0d7c99845f4735d2b4a4af84766fa1713a5658c87845ba2692490660392fecb",
+      "bytes": 89902,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kevin-rimshot/commons-additional-byte-matches.json",
+      "sha256": "25884027a3b85eb697d6799c9b31f8394ae0239d1b02f495238a1f9ed710f058",
+      "bytes": 1032,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kevin-rimshot/commons-byte-match.json",
+      "sha256": "0168cdd948d5cd6985744a8dbc54ca0b049d11428a9895b46816d2a7b719ea5d",
+      "bytes": 349,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kevin-rimshot/commons-original-matches.json",
+      "sha256": "998f62a1c488a5117a3eccb265bd1af0966ed1ff3af0068dcb73522573cf1ebb",
+      "bytes": 1214,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kevin-rimshot/kdum-keesh-license.html.txt",
+      "sha256": "2945f6271ab95e812981aa37651c04c0dd0c1e352cbc85c9fa58249831fe1059",
+      "bytes": 100924,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kevin-rimshot/official-agent-license.html.txt",
+      "sha256": "b83ac239ebeda3d569f64f197b2384392c3dd2c2481ccc280a33ed3690327c29",
+      "bytes": 5003,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kevin-rimshot/acquisition.json",
+      "sha256": "e58f2a5e5ffbf5aaf187d5a1c38a9ebe71231be7c10d2b88d8d843fa6e7b63ec",
+      "bytes": 1904,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/joedeshon-slide-whistle/79671__joedeshon__slide-whistle-down-01.wav",
+      "sha256": "3e857b2bf1640d51e1cfe2b5a7967c6087da6f589aead349453e4c7e72ab107d",
+      "bytes": 208636,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/joedeshon-slide-whistle/source.html.txt",
+      "sha256": "529e2f520de70e1493a6a236b90ab09f6a22fbdd7809d442feadc47961e55695",
+      "bytes": 22097,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/joedeshon-slide-whistle/original-author-source.html.txt",
+      "sha256": "ccd482be95031b1340b840f5d049ec63180c0d6bc4bee64cf81bbc8d64a8df1f",
+      "bytes": 45520,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/joedeshon-slide-whistle/acquisition.json",
+      "sha256": "93c285aa7c5113b541309c34021fc4e1f886a15601b89b414e1624e4a1c70e38",
+      "bytes": 1253,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/ez-boings/bing_01_0.mp3",
+      "sha256": "c09d39344940ff552c87f95b712313536be922c6d4c1ac8abb6ecf3ad049caff",
+      "bytes": 6076,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/ez-boings/source.html.txt",
+      "sha256": "660dfaf43d12b040136f1cf749b9b42e8adcbbf493789c11fd1e8e9dc50851ce",
+      "bytes": 22384,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/ez-boings/acquisition.json",
+      "sha256": "876deb70d937d9b872b3c94fd9dbadd0bcaa0871e78bf8f78518cb538031507d",
+      "bytes": 1441,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/kenney-rpg/bookFlip1.ogg",
+      "sha256": "fa81ac2fedc8c641661b87e349630a36c9800e795e0c800e029214efdbe26a7d",
+      "bytes": 18248,
+      "role": "audio"
+    },
+    {
+      "path": "evidence/kenney-rpg/source.html.txt",
+      "sha256": "f7dab478d045be8d5083c514d63860e9dd3c37db08d3a99baf1114381cd87ecf",
+      "bytes": 17864,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kenney-rpg/original-license-1.txt",
+      "sha256": "5735dfd72cb64cbbceda4ebc00c380c41ca680edb82ff153aa7c9ab97614c539",
+      "bytes": 478,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/kenney-rpg/acquisition.json",
+      "sha256": "df97ca5836684f7dd9fc1274aecfde86bb158f409969e21a9a0f644c29bef6f2",
+      "bytes": 684,
+      "role": "license_evidence"
+    },
+    {
+      "path": "audio/owlish-home-202/Paper & Stationery/Stationery_01.wav",
+      "sha256": "c9665c85a609aa97400c6f938a82846bcb1b54aa759d860ed9846c2535f2edd7",
+      "bytes": 83168,
+      "role": "audio"
+    },
+    {
+      "path": "CREDITS.md",
+      "sha256": "a3e52ca2caa21e6987206986b4be1060fe164d9659c0126a9a00198c734bfc41",
+      "bytes": 5013,
+      "role": "credits"
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+ "skeleton": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/skeleton.png",
+  "w": 300,
+  "h": 620
+ },
+ "sunglasses": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/sunglasses.png",
+  "w": 150,
+  "h": 60
+ },
+ "student_books": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/student_books.png",
+  "w": 400,
+  "h": 640
+ },
+ "bone": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/bone.png",
+  "w": 110,
+  "h": 50
+ },
+ "lunch_shoulder": [
+  174.04834161749008,
+  224.07066406578488
+ ],
+ "lunch_body": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/lunch_body.png",
+  "w": 380,
+  "h": 560
+ },
+ "arm_banhmi": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/arm_banhmi.png",
+  "w": 300,
+  "h": 260
+ },
+ "horse": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/horse.png",
+  "w": 470,
+  "h": 440
+ },
+ "timer": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/timer.png",
+  "w": 220,
+  "h": 220
+ },
+ "timer_hand": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/timer_hand.png",
+  "w": 20,
+  "h": 160
+ },
+ "pigfoot": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/pigfoot.png",
+  "w": 640,
+  "h": 360
+ },
+ "stitch": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/stitch.png",
+  "w": 30,
+  "h": 50
+ },
+ "pigface": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/pigface.png",
+  "w": 140,
+  "h": 90
+ },
+ "suture_shoulder": [
+  154.15402865250607,
+  269.6774441097622
+ ],
+ "student_suture": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/student_suture.png",
+  "w": 420,
+  "h": 560
+ },
+ "arm_needle": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/arm_needle.png",
+  "w": 260,
+  "h": 200
+ },
+ "sparkle": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/sparkle.png",
+  "w": 60,
+  "h": 60
+ },
+ "patient": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/patient.png",
+  "w": 420,
+  "h": 560
+ },
+ "cuff_at": [
+  262,
+  301
+ ],
+ "student_bp": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/student_bp.png",
+  "w": 400,
+  "h": 560
+ },
+ "gauge": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/gauge.png",
+  "w": 240,
+  "h": 240
+ },
+ "gauge_needle": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/gauge_needle.png",
+  "w": 20,
+  "h": 180
+ },
+ "lib_desk": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/lib_desk.png",
+  "w": 520,
+  "h": 560
+ },
+ "card": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/card.png",
+  "w": 150,
+  "h": 96
+ },
+ "nose_at": [
+  416.70505494103134,
+  339.00896261403784
+ ],
+ "mid_desk": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/mid_desk.png",
+  "w": 520,
+  "h": 560
+ },
+ "nose1": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/nose1.png",
+  "w": 50,
+  "h": 30
+ },
+ "nose2": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/nose2.png",
+  "w": 90,
+  "h": 30
+ },
+ "nose3": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/nose3.png",
+  "w": 140,
+  "h": 30
+ },
+ "nose4": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/nose4.png",
+  "w": 190,
+  "h": 30
+ },
+ "lamp": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/lamp.png",
+  "w": 170,
+  "h": 300
+ },
+ "moon": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/moon.png",
+  "w": 120,
+  "h": 120
+ },
+ "heart": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/heart.png",
+  "w": 230,
+  "h": 210
+ },
+ "heart_big": {
+  "file": "/home/user/Phim-hoat-hinh/stickman/sv-y/art/heart_big.png",
+  "w": 230,
+  "h": 210
+ }
+}
