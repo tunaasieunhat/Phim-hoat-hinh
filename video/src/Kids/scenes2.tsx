@@ -7,7 +7,6 @@ import { Bed, Blanket, Bubble, Cloud, cue, GROUND, H, HAND, Heart, Label, MID, P
 
 const MS = 0.62;
 type SP = { sc: SceneData };
-const pulse = (f: number, at: number, len = 16) => { const t = (f - at) / len; return t <= 0 || t >= 1 ? 0 : Math.sin(t * Math.PI); };
 
 /* ---------- 6. Mistakes ---------- */
 export const Scene6: React.FC<SP> = ({ sc }) => {
@@ -244,7 +243,7 @@ export const Scene10: React.FC<SP & { hold: number }> = ({ sc }) => {
       <g opacity={lessons}>
         {kid.map((t, i) => <Tag key={t} x={1240} y={240 + i * 112} text={t} k={pop(f, S(0) + 16 + i * 52, 16)} size={96} color={ORANGE} rot={-2 + i} />)}
         <line x1={900} y1={556} x2={1580} y2={556} stroke={INK} strokeWidth={5} strokeDasharray="2 16" strokeLinecap="round" opacity={tw(f, S(1), S(1) + 20) * 0.5} />
-        {grown.map((t, i) => <Tag key={t} x={980 + i * 250} y={650} text={`Be ${t}`} k={pop(f, S(1) + 30 + i * 38, 16)} size={i === 2 ? 60 : 64} color={BLUE} rot={i - 1} />)}
+        {grown.map((t, i) => <Tag key={t} x={[930, 1200, 1500][i]} y={650} text={`Be ${t}`} k={pop(f, S(1) + 30 + i * 38, 16)} size={60} color={BLUE} rot={i - 1} />)}
         <Heart x={760} y={500} s={pop(f, S(2) + 40, 18) * (1.3 + 0.1 * Math.sin(f / 6))} />
         <Bubble x={640} y={250} w={130} h={110} k={pop(f, S(3) + 30, 14)} tail="left"><QMark x={0} y={30} s={1} /></Bubble>
         <RabbitCloud x={1700} y={130} s={0.7} opacity={tw(f, S(3) + 80, S(3) + 100)} />
