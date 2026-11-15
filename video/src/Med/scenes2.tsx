@@ -6,7 +6,7 @@ import { Bubble, Heart, Star } from "../Kids/stage";
 import { Book, cue, Desk, GY, HAND, type SP, Stool, Txt, VH, VW } from "./scenes";
 import { INK, joints, Person, RED } from "./people";
 
-const SIT = P({ drop: 92, lL: [82, 6], lR: [72, 10], aL: [30, 70], aR: [40, 80] });
+const SIT = P({ drop: 46, lL: [86, 4], lR: [80, 8], aL: [30, 70], aR: [40, 80] });
 
 /* ---------- 4. The moment that changes things ---------- */
 export const Med4: React.FC<SP> = ({ sc }) => {
@@ -66,21 +66,23 @@ export const Med5: React.FC<SP> = ({ sc }) => {
   const { S } = cue(sc);
   const flip = tw(f, S(0) + 20, S(0) + 44);
   const warm = tw(f, S(0), S(1) + 60);
-  const youPose = alive(P({ drop: 92, lL: [82, 6], lR: [72, 10], aL: [60, 120], aR: [mix(P({ aR: [70, 126] }), P({ aR: [110, 140] }), Math.sin(flip * Math.PI)).aR[0], 130], lean: 8, tilt: 6 }), f, 0.6);
-  const bx = 640, by = GY - 236;
+  // sit up at the desk, left hand holding the book open; the right hand lifts the page over
+  const lift = Math.sin(flip * Math.PI);
+  const youPose = alive(P({ drop: 46, lL: [86, 4], lR: [80, 8], aL: [50, 90], aR: [56 + lift * 22, 94 + lift * 40], lean: -6 + lift * -4, tilt: -8 }), f, 0.6);
+  const bx = 555, by = GY - 230;
   return (
     <g>
       <rect width={VW} height={VH} fill="#3a2f45" />
       <rect x={0} y={GY - 700} width={VW} height={560} fill="#4a3c58" />
       {[0, 1, 2].map((r) => Array.from({ length: 9 }).map((_, i) => <rect key={`${r}${i}`} x={40 + i * 112} y={GY - 680 + r * 180} width={90} height={150} rx={6} fill={["#7c3aed", "#b45309", "#0f766e", "#be123c"][(i + r) % 4]} opacity={0.55} />))}
-      <circle cx={480} cy={GY - 360} r={300 + warm * 200} fill="#fde68a" opacity={0.18 + warm * 0.22} />
+      <circle cx={710} cy={GY - 360} r={300 + warm * 200} fill="#fde68a" opacity={0.18 + warm * 0.22} />
       <rect width={VW} height={VH} fill="#fbbf24" opacity={warm * 0.1} />
       <rect x={0} y={GY} width={VW} height={VH - GY} fill="#2c2335" />
       <Stool x={380} />
       <Person who="you" x={380} y={GY} pose={youPose} f={f} face={{ eyes: "happy", mouth: "smile", look: 0.6 }} />
       <Desk x={420} w={560} color="#a0764c" />
-      <line x1={480} y1={GY - 230} x2={480} y2={GY - 360} stroke={INK} strokeWidth={7} /><path d={`M 430 ${GY - 360} L 450 ${GY - 420} L 520 ${GY - 420} L 540 ${GY - 360} Z`} fill="#fbbf24" stroke={INK} strokeWidth={5} strokeLinejoin="round" />
-      {Array.from({ length: 10 }).map((_, i) => <Book key={i} x={880} y={GY - 230 - i * 44} w={170} h={42} color={["#f87171", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa"][i % 5]} rot={((i * 13) % 7) - 3} />)}
+      <line x1={710} y1={GY - 230} x2={710} y2={GY - 360} stroke={INK} strokeWidth={7} /><path d={`M 660 ${GY - 360} L 680 ${GY - 420} L 740 ${GY - 420} L 760 ${GY - 360} Z`} fill="#fbbf24" stroke={INK} strokeWidth={5} strokeLinejoin="round" />
+      {Array.from({ length: 10 }).map((_, i) => <Book key={i} x={890} y={GY - 230 - i * 44} w={170} h={42} color={["#f87171", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa"][i % 5]} rot={((i * 13) % 7) - 3} />)}
       {/* the open book; a page turns */}
       <g transform={`translate(${bx} ${by})`}>
         <path d="M -150 0 L -10 -20 L 0 0 Z M 0 0 L 10 -20 L 150 0 Z" fill="#fff" stroke={INK} strokeWidth={4} strokeLinejoin="round" />

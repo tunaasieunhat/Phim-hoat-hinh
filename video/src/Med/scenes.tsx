@@ -30,7 +30,7 @@ export const Desk: React.FC<{ x: number; w: number; y?: number; color?: string }
 export const Stool: React.FC<{ x: number; y?: number }> = ({ x, y = GY - 150 }) => (
   <g><rect x={x - 55} y={y} width={110} height={20} rx={6} fill="#8b6b4a" stroke={INK} strokeWidth={5} /><line x1={x - 36} y1={y + 20} x2={x - 46} y2={GY} stroke={INK} strokeWidth={8} /><line x1={x + 36} y1={y + 20} x2={x + 46} y2={GY} stroke={INK} strokeWidth={8} /></g>
 );
-const SIT = P({ drop: 92, lL: [82, 6], lR: [72, 10], aL: [30, 70], aR: [40, 80] });
+const SIT = P({ drop: 46, lL: [86, 4], lR: [80, 8], aL: [30, 70], aR: [40, 80] });
 const Banhmi: React.FC<{ x: number; y: number; s?: number; rot?: number; bites?: number }> = ({ x, y, s = 1, rot = 0, bites = 0 }) => (
   <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`}>
     <path d={`M -70 6 Q -78 -20 -40 -24 L 56 -24 Q 80 -20 74 4 Q 60 22 0 22 Q -60 22 -70 6 Z`} fill="#f2c078" stroke={INK} strokeWidth={5} strokeLinejoin="round" />
@@ -48,7 +48,7 @@ export const Med1: React.FC<SP> = ({ sc }) => {
   const run = f >= S(3) - 4;
   const page = f < S(2) + 50 ? 1 : 0;
   const peel = tw(f, S(2) + 50, S(2) + 80);
-  const sleep = P({ drop: 146, lean: 0, tilt: 8, lL: [82, 6], lR: [72, 10], aL: [-96, -84], aR: [96, 84] });
+  const sleep = P({ drop: 122, lean: 0, tilt: 24, lL: [82, 6], lR: [72, 10], aL: [-128, 96], aR: [128, -96] }); // forearms folded on the desk as a pillow
   const up = P({ aL: [-128, -160], aR: [128, 160], lL: [-14, -2], lR: [14, 2], dy: -20 });
   const youPose = run ? mix(walk(f, 12, 1.5), P({ aR: [130, 196], lean: 14 }), 0.35) : f < S(1) ? alive(sleep, f, 0.4) : alive(mix(up, P({ aL: [-40, -20], aR: [40, 20] }), tw(f, S(1) + 40, S(2))), f, 1);
   const yx = run ? 520 : 470;
@@ -163,24 +163,27 @@ export const Med3: React.FC<SP> = ({ sc }) => {
   const { S } = cue(sc);
   const lib = f >= S(2) - 6;
   const slide = Math.max(1, Math.min(247, Math.round(1 + 246 * tw(f, S(0) + 10, S(1) + 60, 0, 1, (t) => t * t))));
-  const write = P({ ...SIT, aR: [56, 100 + Math.sin(f * 1.3) * 18], aL: [40, 90], lean: 14, tilt: 10 });
+  const write = P({ ...SIT, aR: [54, 92 + Math.sin(f * 1.3) * 10], aL: [46, 88], lean: -6, tilt: -6 });
   const youLecture = alive(write, f, 0.6);
-  const youLib = alive(f < S(3) ? P({ ...SIT, aL: [60, 120], aR: [70, 126], lean: 10, tilt: 12 }) : P({ ...SIT, aL: [60, 120], aR: [150, 190], lean: -4, tilt: -14 }), f, 0.6);
+  // library: sit up at the desk, one hand on the open book, the other propping up a heavy head; then head in both hands
+  const LSIT = P({ drop: 46, lL: [86, 4], lR: [80, 8] });
+  const youLib = alive(mix(P({ ...LSIT, aL: [52, 92 + Math.sin(f / 9) * 4], aR: [36, 196], lean: -6, tilt: -10 }), P({ ...LSIT, aL: [26, 200], aR: [40, 192], lean: -10, tilt: -16 }), tw(f, S(3), S(3) + 14)), f, 0.6);
   const yj = joints("dad", 380, GY, 1, lib ? youLib : youLecture);
   return lib ? (
     <g>
       <rect width={VW} height={VH} fill="#3a2f45" />
       <rect x={0} y={GY - 700} width={VW} height={560} fill="#4a3c58" />
       {[0, 1, 2].map((r) => Array.from({ length: 9 }).map((_, i) => <rect key={`${r}${i}`} x={40 + i * 112} y={GY - 680 + r * 180} width={90} height={150} rx={6} fill={["#7c3aed", "#b45309", "#0f766e", "#be123c"][(i + r) % 4]} opacity={0.55} />))}
-      <circle cx={210} cy={GY - 420} r={260} fill="#fde68a" opacity={0.18} />
+      <circle cx={710} cy={GY - 380} r={300} fill="#fde68a" opacity={0.18} />
       <g transform="translate(860 430)"><circle r={78} fill="#fff" stroke={INK} strokeWidth={6} /><line x1={0} y1={0} x2={0} y2={-54} stroke={INK} strokeWidth={6} strokeLinecap="round" transform={`rotate(${f * 14})`} /><line x1={0} y1={0} x2={36} y2={0} stroke={INK} strokeWidth={7} strokeLinecap="round" transform={`rotate(${f * 1.2})`} /></g>
       <rect x={0} y={GY} width={VW} height={VH - GY} fill="#2c2335" />
       <Stool x={380} />
       <Person who="you" x={380} y={GY} pose={youLib} f={f} face={{ eyes: f < S(3) ? "tired" : "sad", mouth: f < S(3) ? "flat" : "frown", brows: f < S(3) ? "none" : "worried", look: f < S(3) ? 0.6 : -0.3 }} />
       <Desk x={420} w={560} color="#a0764c" />
-      <line x1={480} y1={GY - 230} x2={480} y2={GY - 360} stroke={INK} strokeWidth={7} /><path d={`M 430 ${GY - 360} L 450 ${GY - 420} L 520 ${GY - 420} L 540 ${GY - 360} Z`} fill="#fbbf24" stroke={INK} strokeWidth={5} strokeLinejoin="round" />
+      <line x1={710} y1={GY - 230} x2={710} y2={GY - 360} stroke={INK} strokeWidth={7} /><path d={`M 660 ${GY - 360} L 680 ${GY - 420} L 740 ${GY - 420} L 760 ${GY - 360} Z`} fill="#fbbf24" stroke={INK} strokeWidth={5} strokeLinejoin="round" />
+      <path transform={`translate(555 ${GY - 230})`} d="M -120 0 L -8 -16 L 0 0 Z M 0 0 L 8 -16 L 120 0 Z" fill="#fff" stroke={INK} strokeWidth={4} strokeLinejoin="round" />
       {/* the pile of books, taller than you */}
-      {Array.from({ length: 16 }).map((_, i) => <Book key={i} x={780 + ((i * 37) % 30) - 15} y={GY - 230 - i * 44 * pop(f, S(2) - 6 + i * 3, 10)} w={200 - (i % 4) * 14} h={42} color={["#f87171", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa"][i % 5]} rot={((i * 13) % 7) - 3} />)}
+      {Array.from({ length: 16 }).map((_, i) => <Book key={i} x={880 + ((i * 37) % 30) - 15} y={GY - 230 - i * 44 * pop(f, S(2) - 6 + i * 3, 10)} w={180 - (i % 4) * 14} h={42} color={["#f87171", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa"][i % 5]} rot={((i * 13) % 7) - 3} />)}
       {f > S(3) && <Bubble x={300} y={560} w={440} h={210} k={pop(f, S(3) + 6, 14)} tail="right" thought><text x={0} y={-6} textAnchor="middle" fontFamily={HAND} fontSize={48} fill={INK}>why did I</text><text x={0} y={52} textAnchor="middle" fontFamily={HAND} fontSize={48} fill={INK}>choose this?</text></Bubble>}
       <Txt x={540} y={200} t="9:30 PM · Library" size={84} color="#fde68a" outline={INK} />
     </g>
@@ -194,12 +197,12 @@ export const Med3: React.FC<SP> = ({ sc }) => {
       <rect x={0} y={GY} width={VW} height={VH - GY} fill="#c9cede" />
       <Stool x={380} />
       <Person who="you" x={380} y={GY} pose={youLecture} f={f} face={{ eyes: "wide", mouth: "wavy", brows: "worried", look: 0.6, sweat: true }} />
+      {/* your friend: four coffees, still asleep */}
+      <Stool x={820} />
+      <Person who="friend" x={820} y={GY} pose={alive(P({ drop: 108, tilt: 24, lL: [100, 0], lR: [96, 4], aL: [-128, 96], aR: [128, -96] }), f, 0.4, 11)} f={f} flip face={{ eyes: "closed", mouth: "o" }} />
       <Desk x={300} w={700} />
       <rect x={480} y={GY - 252} width={200} height={20} rx={3} fill="#fff" stroke={INK} strokeWidth={3} transform={`rotate(-4 580 ${GY - 242})`} />
       {[0, 1, 2].map((i) => { const t = ((f + i * 12) % 36) / 36; return <circle key={i} cx={yj.handR[0] + 10 + t * 30} cy={yj.handR[1] - 30 - t * 70} r={10 + t * 14} fill="#9ca3af" opacity={0.6 * (1 - t)} />; })}
-      {/* your friend: four coffees, still asleep */}
-      <Stool x={820} />
-      <Person who="friend" x={820} y={GY} pose={alive(P({ ...SIT, lean: 50, tilt: 30, aL: [80, 130], aR: [90, 140] }), f, 0.4, 11)} f={f} flip face={{ eyes: "closed", mouth: "o" }} />
       {[0, 1, 2, 3].map((i) => <g key={i} transform={`translate(${640 + i * 62} ${GY - 230}) scale(${pop(f, S(1) + 4 + i * 8, 10)})`}><path d="M -22 -60 L 22 -60 L 16 0 L -16 0 Z" fill="#fff" stroke={INK} strokeWidth={4} /><rect x={-24} y={-70} width={48} height={12} rx={4} fill="#7c4a2d" stroke={INK} strokeWidth={3} /><rect x={-19} y={-42} width={38} height={14} fill="#a16207" /></g>)}
       {f > S(1) && [0, 1, 2].map((i) => { const t = ((f + i * 20) % 60) / 60; return <text key={i} x={860 + t * 60} y={GY - 520 - t * 110} fontFamily={HAND} fontSize={50 + t * 30} fill="#6b7280" opacity={1 - t}>z</text>; })}
       <Txt x={540} y={180} t="2:00 PM · Lecture" size={84} color="#fff" outline={INK} />

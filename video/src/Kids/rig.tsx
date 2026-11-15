@@ -55,8 +55,9 @@ export const alive = (p: Pose, f: number, k = 1, seed = 0): Pose => ({
   ...p,
   lean: p.lean + Math.sin((f + seed) / 23) * 1.1 * k,
   tilt: p.tilt + Math.sin((f + seed) / 31) * 1.6 * k,
-  aL: [p.aL[0] + Math.sin((f + seed) / 27) * 1.5 * k, p.aL[1] + Math.sin((f + seed) / 19) * 2 * k],
-  aR: [p.aR[0] - Math.sin((f + seed) / 29) * 1.5 * k, p.aR[1] - Math.sin((f + seed) / 21) * 2 * k],
+  // arms sway gently with the breath (elbow follows the shoulder, so the arm moves as one piece)
+  aL: [p.aL[0] - Math.sin((f + seed) / 34) * 1.6 * k, p.aL[1] - Math.sin((f + seed - 4) / 34) * 2.2 * k],
+  aR: [p.aR[0] + Math.sin((f + seed) / 34) * 1.6 * k, p.aR[1] + Math.sin((f + seed - 4) / 34) * 2.2 * k],
   dy: p.dy + Math.sin((f + seed) / 17) * 1.2 * k,
 });
 // a walk cycle (period in frames)
