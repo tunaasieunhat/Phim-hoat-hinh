@@ -95,7 +95,7 @@ export const T2: React.FC<SP> = ({ sc }) => {
       <Table f={f} names={names} speakers={speakers}
         poses={{ Anna: mix(P({ ...SIT, aR: [70, 150] }), chill, relax), Ben: mix(P({ ...SIT, tilt: nodBen }), chill, relax), Chloe: mix(P({ ...SIT, tilt: nodChloe }), chill, relax) }}
         faces={{ Anna: { eyes: relax > 0.5 ? "happy" : "open" }, Ben: { eyes: relax > 0.5 ? "happy" : "open" }, Chloe: { eyes: relax > 0.5 ? "happy" : "open" } }}>
-        <Laptop x={540} y={GY - 230} s={1.05}>
+        <Laptop x={705} y={GY - 230} s={0.86}>
           <text x={0} y={-40} textAnchor="middle" fontFamily={HAND} fontSize={26} fill={INK}>PLAN</text>
           {rows.map(([n, job, ok], i) => <g key={n}><text x={-90} y={-6 + i * 30} fontFamily={HAND} fontSize={24} fill={INK}>{`${n}: ${job}`}</text>{ok && <path d={`M 66 ${-14 + i * 30} l 8 8 l 16 -16`} stroke="#16a34a" strokeWidth={6} fill="none" strokeLinecap="round" />}</g>)}
         </Laptop>
@@ -175,8 +175,8 @@ export const T4: React.FC<SP> = ({ sc }) => {
           Ivy: { eyes: what ? "wide" : "happy", mouth: what ? "scream" : "smile", brows: what ? "up" : "none", sweat: f >= narr },
         }}>
         {/* phones while lounging */}
-        {!night && SEATS.map((x, i) => <rect key={i} x={x + (i === 2 ? -84 : i === 1 ? -14 : 54)} y={GY - 420 + (i === 1 ? 70 : 0)} width={30} height={50} rx={6} fill={INK} stroke="#64748b" strokeWidth={3} />)}
-        {f >= narr && <Laptop x={540} y={GY - 230} s={0.9} bg="#1e1e2e"><text x={0} y={10} textAnchor="middle" fontFamily={HAND} fontSize={40} fill="#fde68a">{`slide ${Math.min(12, 1 + Math.floor((f - narr) / 14))}/12`}</text></Laptop>}
+        {!night && SEATS.map((x, i) => <rect key={i} x={x + (i === 2 ? -84 : i === 1 ? 40 : 54)} y={GY - 420 + (i === 1 ? 130 : 0)} width={30} height={50} rx={6} fill={INK} stroke="#64748b" strokeWidth={3} />)}
+        {f >= narr && <Laptop x={705} y={GY - 230} s={0.8} bg="#1e1e2e"><text x={0} y={10} textAnchor="middle" fontFamily={HAND} fontSize={40} fill="#fde68a">{`slide ${Math.min(12, 1 + Math.floor((f - narr) / 14))}/12`}</text></Laptop>}
       </Table>
       {!night && f > 30 && [0, 1, 2].map((i) => { const tt = ((f + i * 20) % 60) / 60; return <text key={i} x={560 + tt * 40} y={780 - tt * 80} fontFamily={HAND} fontSize={40 + tt * 20} fill="#a8a29e" opacity={1 - tt}>z</text>; })}
       <Bubbles names={names} cur={cur} f={f} shoutColor="#fecaca" />
@@ -203,7 +203,7 @@ export const T5: React.FC<SP> = ({ sc }) => {
         {/* the PROJECT sheet, used as a plate */}
         <g transform={`translate(420 ${GY - 236})`}><path d="M -80 0 L 80 0 L 66 -10 L -66 -10 Z" fill="#fff" stroke={INK} strokeWidth={4} /><text x={0} y={-14} textAnchor="middle" fontFamily={HAND} fontSize={26} fill={RED}>PROJECT</text><path d="M -50 -16 Q 0 -70 50 -16 Z" fill="#fbbf24" stroke={INK} strokeWidth={4} /><circle cx={-14} cy={-30} r={6} fill={RED} /><circle cx={14} cy={-34} r={6} fill={RED} /></g>
         {/* pizza box */}
-        <g transform={`translate(640 ${GY - 236})`}><rect x={-90} y={-24} width={180} height={24} rx={4} fill="#d6a76b" stroke={INK} strokeWidth={4} /><path d="M -80 -24 L -70 -110 L 80 -110 L 90 -24 Z" fill="#e9c08d" stroke={INK} strokeWidth={4} /><circle cx={0} cy={-66} r={32} fill="#f87171" stroke={INK} strokeWidth={3} /></g>
+        <g transform={`translate(700 ${GY - 236}) scale(0.85)`}><rect x={-90} y={-24} width={180} height={24} rx={4} fill="#d6a76b" stroke={INK} strokeWidth={4} /><path d="M -80 -24 L -70 -110 L 80 -110 L 90 -24 Z" fill="#e9c08d" stroke={INK} strokeWidth={4} /><circle cx={0} cy={-66} r={32} fill="#f87171" stroke={INK} strokeWidth={3} /></g>
         {/* Leo's phone with the funny video */}
         {f > at("Leo") && <g transform={`translate(${SEATS[2] - 120} ${GY - 470})`}><rect x={-34} y={-56} width={68} height={112} rx={10} fill={INK} /><rect x={-26} y={-46} width={52} height={88} rx={4} fill="#60a5fa" /><path d="M -8 -12 L 12 0 L -8 12 Z" fill="#fff" /></g>}
         {/* the game controller */}
@@ -237,8 +237,8 @@ export const T6: React.FC<SP> = ({ sc }) => {
       <Table f={f} names={names} speakers={speakers}
         poses={{ Mia: vote ? P({ ...SIT, aR: [160, 175] }) : P({ ...SIT, aR: [70, 140] }), Noah: vote ? P({ ...SIT_FLAT, aR: [160, 178] }) : P({ ...SIT_FLAT, aR: [50, 100] }), Olivia: vote ? P({ ...SIT, aR: [160, 175] }) : point ? P({ ...SIT, aR: [140, 128] }) : SIT }}
         faces={{ Mia: { eyes: "open", mouth: "smile" }, Noah: { eyes: "happy", mouth: "smile" }, Olivia: { eyes: "open", mouth: "smile" } }}>
-        <Laptop x={440} y={GY - 230} s={0.85}><rect x={-80} y={-36} width={160} height={70} rx={6} fill="#60a5fa" /><text x={0} y={10} textAnchor="middle" fontFamily={HAND} fontSize={30} fill="#fff">slide 3</text></Laptop>
-        {snacks > 0 && <g transform={`translate(660 ${GY - 236}) scale(${snacks})`}><ellipse cx={0} cy={-6} rx={80} ry={14} fill="#fff" stroke={INK} strokeWidth={4} />{[-40, 0, 40].map((x) => <circle key={x} cx={x} cy={-24} r={20} fill="#d97706" stroke={INK} strokeWidth={3} />)}</g>}
+        <Laptop x={385} y={GY - 230} s={0.74}><rect x={-80} y={-36} width={160} height={70} rx={6} fill="#60a5fa" /><text x={0} y={10} textAnchor="middle" fontFamily={HAND} fontSize={30} fill="#fff">slide 3</text></Laptop>
+        {snacks > 0 && <g transform={`translate(690 ${GY - 236}) scale(${snacks})`}><ellipse cx={0} cy={-6} rx={80} ry={14} fill="#fff" stroke={INK} strokeWidth={4} />{[-40, 0, 40].map((x) => <circle key={x} cx={x} cy={-24} r={20} fill="#d97706" stroke={INK} strokeWidth={3} />)}</g>}
       </Table>
       {f > narr && [0, 1, 2].map((i) => <g key={i} transform={`translate(${380 + i * 160} ${760 - Math.sin(f / 10 + i) * 14}) scale(${pop(f, narr + i * 8, 12) * 0.9})`}><path d="M 0 30 C -50 0 -40 -40 0 -18 C 40 -40 50 0 0 30 Z" fill="#fb7185" stroke={INK} strokeWidth={4} /></g>)}
       <Bubbles names={names} cur={cur} f={f} />

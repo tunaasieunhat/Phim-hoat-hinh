@@ -14,6 +14,7 @@ Người dùng giao tiếp bằng tiếng Việt, nên trả lời bằng tiến
 | `video/src/Kids/` | "Grown-ups vs. Kids": `GrownupsVsKids` (16:9), `GrownupsVsKids3min` (9:16) và Still `GrownupsVsKidsCover`. Chứa rig người que dùng chung (`rig.tsx`). |
 | `video/src/Med/` | "POV: một ngày làm sinh viên Y": `PovMedStudent` (9:16). |
 | `video/src/IT/` | "POV: một ngày của sinh viên CNTT": `PovITStudent` (9:16), giọng BrianNeural; nhạc chiptune tắt 1 giây trước mỗi câu chốt (`make_it_music.py`). |
+| `video/src/Teams/` | "5 kiểu nhóm làm việc": `FiveTypesOfTeams` (9:16), hội thoại nhiều giọng (`scripts/dialogue_narration.py`, xuất cả .srt), nhạc theo từng nhóm (`make_teams_music.py`). |
 | `video/scripts/` | Script tạo lời dẫn, nhạc và ảnh xem thử (xem bên dưới). |
 | `video/public/` | Font, audio và SFX mà video dùng qua `staticFile()`. |
 | `videos/` | **Sản phẩm cuối** (MP4/ảnh bìa) đã commit để giao cho người dùng. |

@@ -1,0 +1,219 @@
+1
+00:00:01,500 --> 00:00:02,585
+Five teams.
+
+2
+00:00:02,655 --> 00:00:05,567
+One task: a presentation due on Friday.
+
+3
+00:00:05,637 --> 00:00:08,162
+Same deadline, very different stories.
+
+4
+00:00:08,232 --> 00:00:09,443
+Which team are you in?
+
+5
+00:00:12,600 --> 00:00:14,585
+Anna: Okay team, it's Monday.
+
+6
+00:00:14,455 --> 00:00:15,713
+Anna: I made a plan.
+
+7
+00:00:15,583 --> 00:00:16,890
+Anna: Ben, research.
+
+8
+00:00:16,760 --> 00:00:18,139
+Anna: Chloe, slides.
+
+9
+00:00:18,009 --> 00:00:19,477
+Anna: I'll write the script.
+
+10
+00:00:19,507 --> 00:00:20,953
+Ben: Done by Wednesday.
+
+11
+00:00:20,983 --> 00:00:22,619
+Chloe: I'll send a draft tonight.
+
+12
+00:00:22,649 --> 00:00:23,909
+The Productive Team.
+
+13
+00:00:23,979 --> 00:00:26,142
+Clear roles, clear deadlines.
+
+14
+00:00:26,212 --> 00:00:29,234
+They finished on Wednesday and spent Friday relaxing.
+
+15
+00:00:29,304 --> 00:00:30,632
+Result: A.
+
+16
+00:00:33,767 --> 00:00:35,661
+Dan: The background should be blue!
+
+17
+00:00:35,691 --> 00:00:37,111
+Emma: No, green!
+
+18
+00:00:36,981 --> 00:00:38,278
+Emma: Blue is boring!
+
+19
+00:00:38,308 --> 00:00:41,190
+Finn: Guys… we haven't even picked a topic yet.
+
+20
+00:00:41,220 --> 00:00:42,547
+Dan & Emma: STAY OUT OF THIS!
+
+21
+00:00:42,577 --> 00:00:43,761
+The Argument Team.
+
+22
+00:00:43,831 --> 00:00:46,189
+Full of passion, zero progress.
+
+23
+00:00:46,259 --> 00:00:48,271
+Three days of debate about colors.
+
+24
+00:00:48,341 --> 00:00:51,416
+Result: a very beautiful empty slide.
+
+25
+00:00:54,567 --> 00:00:56,145
+Gina: Should we start the project?
+
+26
+00:00:56,175 --> 00:00:56,754
+Hugo: Nah.
+
+27
+00:00:56,624 --> 00:00:58,009
+Hugo: We still have time.
+
+28
+00:00:58,039 --> 00:00:59,493
+Ivy: Yeah, tomorrow.
+
+29
+00:01:00,703 --> 00:01:01,608
+Gina: Guys.
+
+30
+00:01:01,478 --> 00:01:02,858
+Gina: It's due TOMORROW.
+
+31
+00:01:02,888 --> 00:01:03,643
+Hugo & Ivy: WHAT?!
+
+32
+00:01:03,673 --> 00:01:04,874
+The "Later" Team.
+
+33
+00:01:04,944 --> 00:01:07,422
+Relaxed all week, panicked all night.
+
+34
+00:01:07,492 --> 00:01:10,566
+Result: twelve slides, zero sleep.
+
+35
+00:01:13,700 --> 00:01:15,684
+Jake: Okay, meeting starts now.
+
+36
+00:01:15,554 --> 00:01:17,456
+Jake: First… who wants pizza?
+
+37
+00:01:17,486 --> 00:01:18,323
+Kim: Me!
+
+38
+00:01:18,193 --> 00:01:20,724
+Kim: Wait, did anyone watch that new movie?
+
+39
+00:01:20,754 --> 00:01:23,368
+Leo: Oh, I have a funny video to show you!
+
+40
+00:01:23,398 --> 00:01:24,379
+The Fun Team.
+
+41
+00:01:24,449 --> 00:01:27,984
+Best friendships, best snacks, worst productivity.
+
+42
+00:01:28,054 --> 00:01:30,231
+Five meetings, zero slides.
+
+43
+00:01:30,301 --> 00:01:32,068
+But hey, they had a great time.
+
+44
+00:01:35,233 --> 00:01:37,625
+Mia: I think blue is better, but let's vote.
+
+45
+00:01:37,655 --> 00:01:38,823
+Noah: Fine with me.
+
+46
+00:01:38,693 --> 00:01:40,272
+Noah: Break after this part?
+
+47
+00:01:40,142 --> 00:01:41,424
+Noah: I brought snacks.
+
+48
+00:01:41,454 --> 00:01:42,212
+Olivia: Deal.
+
+49
+00:01:42,082 --> 00:01:43,798
+Olivia: Let's finish by Thursday.
+
+50
+00:01:43,828 --> 00:01:44,990
+The Balanced Team.
+
+51
+00:01:45,060 --> 00:01:50,511
+They plan like the Productive Team, have fun like the Fun Team, and disagree without fighting.
+
+52
+00:01:53,667 --> 00:01:56,020
+The best team isn't the smartest one.
+
+53
+00:01:56,090 --> 00:02:00,465
+It's the one that communicates, plans, and still knows how to have fun.
+
+54
+00:02:00,535 --> 00:02:01,983
+So, which team are you in?
+
+55
+00:02:02,053 --> 00:02:03,414
+Tell us in the comments.
