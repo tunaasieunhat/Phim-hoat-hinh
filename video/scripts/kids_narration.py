@@ -16,10 +16,15 @@ import sys
 
 import edge_tts
 
+PUNCH = set()
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VARIANT = os.environ.get('KIDS_VARIANT', 'full')
 SR = 44100
-if VARIANT == 'med':    # POV: a day in the life of a med student (9:16)
+if VARIANT == 'it':   # POV: a day in the life of an IT student (9:16), deadpan
+    VOICE, RATE, LEAD, TAIL, GAP = 'en-US-BrianNeural', '-4%', 1.4, 2.2, 0.75
+    SCRIPT, PUB, DATA = 'script-pov-sinh-vien-cntt.md', 'it', 'IT/data.ts'
+    PUNCH = {(1, 4), (2, 8), (3, 4), (4, 6), (5, 3), (5, 6), (6, 4)}  # (scene, sentence): a beat of silence before the joke
+elif VARIANT == 'med':    # POV: a day in the life of a med student (9:16)
     VOICE, RATE, LEAD, TAIL, GAP = 'en-US-AndrewNeural', '-6%', 1.6, 2.6, 0.95
     SCRIPT, PUB, DATA = 'script-pov-sinh-vien-y.md', 'med', 'Med/data.ts'
 elif VARIANT == '3min':   # the <=3-minute 9:16 cut: shorter script, natural rate, tighter pauses
@@ -32,7 +37,7 @@ FPS = 30
 PROXY = os.environ.get('HTTPS_PROXY')
 TMP = os.path.join(ROOT, '.kids-tts', VARIANT)
 OUT = os.path.join(ROOT, 'public', PUB, 'audio')
-SPLIT = re.compile(r'(?<=[.?!])\s+|(?<=[.?!]["”])\s+')
+SPLIT = re.compile(r'(?<=[.?!])\s+(?=[^a-z])|(?<=[.?!]["”])\s+')
 
 
 def parse():
@@ -94,6 +99,8 @@ async def main():
             sys.exit(f"scene {sc['n']}: {len(en)} English vs {len(vi)} Vietnamese sentences — fix the script split")
         t, parts, sents, cues = LEAD, [], [], []
         for i, (e, v) in enumerate(zip(en, vi)):
+            if (sc['n'], i) in PUNCH:
+                t += 0.55
             mp3 = os.path.join(TMP, f"s{sc['n']:02d}_{i:02d}.mp3")
             if not os.path.exists(mp3) or os.path.getsize(mp3) < 1000:   # never reuse a broken partial take
                 await say(e, mp3)
@@ -101,7 +108,7 @@ async def main():
             d = len(a) / 2 / SR
             parts.append((t, a))
             sents.append({'t0': round(t, 3), 't1': round(t + d, 3), 'en': e})
-            for c0, c1, text in split_cue(v, t, t + d + GAP * 0.6, {'3min': 64, 'med': 70}.get(VARIANT, 84)):
+            for c0, c1, text in split_cue(v, t, t + d + GAP * 0.6, {'3min': 64, 'med': 70, 'it': 70}.get(VARIANT, 84)):
                 cues.append({'t0': round(c0, 3), 't1': round(c1, 3), 'vi': text})
             t += d + GAP
         dur = t - GAP + TAIL

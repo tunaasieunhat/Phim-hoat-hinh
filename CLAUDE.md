@@ -13,6 +13,7 @@ Người dùng giao tiếp bằng tiếng Việt, nên trả lời bằng tiến
 | `video/src/NhaGiao/` | Video 30s về Ngày Nhà giáo 20/11 (`NgayNhaGiao`). |
 | `video/src/Kids/` | "Grown-ups vs. Kids": `GrownupsVsKids` (16:9), `GrownupsVsKids3min` (9:16) và Still `GrownupsVsKidsCover`. Chứa rig người que dùng chung (`rig.tsx`). |
 | `video/src/Med/` | "POV: một ngày làm sinh viên Y": `PovMedStudent` (9:16). |
+| `video/src/IT/` | "POV: một ngày của sinh viên CNTT": `PovITStudent` (9:16), giọng BrianNeural; nhạc chiptune tắt 1 giây trước mỗi câu chốt (`make_it_music.py`). |
 | `video/scripts/` | Script tạo lời dẫn, nhạc và ảnh xem thử (xem bên dưới). |
 | `video/public/` | Font, audio và SFX mà video dùng qua `staticFile()`. |
 | `videos/` | **Sản phẩm cuối** (MP4/ảnh bìa) đã commit để giao cho người dùng. |
@@ -56,7 +57,7 @@ Sau khi render xong: chép file vào `videos/`, rồi commit và push.
   - `KidsHand` = Patrick Hand, dùng cho chữ vẽ tay trong cảnh.
   - `MedSans`/`KidsSans` = Be Vietnam Pro, có khai báo `unicode-range` tiếng Việt.
   - Font được nạp bằng `FontFace` + `delayRender`.
-- **Giọng Edge TTS miễn phí:** `en-US-GuyNeural` (Kids), `en-US-AndrewNeural` (Med). Phải dùng proxy `HTTPS_PROXY` và `SSL_CERT_FILE=/root/.ccr/ca-bundle.crt`.
+- **Giọng Edge TTS miễn phí:** `en-US-GuyNeural` (Kids), `en-US-AndrewNeural` (Med), `en-US-BrianNeural` (IT). Phải dùng proxy `HTTPS_PROXY` và `SSL_CERT_FILE=/root/.ccr/ca-bundle.crt`.
 - **Âm thanh:** dùng `Audio` của `@remotion/media`. SFX đặt trong `<Sequence layout="none">`. Nhạc nền để volume khoảng 0.15.
 - **Kiểm tra trước khi render đầy đủ:** luôn xem vài still để bắt lỗi chồng chữ và lỗi tư thế nhân vật.
 - **Khung dọc 9:16:** nền phải phủ kín toàn canvas để không lộ dải trống.
