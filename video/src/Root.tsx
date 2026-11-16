@@ -5,6 +5,7 @@ import { KIDS3_FRAMES, KIDS_FRAMES, KidsVideo, KidsVideo3 } from "./Kids/KidsVid
 import { KidsThumbnail } from "./Kids/Thumbnail";
 import { MED_FRAMES, MedVideo } from "./Med/MedVideo";
 import { IT_FRAMES, ITVideo } from "./IT/ITVideo";
+import { TEAMS_FRAMES, TeamsVideo } from "./Teams/TeamsVideo";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="GrownupsVsKids3min" component={KidsVideo3} durationInFrames={KIDS3_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="PovMedStudent" component={MedVideo} durationInFrames={MED_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="PovITStudent" component={ITVideo} durationInFrames={IT_FRAMES} fps={30} width={1080} height={1920} />
+      <Composition id="FiveTypesOfTeams" component={TeamsVideo} durationInFrames={TEAMS_FRAMES} fps={30} width={1080} height={1920} />
       <Still id="GrownupsVsKidsCover" component={KidsThumbnail} width={1080} height={1920} />
     </>
   );
