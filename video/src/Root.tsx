@@ -6,6 +6,7 @@ import { KidsThumbnail } from "./Kids/Thumbnail";
 import { MED_FRAMES, MedVideo } from "./Med/MedVideo";
 import { IT_FRAMES, ITVideo } from "./IT/ITVideo";
 import { TEAMS_FRAMES, TeamsVideo } from "./Teams/TeamsVideo";
+import { SLEEP_PREVIEW_FRAMES, SleepPreview } from "./Sleep/SleepVideo";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="PovMedStudent" component={MedVideo} durationInFrames={MED_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="PovITStudent" component={ITVideo} durationInFrames={IT_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="FiveTypesOfTeams" component={TeamsVideo} durationInFrames={TEAMS_FRAMES} fps={30} width={1080} height={1920} />
+      <Composition id="NotEnoughSleepPreview" component={SleepPreview} durationInFrames={SLEEP_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
       <Still id="GrownupsVsKidsCover" component={KidsThumbnail} width={1080} height={1920} />
     </>
   );
