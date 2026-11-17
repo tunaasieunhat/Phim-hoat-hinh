@@ -46,6 +46,13 @@
       "skillPath": "skills/find-skills/SKILL.md",
       "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
     },
+    "generative-music-audio": {
+      "source": "curiositech/port-daddy",
+      "commit": "0bfd99bcad28e80b5056865b671556d729816e4b",
+      "sourceType": "github",
+      "skillPath": "skills/generative-music-audio/SKILL.md",
+      "computedHash": "cd7786f4232fdc31ef744395c60c76955886585df0947b8b14d3e7f948a6323f"
+    },
     "gsap-core": {
       "source": "greensock/gsap-skills",
       "commit": "aed9cfd3277740755f6bfc1155c7aa645403b760",
