@@ -9,9 +9,9 @@ import type { SceneData } from "./data";
 
 export type SP = { sc: SceneData };
 export const UP = 110; // the action sits 110 px higher than in the wordless version, clear of the subtitles
-const FLOOR = GY - UP;
+export const FLOOR = GY - UP;
 export const cue = (sc: SceneData) => ({ S: (i: number) => Math.round(sc.sentences[Math.min(i, sc.sentences.length - 1)].t0 * 30), T: (i: number) => sc.sentences[Math.min(i, sc.sentences.length - 1)].t0, E: (i: number) => sc.sentences[Math.min(i, sc.sentences.length - 1)].t1 });
-const Room: React.FC<{ wall: string; floor: string; children?: React.ReactNode }> = ({ wall, floor, children }) => (
+export const Room: React.FC<{ wall: string; floor: string; children?: React.ReactNode }> = ({ wall, floor, children }) => (
   <g><rect width={VW} height={VH} fill={wall} /><rect x={0} y={FLOOR} width={VW} height={VH - FLOOR} fill={floor} /><g transform={`translate(0 ${-UP})`}>{children}</g></g>
 );
 

@@ -10,6 +10,10 @@ const p = (cardigan: string, hair: Look["hair"], hairColor: string, extra: Parti
 export const CAST: Record<string, Look> = {
   me: p("#60a5fa", "messy", INK, { big: true }),
   teacher: p("#e2e8f0", "bald", "#6b7280", { glasses: true, thick: true, tie: "#b91c1c", s: 1.08 }),
+  // the narrated "Tom" video: a cheerful coworker, the boss, one more colleague
+  mate: p("#34d399", "bob", "#7c2d12"),
+  boss: p("#475569", "bald", "#9ca3af", { glasses: true, tie: "#b91c1c", s: 1.06 }),
+  pal: p("#fb923c", "wild", "#78350f"),
 };
 
 export type Eyes = "wink" | "spiral" | "big" | "open" | "wide" | "closed" | "happy" | "tired" | "sad" | "dizzy";

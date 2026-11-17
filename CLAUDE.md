@@ -16,6 +16,7 @@ Người dùng giao tiếp bằng tiếng Việt, nên trả lời bằng tiến
 | `video/src/IT/` | "POV: một ngày của sinh viên CNTT": `PovITStudent` (9:16), giọng BrianNeural; nhạc chiptune tắt 1 giây trước mỗi câu chốt (`make_it_music.py`). |
 | `video/src/Teams/` | "5 kiểu nhóm làm việc": `FiveTypesOfTeams` (9:16), hội thoại nhiều giọng (`scripts/dialogue_narration.py`, xuất cả .srt), nhạc theo từng nhóm (`make_teams_music.py`). |
 | `video/src/Sleep/` | "Không ngủ đủ giấc" (không lời, 9:16): `NotEnoughSleep` (đủ 9 cảnh, 2:30) và `NotEnoughSleepPreview` (cảnh 1–3). Chuyển động cảnh 4–9 dùng GSAP timeline (`timeline.ts`); nhạc ngắn strudel trong `scripts/strudel/`. |
+| `video/src/Tom/` | "Thiếu ngủ" bản **có lời dẫn** (Tom + Não của Tom, 9:16): `TomNoSleep` (7 cảnh, 1:50). Remotion chỉ render hình + giọng + SFX; nhạc nền được trộn sau bằng `scripts/mix_tom.py` (ffmpeg: tắt nhạc 1 giây trước câu chốt, sidechain hạ nhạc dưới giọng, chuẩn hóa −14 LUFS). |
 | `video/public/audio/` | **Kho âm thanh chung:** SFX và nhạc nền tải về, có `CREDITS.md` ghi nguồn/giấy phép. |
 | `video/scripts/` | Script tạo lời dẫn, nhạc và ảnh xem thử (xem bên dưới). |
 | `video/public/` | Font, audio và SFX mà video dùng qua `staticFile()`. |
@@ -88,7 +89,7 @@ Sau khi render xong: chép file vào `videos/`, rồi commit và push.
   - `KidsHand` = Patrick Hand, dùng cho chữ vẽ tay trong cảnh.
   - `MedSans`/`KidsSans` = Be Vietnam Pro, có khai báo `unicode-range` tiếng Việt.
   - Font được nạp bằng `FontFace` + `delayRender`.
-- **Giọng Edge TTS miễn phí:** `en-US-GuyNeural` (Kids), `en-US-AndrewNeural` (Med), `en-US-BrianNeural` (IT). Phải dùng proxy `HTTPS_PROXY` và `SSL_CERT_FILE=/root/.ccr/ca-bundle.crt`.
+- **Giọng Edge TTS miễn phí:** `en-US-GuyNeural` (Kids), `en-US-AndrewNeural` (Med), `en-US-BrianNeural` (IT). Bản Tom: Andrew đọc chậm 8%, câu trích dùng giọng khác qua `ALT` trong `kids_narration.py`. Phải dùng proxy `HTTPS_PROXY` và `SSL_CERT_FILE=/root/.ccr/ca-bundle.crt`.
 - **Âm thanh:** dùng `Audio` của `@remotion/media`. SFX đặt trong `<Sequence layout="none">`. Nhạc nền để volume khoảng 0.15.
 - **Kiểm tra trước khi render đầy đủ:** luôn xem vài still để bắt lỗi chồng chữ và lỗi tư thế nhân vật.
 - **Khung dọc 9:16:** nền phải phủ kín toàn canvas để không lộ dải trống.

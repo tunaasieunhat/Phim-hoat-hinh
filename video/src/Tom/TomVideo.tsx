@@ -7,6 +7,7 @@ import { AbsoluteFill, continueRender, delayRender, interpolate, Sequence, stati
 import { Audio } from "@remotion/media";
 import { SCENES, type SceneData } from "./data";
 import { Tom1, Tom2, Tom3, type SP } from "./scenes1";
+import { Tom4, Tom5, Tom6, Tom7 } from "./scenes2";
 
 const VI = "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB";
 if (typeof document !== "undefined") {
@@ -20,11 +21,20 @@ if (typeof document !== "undefined") {
 }
 
 const FPS = 30;
-const COMPONENTS: React.FC<SP>[] = [Tom1, Tom2, Tom3];
+const COMPONENTS: React.FC<SP>[] = [Tom1, Tom2, Tom3, Tom4, Tom5, Tom6, Tom7];
 const starts = SCENES.reduce<number[]>((a, s, i) => [...a, i === 0 ? 0 : a[i - 1] + SCENES[i - 1].frames], []);
+export const TOM_FRAMES = SCENES.reduce((a, s) => a + s.frames, 0);
 export const TOM_PREVIEW_FRAMES = SCENES.slice(0, 3).reduce((a, s) => a + s.frames, 0);
 
 const fade = (t: number, t0: number, t1: number) => interpolate(t, [t0, t0 + 0.12, t1 - 0.1, t1], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+// a long English sentence is shown in two halves (split at the comma nearest the middle), timed by its length
+const half = (text: string, limit: number, prog: number) => {
+  if (text.length <= limit) return text;
+  const cuts = [...text.matchAll(/[,:;]\s/g)].map((m) => (m.index ?? 0) + 1);
+  if (!cuts.length) return text;
+  const c = cuts.reduce((x, y) => (Math.abs(y - text.length / 2) < Math.abs(x - text.length / 2) ? y : x));
+  return prog < c / text.length ? text.slice(0, c).trim() : text.slice(c).trim();
+};
 const Subtitles: React.FC<{ sc: SceneData }> = ({ sc }) => {
   const t = useCurrentFrame() / FPS;
   const en = sc.sentences.find((q) => t >= q.t0 && t < q.t1 + 0.45);
@@ -35,7 +45,7 @@ const Subtitles: React.FC<{ sc: SceneData }> = ({ sc }) => {
     <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: 1330, gap: 14 }}>
       <div style={{ position: "absolute", top: 1300, left: 40, right: 40, height: 320, borderRadius: 36, background: "rgba(15,23,42,0.6)", opacity: op }} />
       <div style={{ ...common, minHeight: 116, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
-        {en && <div style={{ ...common, opacity: fade(t, en.t0, en.t1 + 0.45), fontSize: 48, color: "#fde68a", WebkitTextStroke: "2px #111827", paintOrder: "stroke fill" }}>{en.en}</div>}
+        {en && <div style={{ ...common, opacity: fade(t, en.t0, en.t1 + 0.45), fontSize: 48, color: "#fde68a", WebkitTextStroke: "2px #111827", paintOrder: "stroke fill" }}>{half(en.en, 64, (t - en.t0) / (en.t1 - en.t0))}</div>}
       </div>
       {vi && <div style={{ ...common, opacity: fade(t, vi.t0, vi.t1), fontSize: 50, color: "#fff", WebkitTextStroke: "2px #000", paintOrder: "stroke fill" }}>{vi.vi}</div>}
     </AbsoluteFill>
@@ -87,6 +97,21 @@ export const TomVideo: React.FC<{ upto?: number }> = ({ upto = COMPONENTS.length
         <Cue at={F(2, 1) + 22} src="pour.wav" volume={0.25} frames={30} />
         <Cue at={F(2, 2) + 4} src="ding.mp3" volume={0.7} frames={30} />
       </>}
+      {upto > 3 && <>
+        {/* 4: the flames; 5: crunchy bites; 6: the alert, then crickets after "Yes, chicken."; 7: lock, full charge, birds, ding */}
+        <Cue at={F(3, 1) + 66} src="fire.wav" volume={0.6} frames={48} />
+        <Cue at={F(3, 2)} src="fire.wav" volume={0.8} frames={48} />
+        {[30, 100].map((d) => <Cue key={`c0${d}`} at={F(4, 0) + d} src="crunch.wav" volume={0.35} frames={27} />)}
+        {[69, 96, 141].map((d) => <Cue key={`c1${d}`} at={F(4, 1) + d} src="crunch.wav" volume={0.5} frames={27} />)}
+        <Cue at={F(5, 2) + 3} src="alert.ogg" volume={0.5} frames={20} />
+        <Cue at={F(5, 2, true) + 6} src="crickets.wav" volume={0.5} frames={Math.min(118, F(5, 4) - F(5, 2, true) - 10)} />
+        <Cue at={F(6, 1) + 30} src="lock.ogg" volume={0.6} frames={20} />
+        <Cue at={F(6, 2) - 14} src="charge.ogg" volume={0.5} frames={40} />
+        <Cue at={F(6, 2) + 10} src="birds.ogg" volume={0.22} frames={F(6, 6) - F(6, 2)} />
+        <Cue at={F(6, 3)} src="ding.mp3" volume={0.5} frames={30} />
+        <Cue at={F(6, 5)} src="bruh.wav" volume={0.3} frames={50} />
+        <Cue at={F(6, 6) - 6} src="ding.mp3" volume={0.5} frames={30} />
+      </>}
       {SCENES.slice(0, upto).map((sc, i) => (
         <Sequence key={sc.n} name={`Cảnh ${sc.n} · ${sc.title}`} from={starts[i]} durationInFrames={sc.frames}>
           <SceneFrame sc={sc} i={i} last={i === upto - 1} />
@@ -96,3 +121,4 @@ export const TomVideo: React.FC<{ upto?: number }> = ({ upto = COMPONENTS.length
   );
 };
 export const TomPreview: React.FC = () => <TomVideo upto={3} />;
+export const TomFull: React.FC = () => <TomVideo />;

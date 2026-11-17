@@ -8,7 +8,7 @@ import { IT_FRAMES, ITVideo } from "./IT/ITVideo";
 import { TEAMS_FRAMES, TeamsVideo } from "./Teams/TeamsVideo";
 import { SLEEP_FRAMES, SLEEP_PREVIEW_FRAMES, SleepFull, SleepPreview } from "./Sleep/SleepVideo";
 
-import { TOM_PREVIEW_FRAMES, TomPreview } from "./Tom/TomVideo";
+import { TOM_FRAMES, TOM_PREVIEW_FRAMES, TomFull, TomPreview } from "./Tom/TomVideo";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -21,6 +21,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="FiveTypesOfTeams" component={TeamsVideo} durationInFrames={TEAMS_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="NotEnoughSleep" component={SleepFull} durationInFrames={SLEEP_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="NotEnoughSleepPreview" component={SleepPreview} durationInFrames={SLEEP_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
+      <Composition id="TomNoSleep" component={TomFull} durationInFrames={TOM_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="TomNoSleepPreview" component={TomPreview} durationInFrames={TOM_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
       <Still id="GrownupsVsKidsCover" component={KidsThumbnail} width={1080} height={1920} />
     </>

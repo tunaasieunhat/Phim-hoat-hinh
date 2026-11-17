@@ -127,4 +127,16 @@ breath = bp(rng.standard_normal(n), 700, 1.2) * (np.sin(np.pi * np.clip(t / 1.4,
 buzz = np.sign(np.sin(2 * np.pi * (38 + 6 * np.sin(2 * np.pi * 3 * t)) * t)) * 0.4
 out_ = lp(buzz, 0.05) * (np.sin(np.pi * np.clip((t - 1.6) / 1.4, 0, 1)) * (t > 1.6))
 write('snore.wav', breath * 0.6 + out_, 0.5)
+# crunchy bites: three short bursts of crackle ("nhai giòn")
+n = int(SR * 0.9); x = np.zeros(n)
+for b in range(3):
+    for at in rng.uniform(b * 0.28, b * 0.28 + 0.14, 40):
+        i = int(at * SR); m = int(SR * 0.006); x[i:i + m] += rng.standard_normal(m) * rng.uniform(0.3, 1) * np.exp(-np.arange(m) / 60)
+write('crunch.wav', bp(x, 3200, 1.2), 0.6)
+
+# a flame bursting up: a low whoosh of filtered noise that swells and dies
+n = int(SR * 1.6); t = np.arange(n) / SR
+fw = lp(rng.standard_normal(n), 0.06) * np.minimum(1, t / 0.12) * np.exp(-t * 2.2) + bp(rng.standard_normal(n), 1800, 1) * 0.25 * np.exp(-t * 4)
+write('fire.wav', fw, 0.7)
+shutil.copy(os.path.join(ROOT, 'public', 'it', 'sfx', 'crickets.wav'), os.path.join(A, 'crickets.wav'))   # synthesized for the IT video
 print('public/audio:', ', '.join(sorted(os.listdir(A))))
