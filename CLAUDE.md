@@ -15,7 +15,7 @@ Người dùng giao tiếp bằng tiếng Việt, nên trả lời bằng tiến
 | `video/src/Med/` | "POV: một ngày làm sinh viên Y": `PovMedStudent` (9:16). |
 | `video/src/IT/` | "POV: một ngày của sinh viên CNTT": `PovITStudent` (9:16), giọng BrianNeural; nhạc chiptune tắt 1 giây trước mỗi câu chốt (`make_it_music.py`). |
 | `video/src/Teams/` | "5 kiểu nhóm làm việc": `FiveTypesOfTeams` (9:16), hội thoại nhiều giọng (`scripts/dialogue_narration.py`, xuất cả .srt), nhạc theo từng nhóm (`make_teams_music.py`). |
-| `video/src/Sleep/` | "Không ngủ đủ giấc" (không lời): `NotEnoughSleepPreview` (cảnh 1–3, 9:16). |
+| `video/src/Sleep/` | "Không ngủ đủ giấc" (không lời, 9:16): `NotEnoughSleep` (đủ 9 cảnh, 2:30) và `NotEnoughSleepPreview` (cảnh 1–3). Chuyển động cảnh 4–9 dùng GSAP timeline (`timeline.ts`); nhạc ngắn strudel trong `scripts/strudel/`. |
 | `video/public/audio/` | **Kho âm thanh chung:** SFX và nhạc nền tải về, có `CREDITS.md` ghi nguồn/giấy phép. |
 | `video/scripts/` | Script tạo lời dẫn, nhạc và ảnh xem thử (xem bên dưới). |
 | `video/public/` | Font, audio và SFX mà video dùng qua `staticFile()`. |
@@ -45,8 +45,11 @@ Khi người dùng nhờ làm video người que mà không chỉ định cách 
 # đo trước
 ffmpeg -nostats -i out/<file>.mp4 -af ebur128 -f null - 2>&1 | grep -A2 Integrated
 # chuẩn hóa 2 lượt: lượt 1 đo (print_format=json), lượt 2 áp measured_* vào loudnorm, giữ nguyên hình
-ffmpeg -i out/<file>.mp4 -c:v copy -af loudnorm=I=-14:TP=-1:LRA=11:measured_I=..:measured_TP=..:measured_LRA=..:measured_thresh=..:offset=..:linear=true -c:a aac -b:a 192k out/<file>-final.mp4
+PRE="alimiter=limit=0.56:level=false:attack=1:release=50"   # hạ các đỉnh SFX trước, để chế độ linear đạt đúng −14
+ffmpeg -i out/<file>.mp4 -af "$PRE,loudnorm=I=-14:TP=-1.5:LRA=20:print_format=json" -f null -
+ffmpeg -i out/<file>.mp4 -c:v copy -af "$PRE,loudnorm=I=-14:TP=-1.5:LRA=20:measured_I=..:measured_TP=..:measured_LRA=..:measured_thresh=..:offset=..:linear=true,aresample=48000" -c:a aac -b:a 192k -movflags +faststart out/<file>-final.mp4
 ```
+Kiểm tra lại bằng `ebur128=peak=true`: I ≈ −14 LUFS, Peak ≤ −1 dBFS (bản "không ngủ đủ giấc": −14,3 / −1,2).
 
 ## Quy trình làm một video người que mới (Remotion)
 

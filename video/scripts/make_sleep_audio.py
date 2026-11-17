@@ -27,6 +27,16 @@ COPY = {
     'bounce.flac': 'bf-cartoon-bounce/BounceYoFrankie.flac',  # CC BY 3.0 (Blender Foundation)
     'birds.ogg': 'isaiah-birds/birds-isaiah658_0.ogg',      # CC0
     'slide-whistle.wav': 'joedeshon-slide-whistle/79671__joedeshon__slide-whistle-down-01.wav',  # CC BY 3.0
+    # scenes 4-9 (all CC0: Kenney, rubberduck, OwlishMedia)
+    'splash.ogg': 'rubberduck-water-40/splash_03.ogg',
+    'bonk.ogg': 'kenney-impact/impactMetal_heavy_000.ogg',
+    'bonk2.ogg': 'kenney-impact/impactMetal_heavy_002.ogg',
+    'thud.ogg': 'kenney-impact/impactSoft_heavy_000.ogg',
+    'alert.ogg': 'kenney-interface/error_006.ogg',
+    'ping.ogg': 'kenney-interface/glass_004.ogg',
+    'gulp.wav': 'owlish-home-202/Drink/Drink_02.wav',
+    'charge.ogg': 'kenney-digital/powerUp1.ogg',
+    'lock.ogg': 'kenney-rpg/metalLatch.ogg',
 }
 for dst, src in COPY.items():
     shutil.copy(os.path.join(LIB, src), os.path.join(A, dst))
@@ -93,4 +103,28 @@ for f, at, L in [(155.6, 0.0, 0.45), (116.5, 0.5, 1.3)]:
     tone = lp(saw, 0.08) * np.minimum(1, tt / 0.04) * np.minimum(1, (L - tt) / 0.15)
     i = int(at * SR); x[i:i + n] += tone[:len(x) - i]
 write('bruh.wav', x, 0.8)
+# cereal pouring: a dry rattle of many tiny hits
+n = int(SR * 1.6); x = np.zeros(n)
+for at in rng.uniform(0, 1.45, 260):
+    i = int(at * SR); m = int(SR * 0.012); x[i:i + m] += bp(rng.standard_normal(m), rng.uniform(2500, 5000), 3) * rng.uniform(0.2, 1)
+write('pour.wav', x * np.minimum(1, np.arange(n) / 2000), 0.6)
+
+# phone-on-vibrate style buzz for the jittery hands: "brrrrr"
+n = int(SR * 2.0); t = np.arange(n) / SR
+bz = np.sign(np.sin(2 * np.pi * 120 * t)) * (0.6 + 0.4 * np.sin(2 * np.pi * 9 * t)) * 0.3
+write('vibrate.wav', lp(bz, 0.12) * np.minimum(1, t / 0.05) * np.minimum(1, (2.0 - t) / 0.2), 0.6)
+
+# power-down: a whine falling away with a final click
+n = int(SR * 1.4); t = np.arange(n) / SR
+f = 900 * np.exp(-t * 2.6) + 40
+pdn = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 1.5)
+pdn[-int(SR * 0.05):] += rng.standard_normal(int(SR * 0.05)) * 0.3 * np.exp(-np.arange(int(SR * 0.05)) / 300)
+write('powerdown.wav', pdn, 0.7)
+
+# a soft snore: breathy in (rising) and a buzzy out
+n = int(SR * 3.2); t = np.arange(n) / SR
+breath = bp(rng.standard_normal(n), 700, 1.2) * (np.sin(np.pi * np.clip(t / 1.4, 0, 1)) * (t < 1.4))
+buzz = np.sign(np.sin(2 * np.pi * (38 + 6 * np.sin(2 * np.pi * 3 * t)) * t)) * 0.4
+out_ = lp(buzz, 0.05) * (np.sin(np.pi * np.clip((t - 1.6) / 1.4, 0, 1)) * (t > 1.6))
+write('snore.wav', breath * 0.6 + out_, 0.5)
 print('public/audio:', ', '.join(sorted(os.listdir(A))))

@@ -12,7 +12,7 @@ export const CAST: Record<string, Look> = {
   teacher: p("#e2e8f0", "bald", "#6b7280", { glasses: true, thick: true, tie: "#b91c1c", s: 1.08 }),
 };
 
-export type Eyes = "spiral" | "big" | "open" | "wide" | "closed" | "happy" | "tired" | "sad" | "dizzy";
+export type Eyes = "wink" | "spiral" | "big" | "open" | "wide" | "closed" | "happy" | "tired" | "sad" | "dizzy";
 export type Mouth = "smile" | "grin" | "flat" | "frown" | "o" | "wavy" | "chew" | "scream";
 export type Face = { eyes?: Eyes; mouth?: Mouth; brows?: "none" | "worried" | "up" | "angry" | "stern"; look?: number; blush?: boolean; sweat?: boolean };
 
@@ -29,6 +29,7 @@ const FaceArt: React.FC<{ r: number; face: Face; f: number; color: string; bags?
     if (eyes === "closed") return <path d={`M ${cx - r * 0.15} ${ey} Q ${cx} ${ey + r * 0.12} ${cx + r * 0.15} ${ey}`} fill="none" stroke={color} strokeWidth={sw} strokeLinecap="round" />;
     if (eyes === "happy") return <path d={`M ${cx - r * 0.16} ${ey + r * 0.05} Q ${cx} ${ey - r * 0.17} ${cx + r * 0.16} ${ey + r * 0.05}`} fill="none" stroke={color} strokeWidth={sw} strokeLinecap="round" />;
     if (eyes === "dizzy") return <path d={`M ${cx - r * 0.12} ${ey - r * 0.12} L ${cx + r * 0.12} ${ey + r * 0.12} M ${cx + r * 0.12} ${ey - r * 0.12} L ${cx - r * 0.12} ${ey + r * 0.12}`} stroke={color} strokeWidth={sw} strokeLinecap="round" />;
+    if (eyes === "wink") return sx > 0 ? <path d={`M ${cx - r * 0.18} ${ey + r * 0.02} Q ${cx} ${ey - r * 0.14} ${cx + r * 0.18} ${ey + r * 0.02}`} fill="none" stroke={color} strokeWidth={sw * 1.1} strokeLinecap="round" /> : (<g><circle cx={cx} cy={ey} r={r * 0.25} fill="#fff" stroke={color} strokeWidth={sw * 0.8} /><circle cx={cx + look * 0.4} cy={ey + r * 0.02} r={r * 0.13} fill={color} /><circle cx={cx + look * 0.4 + r * 0.05} cy={ey - r * 0.04} r={r * 0.045} fill="#fff" /></g>);
     if (eyes === "big") return (<g><circle cx={cx} cy={ey} r={r * 0.25} fill="#fff" stroke={color} strokeWidth={sw * 0.8} /><circle cx={cx + look * 0.4} cy={ey + r * 0.02} r={r * 0.13} fill={color} /><circle cx={cx + look * 0.4 + r * 0.05} cy={ey - r * 0.04} r={r * 0.045} fill="#fff" /></g>);
     if (eyes === "spiral") return <path transform={`translate(${cx} ${ey}) rotate(${sx * f * 12})`} d={`M 0 0 m ${r * 0.03} 0 a ${r * 0.03} ${r * 0.03} 0 1 1 ${-r * 0.06} 0 a ${r * 0.08} ${r * 0.08} 0 1 1 ${r * 0.14} 0 a ${r * 0.13} ${r * 0.13} 0 1 1 ${-r * 0.24} 0 a ${r * 0.18} ${r * 0.18} 0 1 1 ${r * 0.34} 0`} fill="none" stroke={color} strokeWidth={sw * 0.8} strokeLinecap="round" />;
     if (eyes === "wide") return (<g><circle cx={cx} cy={ey} r={r * 0.2} fill="#fff" stroke={color} strokeWidth={sw * 0.8} /><circle cx={cx} cy={ey} r={r * 0.08} fill={color} /></g>);

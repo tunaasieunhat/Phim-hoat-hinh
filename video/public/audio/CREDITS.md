@@ -12,7 +12,16 @@ Sound effects:
 - ding.mp3: Boings — EZduzziteh (OpenGameArt) — CC0
 - boing.flac: BOING! — Aeva (OpenGameArt) — CC0
 - birds.ogg: Ambient Bird Sounds — isaiah658 (OpenGameArt) — CC0
-- tick, alarm, groan, drag, brush, bruh (.wav): synthesized for this video (scripts/make_sleep_audio.py)
+- splash.ogg: 40 CC0 water/splash/slime SFX — rubberduck (OpenGameArt) — CC0
+- bonk.ogg, bonk2.ogg, thud.ogg: Impact Sounds — Kenney — CC0
+- alert.ogg, ping.ogg: Interface Sounds — Kenney — CC0
+- charge.ogg: Digital Audio — Kenney — CC0
+- lock.ogg: RPG Audio — Kenney — CC0
+- gulp.wav: 202 More Sound Effects — OwlishMedia (OpenGameArt) — CC0
+- tick, alarm, groan, drag, brush, bruh, pour, vibrate, powerdown, snore (.wav): synthesized for this video (scripts/make_sleep_audio.py)
+
+Short music cues written for this video with the strudel-music skill (synth only, no samples; sources in scripts/strudel/):
+- music-coffee-rush.wav (scene 7), music-lullaby.wav (scene 6), music-turtle.wav (scene 5)
 
 For TikTok/YouTube, paste into the description:
 Music: "Merry Go", "Local Forecast - Elevator", "Morning" by Kevin MacLeod (incompetech.com), CC BY 4.0.
