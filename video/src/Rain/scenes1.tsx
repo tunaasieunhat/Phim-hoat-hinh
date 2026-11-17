@@ -4,6 +4,7 @@ import { alive, mix, P, type Pose } from "../Kids/rig";
 import { Person } from "../Sleep/people";
 import { body, S as SCALE } from "../Sleep/stage";
 import { useTimeline } from "../Sleep/timeline";
+import { grip, handsOf, lerpV } from "./arms";
 import { Badge, FLOOR, GY, HAND, INK, lines, PlanLabel, RainCloud, Tear, UP, VH, VW, Window, type SP } from "./stage";
 
 export const Room: React.FC<{ wall: string; floor: string; children?: React.ReactNode }> = ({ wall, floor, children }) => (
@@ -74,8 +75,14 @@ export const Den: React.FC<{ f: number; plan: boolean; children: React.ReactNode
 );
 export const Rain2: React.FC<SP> = ({ sc }) => {
   const { T } = lines(sc);
-  const s = useTimeline({ label: 0, tear: 0, badgeP: 0, badgeR: 0, flip: 0, phone: 0, flashN: 0, sleep: 0 }, (tl, v) => {
+  const s = useTimeline({ label: 0, tear: 0, badgeP: 0, badgeR: 0, flip: 0, phone: 0, flashN: 0, sleep: 0, pflip: 0, pflip2: 0, grab: 0, lift: 0, sigh: 0 }, (tl, v) => {
     tl.to(v, { badgeP: 1, duration: 0.4, ease: "back.out(2.5)" }, 0.3).to(v, { label: 1, duration: 0.4 }, 0.6)
+      // PLAN: read, turn a page, a sip of tea, another page, a happy sigh
+      .to(v, { pflip: 1, duration: 0.7, ease: "power1.inOut" }, 1.9)
+      .to(v, { grab: 1, duration: 0.6, ease: "power2.inOut" }, 2.9).to(v, { lift: 1, duration: 0.6, ease: "power2.inOut" }, 3.6)
+      .to(v, { lift: 0, duration: 0.6, ease: "power2.inOut" }, 5.0).to(v, { grab: 0, duration: 0.6, ease: "power2.inOut" }, 5.7)
+      .to(v, { pflip2: 1, duration: 0.7, ease: "power1.inOut" }, 6.4)
+      .to(v, { sigh: 1, duration: 0.7, ease: "power2.out" }, 7.2)
       .to(v, { tear: 1, duration: 0.75, ease: "power1.in" }, T(0) - 1.1)
       .to(v, { badgeR: 1, duration: 0.4, ease: "back.out(2.5)" }, T(0) - 0.6)
       .to(v, { flip: 1, duration: 0.6, ease: "power1.inOut" }, T(0) + 0.1)
@@ -86,15 +93,25 @@ export const Rain2: React.FC<SP> = ({ sc }) => {
   });
   const { f } = s;
   const x = 380;
-  // PLAN: the picture-perfect reading corner
-  const planPose = alive(SITF, f, 0.5);
-  const pj = body(x, GY, planPose);
+  // PLAN: the picture-perfect reading corner — she reads, turns a page, reaches for the tea, sips, sighs happily
+  const px = 430;
+  const base = alive(P({ ...SITF, lean: 6 - 12 * s.grab * (1 - s.lift) + 8 * s.sigh, tilt: -8 + 6 * s.sigh }), f, 0.5);
+  const h0 = handsOf(px, GY, base);
+  const pj = body(px, GY, base);
+  const table: [number, number] = [582, GY - 148], mouth: [number, number] = [pj.head[0] - 4, pj.head[1] + 54];
+  const planPose = grip(px, GY, base, null, lerpV(lerpV(h0.R, table, s.grab), mouth, s.lift));
+  const hR = handsOf(px, GY, planPose).R;
+  const held = s.grab > 0.98;
+  const bookAt: [number, number] = [(h0.L[0] + h0.R[0]) / 2 + 10, (h0.L[1] + h0.R[1]) / 2 - 6];
+  const pflip = s.pflip > 0 && s.pflip < 1 ? s.pflip : s.pflip2 > 0 && s.pflip2 < 1 ? s.pflip2 : 0;
   const plan = (
     <Den f={f} plan>
       <circle cx={pj.head[0] + 40} cy={pj.head[1] + 60} r={260} fill="#fde68a" opacity={0.3} />
-      <Person who="lily" x={x} y={GY} s={SCALE} pose={planPose} f={f} face={{ eyes: "happy", mouth: "smile", look: 0.7, blush: true }} />
-      <Book x={(pj.handL[0] + pj.handR[0]) / 2 + 10} y={(pj.handL[1] + pj.handR[1]) / 2 - 6} rot={-14} s={1.1} color="#f59e0b" />
-      <Mug x={690} y={GY - 120} f={f} color="#fbcfe8" />
+      {!held && <Mug x={table[0] + 30} y={GY - 120} f={f} color="#fbcfe8" />}
+      <Person who="lily" x={px} y={GY} s={SCALE} pose={planPose} f={f} face={{ eyes: s.lift > 0.6 || s.sigh > 0.4 ? "happy" : "open", mouth: s.lift > 0.6 ? "o" : "smile", look: s.grab > 0.2 && s.lift < 0.5 ? 0.9 : 0.7, blush: true }} />
+      <Book x={bookAt[0] - 10 * s.grab} y={bookAt[1] + 8 * s.grab} rot={-14 - 10 * s.grab} s={1.1} flip={pflip} color="#f59e0b" />
+      {held && <Mug x={hR[0] + 30} y={hR[1] + 28} f={f} color="#fbcfe8" />}
+      {s.sigh > 0.05 && [0, 1, 2].map((i) => { const t = ((f / 30 - 7.2) * 0.6 + i * 0.33) % 1; return <text key={i} x={pj.head[0] + 70 + i * 40 + Math.sin(f / 8 + i) * 10} y={pj.head[1] - 40 - t * 160} fontFamily={HAND} fontSize={56} fill="#f472b6" opacity={s.sigh * (1 - t)}>♥</text>; })}
       {[0, 1, 2].map((i) => <path key={i} transform={`translate(${200 + i * 120} ${560 + (i % 2) * 70}) scale(${0.6 + 0.4 * Math.sin(f / 7 + i)})`} d="M 0 -18 L 5 -5 L 18 0 L 5 5 L 0 18 L -5 5 L -18 0 L -5 -5 Z" fill="#fff" />)}
     </Den>
   );

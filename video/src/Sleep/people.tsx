@@ -76,7 +76,7 @@ const FaceArt: React.FC<{ r: number; face: Face; f: number; color: string; bags?
 };
 
 // (x, y) = ground point. pose angles as in ../Kids/rig (0 = down, + towards +x).
-export const Person: React.FC<{ who: Who; x: number; y: number; pose: Pose; face?: Face; f: number; flip?: boolean; s?: number; opacity?: number; backpack?: boolean }> = ({ who, x, y, pose, face = {}, f, flip, s: sc = 1, opacity = 1, backpack }) => {
+export const Person: React.FC<{ who: Who; x: number; y: number; pose: Pose; face?: Face; f: number; flip?: boolean; s?: number; opacity?: number; backpack?: boolean; arms?: boolean }> = ({ who, x, y, pose, face = {}, f, flip, s: sc = 1, opacity = 1, backpack, arms = true }) => {
   const L = CAST[who];
   const s = L.s * sc;
   const color = L.color;
@@ -112,7 +112,7 @@ export const Person: React.FC<{ who: Who; x: number; y: number; pose: Pose; face
       {line([j.hip, kL, j.footL])}
       {line([j.hip, kR, j.footR])}
       {[j.footL, j.footR].map((q, i) => <ellipse key={i} cx={q[0] + 10 * s} cy={q[1]} rx={15 * s} ry={7 * s} fill={color} />)}
-      {arm(armL)}
+      {arms && arm(armL)}
       {line([j.hip, j.neck])}
       {L.coat && [-1, 1].map((side) => <path key={side} d={coatPts(side)} fill="#fff" stroke={INK} strokeWidth={4 * s} strokeLinejoin="round" />)}
       {L.cardigan && <path d={`M ${sh[0] - 32 * s} ${sh[1] + 8 * s} L ${sh[0] + 32 * s} ${sh[1] + 8 * s} L ${j.hip[0] + 40 * s} ${j.hip[1] + 30 * s} L ${j.hip[0] - 40 * s} ${j.hip[1] + 30 * s} Z`} fill={L.cardigan} stroke={INK} strokeWidth={4 * s} strokeLinejoin="round" />}
@@ -122,7 +122,7 @@ export const Person: React.FC<{ who: Who; x: number; y: number; pose: Pose; face
       {L.tie && <path d={`M ${j.neck[0] - 7 * s} ${j.neck[1] + 10 * s} L ${j.neck[0] + 7 * s} ${j.neck[1] + 10 * s} L ${j.neck[0] + 10 * s} ${j.neck[1] + 70 * s} L ${j.neck[0]} ${j.neck[1] + 84 * s} L ${j.neck[0] - 10 * s} ${j.neck[1] + 70 * s} Z`} fill={L.tie} stroke={INK} strokeWidth={3 * s} />}
       {L.steth && (<g><path d={`M ${j.neck[0] - 22 * s} ${j.neck[1] + 4 * s} Q ${j.neck[0] - 26 * s} ${j.neck[1] + 70 * s} ${j.neck[0] - 2 * s} ${j.neck[1] + 86 * s} M ${j.neck[0] + 22 * s} ${j.neck[1] + 4 * s} Q ${j.neck[0] + 26 * s} ${j.neck[1] + 54 * s} ${j.neck[0] + 14 * s} ${j.neck[1] + 70 * s}`} fill="none" stroke={RED} strokeWidth={6 * s} strokeLinecap="round" /><circle cx={j.neck[0] - 2 * s} cy={j.neck[1] + 92 * s} r={9 * s} fill="#d1d5db" stroke={INK} strokeWidth={3 * s} /></g>)}
       {L.coat && <rect x={j.neck[0] + 14 * s} y={j.neck[1] + 46 * s} width={24 * s} height={30 * s} rx={3 * s} fill="#fff" stroke={INK} strokeWidth={3 * s} transform={`rotate(${pose.lean} ${j.neck[0]} ${j.neck[1]})`} />}
-      {arm(armR)}
+      {arms && arm(armR)}
       <g transform={`translate(${j.head[0]} ${j.head[1]}) rotate(${headRot})`}>
         {L.hair === "bun" && <circle cx={0} cy={-r * 1.05} r={r * 0.36} fill={L.hairColor} stroke={INK} strokeWidth={4 * s} />}
         {L.hair === "bob" && <path d={`M ${-r * 1.08} ${r * 0.5} Q ${-r * 1.2} ${-r * 1.15} 0 ${-r * 1.12} Q ${r * 1.2} ${-r * 1.15} ${r * 1.08} ${r * 0.5} Z`} fill={L.hairColor} />}
