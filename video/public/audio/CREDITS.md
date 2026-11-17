@@ -39,3 +39,5 @@ SFX: "BounceYoFrankie" (c) Blender Foundation, CC BY 3.0; "Slide whistle down" b
 - thunder.ogg: 100 CC0 SFX #2 — rubberduck — CC0
 - page.ogg: RPG Audio — Kenney — CC0
 - wahwah.wav, slurp.wav: synthesized (scripts/make_rain_audio.py)
+- door-creak.ogg: RPG Audio — Kenney — CC0
+- music-rain-lofi.wav: written for this video with the strudel-music skill (synth only; scripts/strudel/rain-lofi.js)

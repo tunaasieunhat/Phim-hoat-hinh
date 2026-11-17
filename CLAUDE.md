@@ -17,6 +17,7 @@ Người dùng giao tiếp bằng tiếng Việt, nên trả lời bằng tiến
 | `video/src/Teams/` | "5 kiểu nhóm làm việc": `FiveTypesOfTeams` (9:16), hội thoại nhiều giọng (`scripts/dialogue_narration.py`, xuất cả .srt), nhạc theo từng nhóm (`make_teams_music.py`). |
 | `video/src/Sleep/` | "Không ngủ đủ giấc" (không lời, 9:16): `NotEnoughSleep` (đủ 9 cảnh, 2:30) và `NotEnoughSleepPreview` (cảnh 1–3). Chuyển động cảnh 4–9 dùng GSAP timeline (`timeline.ts`); nhạc ngắn strudel trong `scripts/strudel/`. |
 | `video/src/Tom/` | "Thiếu ngủ" bản **có lời dẫn** (Tom + Não của Tom, 9:16): `TomNoSleep` (7 cảnh, 1:50). Remotion chỉ render hình + giọng + SFX; nhạc nền được trộn sau bằng `scripts/mix_tom.py` (ffmpeg: tắt nhạc 1 giây trước câu chốt, sidechain hạ nhạc dưới giọng, chuẩn hóa −14 LUFS). |
+| `video/src/Rain/` | "Kế hoạch ngày mưa vs. Thực tế" (9:16): `RainyDay` (7 cảnh, 1:40). Hội thoại 4 giọng qua `DIALOGUE=rain python3 scripts/dialogue_narration.py`; chuyển PLAN→REALITY bằng hiệu ứng xé khung (`Tear`, GSAP); mưa + nhạc PLAN/REALITY/lo-fi trộn sau bằng `scripts/mix_rain.py` (sidechain hạ dưới lời, −14 LUFS). |
 | `video/public/audio/` | **Kho âm thanh chung:** SFX và nhạc nền tải về, có `CREDITS.md` ghi nguồn/giấy phép. |
 | `video/scripts/` | Script tạo lời dẫn, nhạc và ảnh xem thử (xem bên dưới). |
 | `video/public/` | Font, audio và SFX mà video dùng qua `staticFile()`. |

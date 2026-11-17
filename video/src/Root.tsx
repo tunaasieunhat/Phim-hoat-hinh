@@ -10,7 +10,7 @@ import { SLEEP_FRAMES, SLEEP_PREVIEW_FRAMES, SleepFull, SleepPreview } from "./S
 
 import { TOM_FRAMES, TOM_PREVIEW_FRAMES, TomFull, TomPreview } from "./Tom/TomVideo";
 
-import { RAIN_PREVIEW_FRAMES, RainPreview } from "./Rain/RainVideo";
+import { RAIN_FRAMES, RAIN_PREVIEW_FRAMES, RainFull, RainPreview } from "./Rain/RainVideo";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -25,6 +25,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="NotEnoughSleepPreview" component={SleepPreview} durationInFrames={SLEEP_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="TomNoSleep" component={TomFull} durationInFrames={TOM_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="TomNoSleepPreview" component={TomPreview} durationInFrames={TOM_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
+      <Composition id="RainyDay" component={RainFull} durationInFrames={RAIN_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="RainyDayPreview" component={RainPreview} durationInFrames={RAIN_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
       <Still id="GrownupsVsKidsCover" component={KidsThumbnail} width={1080} height={1920} />
     </>

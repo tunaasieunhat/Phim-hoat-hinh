@@ -6,6 +6,7 @@ import { AbsoluteFill, continueRender, delayRender, interpolate, Sequence, stati
 import { Audio } from "@remotion/media";
 import { SCENES, type SceneData } from "./data";
 import { Rain1, Rain2 } from "./scenes1";
+import { RAIN_HOLD, Rain3, Rain4, Rain5, Rain6, Rain7, TEAR_AT } from "./scenes2";
 
 const VI = "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB";
 if (typeof document !== "undefined") {
@@ -20,8 +21,9 @@ if (typeof document !== "undefined") {
 
 const FPS = 30;
 const NAME_COLOR: Record<string, string> = { Lily: "#db2777", Mom: "#7c3aed", Max: "#2563eb" };
-const COMPONENTS: React.FC<{ sc: SceneData }>[] = [Rain1, Rain2];
+const COMPONENTS: React.FC<{ sc: SceneData }>[] = [Rain1, Rain2, Rain3, Rain4, Rain5, Rain6, Rain7];
 const starts = SCENES.reduce<number[]>((a, s, i) => [...a, i === 0 ? 0 : a[i - 1] + SCENES[i - 1].frames], []);
+export const RAIN_FRAMES = SCENES.reduce((a, s) => a + s.frames, 0) + RAIN_HOLD;
 export const RAIN_PREVIEW_FRAMES = SCENES.slice(0, 2).reduce((a, s) => a + s.frames, 0);
 
 const fade = (t: number, t0: number, t1: number) => interpolate(t, [t0, t0 + 0.12, t1 - 0.1, t1], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -58,10 +60,10 @@ const Subtitles: React.FC<{ sc: SceneData }> = ({ sc }) => {
   );
 };
 
-const SceneFrame: React.FC<{ sc: SceneData; i: number; last: boolean }> = ({ sc, i, last }) => {
+const SceneFrame: React.FC<{ sc: SceneData; i: number; last: boolean; len: number }> = ({ sc, i, last, len }) => {
   const f = useCurrentFrame();
   const C = COMPONENTS[i];
-  const dark = Math.max(interpolate(f, [0, i === 0 ? 12 : 7], [1, 0], { extrapolateRight: "clamp" }), interpolate(f, [sc.frames - (last ? 20 : 7), sc.frames], [0, 1], { extrapolateLeft: "clamp" }));
+  const dark = Math.max(interpolate(f, [0, i === 0 ? 12 : 7], [1, 0], { extrapolateRight: "clamp" }), interpolate(f, [len - (last ? 24 : 7), len], [0, 1], { extrapolateLeft: "clamp" }));
   return (
     <AbsoluteFill>
       <svg width={1080} height={1920} viewBox="0 0 1080 1920"><C sc={sc} /></svg>
@@ -95,12 +97,41 @@ export const RainVideo: React.FC<{ upto?: number }> = ({ upto = COMPONENTS.lengt
         <Cue at={at(1, L(1, 2) + 1.6)} src="snore.wav" volume={0.5} frames={96} />
         <Cue at={at(1, L(1, 2) + 4.0)} src="snore.wav" volume={0.45} frames={60} />
       </>}
+      {/* 3–5: the same "wah wah" when each PLAN rips */}
+      {[2, 3, 4].filter((n) => n < upto).map((n) => <Cue key={`wah${n}`} at={at(n, TEAR_AT)} src="wahwah.wav" volume={0.5} frames={78} />)}
+      {upto > 2 && <>
+        <Cue at={at(2, L(2, 1) - 0.4)} src="swipe2.wav" volume={0.4} frames={12} />
+        <Cue at={at(2, L(2, 1) + 1.0)} src="bounce.flac" volume={0.3} frames={14} />
+        {[0, 1, 2, 3, 4, 5, 6, 7].map((k) => <Cue key={`tk${k}`} at={at(2, L(2, 1) + 0.2 + k * 0.32)} src="tick.wav" volume={0.3} frames={3} />)}
+        <Cue at={at(2, L(2, 1) + 2.8)} src="snore.wav" volume={0.45} frames={96} />
+      </>}
+      {upto > 3 && <>
+        <Cue at={at(3, 6.6)} src="page.ogg" volume={0.45} frames={24} />
+        <Cue at={at(3, L(3, 0) - 0.7)} src="door-creak.ogg" volume={0.6} frames={26} />
+        <Cue at={at(3, L(3, 2) + 1.9)} src="bruh.wav" volume={0.3} frames={50} />
+      </>}
+      {upto > 4 && <>
+        {[0.3, 1.3].map((d, k) => <Cue key={`sl${k}`} at={at(4, L(4, 0) + d)} src="slurp.wav" volume={0.55} frames={33} />)}
+        {[0.2, 1.2].map((d, k) => <Cue key={`sm${k}`} at={at(4, L(4, 1) + d)} src="slurp.wav" volume={0.6} frames={33} />)}
+        <Cue at={at(4, L(4, 2) + 0.1)} src="ding.mp3" volume={0.35} frames={30} />
+        <Cue at={at(4, L(4, 2) + 2.2)} src="crunch.wav" volume={0.35} frames={27} />
+      </>}
+      {upto > 5 && <>
+        <Cue at={at(5, 0.2)} src="phone-ring.wav" volume={0.45} frames={30} />
+        <Cue at={at(5, SCENES[5].lines[2].t1 + 0.9)} src="thunder.ogg" volume={0.7} frames={110} />
+        <Cue at={at(5, SCENES[5].lines[2].t1 + 2.4)} src="swipe2.wav" volume={0.35} frames={12} />
+      </>}
+      {upto > 6 && <>
+        {[0, 1, 2, 3].map((k) => <Cue key={`rp${k}`} at={at(6, L(6, 0) + 0.4 + k * 0.5)} src="tick.wav" volume={0.4} frames={4} />)}
+        <Cue at={at(6, SCENES[6].lines[5].t1 + 0.2)} src="ding.mp3" volume={0.45} frames={30} />
+      </>}
       {SCENES.slice(0, upto).map((sc, i) => (
-        <Sequence key={sc.n} name={`Cảnh ${sc.n} · ${sc.title}`} from={starts[i]} durationInFrames={sc.frames}>
-          <SceneFrame sc={sc} i={i} last={i === upto - 1} />
+        <Sequence key={sc.n} name={`Cảnh ${sc.n} · ${sc.title}`} from={starts[i]} durationInFrames={sc.frames + (i === 6 ? RAIN_HOLD : 0)}>
+          <SceneFrame sc={sc} i={i} last={i === upto - 1} len={sc.frames + (i === 6 ? RAIN_HOLD : 0)} />
         </Sequence>
       ))}
     </AbsoluteFill>
   );
 };
 export const RainPreview: React.FC = () => <RainVideo upto={2} />;
+export const RainFull: React.FC = () => <RainVideo />;

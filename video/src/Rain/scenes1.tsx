@@ -6,7 +6,7 @@ import { body, S as SCALE } from "../Sleep/stage";
 import { useTimeline } from "../Sleep/timeline";
 import { Badge, FLOOR, GY, HAND, INK, lines, PlanLabel, RainCloud, Tear, UP, VH, VW, Window, type SP } from "./stage";
 
-const Room: React.FC<{ wall: string; floor: string; children?: React.ReactNode }> = ({ wall, floor, children }) => (
+export const Room: React.FC<{ wall: string; floor: string; children?: React.ReactNode }> = ({ wall, floor, children }) => (
   <g><rect width={VW} height={VH} fill={wall} /><rect x={0} y={FLOOR} width={VW} height={VH - FLOOR} fill={floor} /><g transform={`translate(0 ${-UP})`}>{children}</g></g>
 );
 
@@ -46,22 +46,22 @@ export const Rain1: React.FC<SP> = ({ sc }) => {
 };
 
 /* ---------- 2. Plan: read a book · Reality: page one, fifteen photos, asleep ---------- */
-const SITF: Pose = P({ drop: 146, lL: [96, 92], lR: [90, 96], aL: [62, 140], aR: [72, 150], lean: 6, tilt: -8 });
-const Book: React.FC<{ x: number; y: number; rot?: number; s?: number; flip?: number; color?: string }> = ({ x, y, rot: r = 0, s = 1, flip = 0, color = "#ef4444" }) => (
+export const SITF: Pose = P({ drop: 146, lL: [96, 92], lR: [90, 96], aL: [62, 140], aR: [72, 150], lean: 6, tilt: -8 });
+export const Book: React.FC<{ x: number; y: number; rot?: number; s?: number; flip?: number; color?: string }> = ({ x, y, rot: r = 0, s = 1, flip = 0, color = "#ef4444" }) => (
   <g transform={`translate(${x} ${y}) rotate(${r}) scale(${s})`}>
     <path d="M -80 0 L -6 -10 L 0 0 Z M 0 0 L 6 -10 L 80 0 Z" fill="#fff" stroke={INK} strokeWidth={4} strokeLinejoin="round" />
     <path d="M -84 4 L 0 6 L 84 4 L 84 12 L 0 14 L -84 12 Z" fill={color} stroke={INK} strokeWidth={4} />
     {flip > 0 && flip < 1 && <path d={`M 0 0 L ${80 * Math.cos(flip * Math.PI)} ${-10 - 50 * Math.sin(flip * Math.PI)} L ${6 * Math.cos(flip * Math.PI)} -10 Z`} fill="#fffbeb" stroke={INK} strokeWidth={4} strokeLinejoin="round" />}
   </g>
 );
-const Mug: React.FC<{ x: number; y: number; f: number; steam?: boolean; color?: string }> = ({ x, y, f, steam = true, color = "#fff" }) => (
+export const Mug: React.FC<{ x: number; y: number; f: number; steam?: boolean; color?: string }> = ({ x, y, f, steam = true, color = "#fff" }) => (
   <g transform={`translate(${x} ${y})`}>
     <path d="M 26 -44 q 26 2 22 22 q -4 18 -22 16" fill="none" stroke={INK} strokeWidth={6} />
     <path d="M -28 -56 L 28 -56 L 24 0 L -24 0 Z" fill={color} stroke={INK} strokeWidth={5} strokeLinejoin="round" />
     {steam && [0, 1].map((i) => <path key={i} d={`M ${-8 + i * 16} -66 q -8 -14 0 -26 q 8 -12 0 -24`} stroke="#fff" strokeWidth={5} fill="none" opacity={0.5 + 0.5 * Math.sin(f / 6 + i)} />)}
   </g>
 );
-const Den: React.FC<{ f: number; plan: boolean; children: React.ReactNode }> = ({ f, plan, children }) => (
+export const Den: React.FC<{ f: number; plan: boolean; children: React.ReactNode }> = ({ f, plan, children }) => (
   <Room wall={plan ? "#fde4cf" : "#9aa7b8"} floor={plan ? "#f5c6a5" : "#7c8a9c"}>
     <Window x={560} y={560} w={420} h={400} f={f} rain={1} curtain={1}><rect x={560} y={850} width={420} height={120} fill={plan ? "#94a3b8" : "#475569"} /></Window>
     {plan && <g>{Array.from({ length: 11 }).map((_, i) => <circle key={i} cx={520 + i * 46} cy={540 + Math.sin(i * 0.9) * 18 + 12} r={9} fill={["#fde047", "#f9a8d4", "#a7f3d0"][i % 3]} opacity={0.6 + 0.4 * Math.sin(f / 6 + i)} />)}<path d="M 520 550 Q 760 600 1000 550" stroke={INK} strokeWidth={3} fill="none" /></g>}

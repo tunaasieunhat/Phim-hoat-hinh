@@ -21,14 +21,15 @@ upto = int(sys.argv[3]) if len(sys.argv) > 3 else len(scenes)
 starts, t = [], 0.0
 for sc in scenes:
     starts.append(t); t += sc['frames'] / 30
-total = starts[upto - 1] + scenes[upto - 1]['frames'] / 30
+HOLD = 2.0 if upto == len(scenes) else 0.0      # the closing question holds two more seconds (RAIN_HOLD)
+total = starts[upto - 1] + scenes[upto - 1]['frames'] / 30 + HOLD
 TEAR0, TEAR1 = 5.1, 5.9                     # the PLAN frame rips at 5.1 s and is gone by 5.9 s (scenes 2-5)
 A = os.path.join(ROOT, 'public', 'audio')
 
 # music segments (start, end, track); PLAN = upbeat, REALITY = deflated, scene 7 = warm lo-fi
 seg = []
 for n in range(1, upto + 1):
-    a, b = starts[n - 1], starts[n - 1] + scenes[n - 1]['frames'] / 30
+    a, b = starts[n - 1], starts[n - 1] + scenes[n - 1]['frames'] / 30 + (HOLD if n == upto else 0)
     if n == 1:
         seg.append((a, b, 'plan'))
     elif 2 <= n <= 5:
