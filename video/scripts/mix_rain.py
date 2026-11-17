@@ -21,9 +21,10 @@ upto = int(sys.argv[3]) if len(sys.argv) > 3 else len(scenes)
 starts, t = [], 0.0
 for sc in scenes:
     starts.append(t); t += sc['frames'] / 30
-HOLD = 2.0 if upto == len(scenes) else 0.0      # the closing question holds two more seconds (RAIN_HOLD)
+HOLD = 3.0 if upto == len(scenes) else 0.0      # the closing question holds three more seconds (RAIN_HOLD)
 total = starts[upto - 1] + scenes[upto - 1]['frames'] / 30 + HOLD
-TEAR0, TEAR1 = 5.1, 5.9                     # the PLAN frame rips at 5.1 s and is gone by 5.9 s (scenes 2-5)
+# the PLAN frame rips 1.1 s before the first REALITY line and is gone 0.8 s later (scenes 2-5; see scenes2.tsx tearAt)
+tear = lambda n: scenes[n - 1]['lines'][0]['t0'] - 1.1
 A = os.path.join(ROOT, 'public', 'audio')
 
 # music segments (start, end, track); PLAN = upbeat, REALITY = deflated, scene 7 = warm lo-fi
@@ -33,7 +34,7 @@ for n in range(1, upto + 1):
     if n == 1:
         seg.append((a, b, 'plan'))
     elif 2 <= n <= 5:
-        seg += [(a, a + TEAR0, 'plan'), (a + TEAR1, b, 'reality')]
+        seg += [(a, a + tear(n), 'plan'), (a + tear(n) + 0.8, b, 'reality')]
     elif n == 6:
         seg.append((a, b, 'reality'))
     else:

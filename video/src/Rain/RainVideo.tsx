@@ -6,7 +6,7 @@ import { AbsoluteFill, continueRender, delayRender, interpolate, Sequence, stati
 import { Audio } from "@remotion/media";
 import { SCENES, type SceneData } from "./data";
 import { Rain1, Rain2 } from "./scenes1";
-import { RAIN_HOLD, Rain3, Rain4, Rain5, Rain6, Rain7, TEAR_AT } from "./scenes2";
+import { RAIN_HOLD, Rain3, Rain4, Rain5, Rain6, Rain7, tearAt } from "./scenes2";
 
 const VI = "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB";
 if (typeof document !== "undefined") {
@@ -91,14 +91,14 @@ export const RainVideo: React.FC<{ upto?: number }> = ({ upto = COMPONENTS.lengt
       <Cue at={at(0, L(0, 1) + 0.2)} src="ding.mp3" volume={0.35} frames={30} />
       {/* 2: PLAN → REALITY "wah wah", the page, fifteen shutters, snores */}
       {upto > 1 && <>
-        <Cue at={at(1, 5.1)} src="wahwah.wav" volume={0.55} frames={78} />
+        <Cue at={at(1, tearAt(SCENES[1]))} src="wahwah.wav" volume={0.55} frames={78} />
         <Cue at={at(1, L(1, 0) + 0.1)} src="page.ogg" volume={0.6} frames={24} />
         {flashes.map((t, k) => <Cue key={k} at={t} src="shutter.wav" volume={0.35} frames={10} />)}
         <Cue at={at(1, L(1, 2) + 1.6)} src="snore.wav" volume={0.5} frames={96} />
         <Cue at={at(1, L(1, 2) + 4.0)} src="snore.wav" volume={0.45} frames={60} />
       </>}
       {/* 3–5: the same "wah wah" when each PLAN rips */}
-      {[2, 3, 4].filter((n) => n < upto).map((n) => <Cue key={`wah${n}`} at={at(n, TEAR_AT)} src="wahwah.wav" volume={0.5} frames={78} />)}
+      {[2, 3, 4].filter((n) => n < upto).map((n) => <Cue key={`wah${n}`} at={at(n, tearAt(SCENES[n]))} src="wahwah.wav" volume={0.5} frames={78} />)}
       {upto > 2 && <>
         <Cue at={at(2, L(2, 1) - 0.4)} src="swipe2.wav" volume={0.4} frames={12} />
         <Cue at={at(2, L(2, 1) + 1.0)} src="bounce.flac" volume={0.3} frames={14} />

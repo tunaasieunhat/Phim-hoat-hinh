@@ -6,34 +6,34 @@ export const SCENES: SceneData[] = [
  {
   "n": 1,
   "title": "Mở đầu",
-  "frames": 315,
+  "frames": 429,
   "audio": "rain/audio/scene1.wav",
   "lines": [
    {
     "who": "Narrator",
-    "t0": 1.5,
-    "t1": 2.067,
+    "t0": 2.5,
+    "t1": 3.067,
     "en": "It's raining.",
     "vi": "Trời mưa."
    },
    {
     "who": "Narrator",
-    "t0": 2.667,
-    "t1": 3.575,
+    "t0": 3.967,
+    "t1": 4.875,
     "en": "Lily has a plan.",
     "vi": "Lily có một kế hoạch."
    },
    {
     "who": "Narrator",
-    "t0": 4.175,
-    "t1": 5.477,
+    "t0": 5.775,
+    "t1": 7.077,
     "en": "A very productive plan.",
     "vi": "Một kế hoạch rất năng suất."
    },
    {
     "who": "Lily",
-    "t0": 6.237,
-    "t1": 8.895,
+    "t0": 8.137,
+    "t1": 10.795,
     "en": "Today, I will finally become a better person!",
     "vi": "Hôm nay, mình sẽ trở thành một người tốt hơn!"
    }
@@ -43,27 +43,27 @@ export const SCENES: SceneData[] = [
  {
   "n": 2,
   "title": "Đọc sách",
-  "frames": 519,
+  "frames": 774,
   "audio": "rain/audio/scene2.wav",
   "lines": [
    {
     "who": "Narrator",
-    "t0": 6.2,
-    "t1": 6.733,
+    "t0": 10.0,
+    "t1": 10.533,
     "en": "Page one.",
     "vi": "Trang một."
    },
    {
     "who": "Narrator",
-    "t0": 8.433,
-    "t1": 9.399,
+    "t0": 12.933,
+    "t1": 13.899,
     "en": "Fifteen photos.",
     "vi": "Mười lăm tấm ảnh."
    },
    {
     "who": "Narrator",
-    "t0": 11.099,
-    "t1": 12.424,
+    "t0": 16.299,
+    "t1": 17.624,
     "en": "Zero pages after that.",
     "vi": "Không thêm trang nào nữa."
    }
@@ -73,20 +73,20 @@ export const SCENES: SceneData[] = [
  {
   "n": 3,
   "title": "Tập thể dục",
-  "frames": 430,
+  "frames": 652,
   "audio": "rain/audio/scene3.wav",
   "lines": [
    {
     "who": "Lily",
-    "t0": 6.2,
-    "t1": 8.258,
+    "t0": 10.0,
+    "t1": 12.058,
     "en": "I'm doing… the relaxing position.",
     "vi": "Mình đang tập… tư thế thư giãn."
    },
    {
     "who": "Narrator",
-    "t0": 8.638,
-    "t1": 11.037,
+    "t0": 12.438,
+    "t1": 14.837,
     "en": "The relaxing position lasted two hours.",
     "vi": "Tư thế thư giãn kéo dài hai tiếng."
    }
@@ -96,27 +96,27 @@ export const SCENES: SceneData[] = [
  {
   "n": 4,
   "title": "Dọn phòng",
-  "frames": 392,
+  "frames": 599,
   "audio": "rain/audio/scene4.wav",
   "lines": [
    {
     "who": "Mom",
-    "t0": 6.2,
-    "t1": 7.317,
+    "t0": 10.0,
+    "t1": 11.117,
     "en": "You said you'd clean.",
     "vi": "Con bảo dọn phòng."
    },
    {
     "who": "Mom",
-    "t0": 7.537,
-    "t1": 8.506,
+    "t0": 11.337,
+    "t1": 12.306,
     "en": "It looks worse.",
     "vi": "Sao nhìn còn bừa hơn?"
    },
    {
     "who": "Lily",
-    "t0": 8.886,
-    "t1": 10.671,
+    "t0": 12.686,
+    "t1": 14.471,
     "en": "It's… a process, Mom.",
     "vi": "Đây là… một quá trình mà mẹ."
    }
@@ -126,27 +126,27 @@ export const SCENES: SceneData[] = [
  {
   "n": 5,
   "title": "Ăn uống",
-  "frames": 510,
+  "frames": 774,
   "audio": "rain/audio/scene5.wav",
   "lines": [
    {
     "who": "Narrator",
-    "t0": 6.2,
-    "t1": 7.977,
+    "t0": 10.0,
+    "t1": 11.777,
     "en": "Rain makes everything taste better.",
     "vi": "Trời mưa ăn gì cũng ngon."
    },
    {
     "who": "Narrator",
-    "t0": 9.077,
-    "t1": 10.554,
+    "t0": 13.577,
+    "t1": 15.054,
     "en": "Especially instant noodles.",
     "vi": "Nhất là mì gói."
    },
    {
     "who": "Narrator",
-    "t0": 11.654,
-    "t1": 13.53,
+    "t0": 16.854,
+    "t1": 18.73,
     "en": "And the second pack of instant noodles.",
     "vi": "Và gói mì thứ hai."
    }
@@ -156,27 +156,27 @@ export const SCENES: SceneData[] = [
  {
   "n": 6,
   "title": "Bạn rủ đi chơi",
-  "frames": 286,
+  "frames": 421,
   "audio": "rain/audio/scene6.wav",
   "lines": [
    {
     "who": "Max",
-    "t0": 1.8,
-    "t1": 2.682,
+    "t0": 3.0,
+    "t1": 3.882,
     "en": "The rain stopped!",
     "vi": "Tạnh mưa rồi!"
    },
    {
     "who": "Max",
-    "t0": 2.902,
-    "t1": 3.531,
+    "t0": 4.102,
+    "t1": 4.731,
     "en": "Let's go out!",
     "vi": "Đi chơi đi!"
    },
    {
     "who": "Lily",
-    "t0": 3.911,
-    "t1": 5.332,
+    "t0": 5.111,
+    "t1": 6.532,
     "en": "…I think it might rain again.",
     "vi": "…Mình nghĩ trời có thể mưa lại đó."
    }
@@ -186,48 +186,48 @@ export const SCENES: SceneData[] = [
  {
   "n": 7,
   "title": "Kết",
-  "frames": 496,
+  "frames": 667,
   "audio": "rain/audio/scene7.wav",
   "lines": [
    {
     "who": "Narrator",
-    "t0": 1.5,
-    "t1": 3.042,
+    "t0": 3.0,
+    "t1": 4.542,
     "en": "Plans completed: none.",
     "vi": "Kế hoạch hoàn thành: không có."
    },
    {
     "who": "Narrator",
-    "t0": 3.792,
-    "t1": 7.18,
+    "t0": 5.842,
+    "t1": 9.23,
     "en": "But sometimes, a rainy day isn't for being productive.",
     "vi": "Nhưng đôi khi, ngày mưa không phải để năng suất."
    },
    {
     "who": "Narrator",
-    "t0": 7.93,
-    "t1": 8.696,
+    "t0": 10.53,
+    "t1": 11.296,
     "en": "It's for resting.",
     "vi": "Mà là để nghỉ ngơi."
    },
    {
     "who": "Narrator",
-    "t0": 9.446,
-    "t1": 10.113,
+    "t0": 12.596,
+    "t1": 13.263,
     "en": "And noodles.",
     "vi": "Và ăn mì."
    },
    {
     "who": "Lily",
-    "t0": 11.023,
-    "t1": 11.653,
+    "t0": 14.723,
+    "t1": 15.353,
     "en": "Tomorrow.",
     "vi": "Mai."
    },
    {
     "who": "Lily",
-    "t0": 11.873,
-    "t1": 13.533,
+    "t0": 15.573,
+    "t1": 17.233,
     "en": "I'll be a better person tomorrow.",
     "vi": "Mai mình sẽ trở thành người tốt hơn."
    }

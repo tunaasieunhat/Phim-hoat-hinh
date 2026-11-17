@@ -76,8 +76,8 @@ export const Rain2: React.FC<SP> = ({ sc }) => {
   const { T } = lines(sc);
   const s = useTimeline({ label: 0, tear: 0, badgeP: 0, badgeR: 0, flip: 0, phone: 0, flashN: 0, sleep: 0 }, (tl, v) => {
     tl.to(v, { badgeP: 1, duration: 0.4, ease: "back.out(2.5)" }, 0.3).to(v, { label: 1, duration: 0.4 }, 0.6)
-      .to(v, { tear: 1, duration: 0.75, ease: "power1.in" }, 5.1)
-      .to(v, { badgeR: 1, duration: 0.4, ease: "back.out(2.5)" }, 5.6)
+      .to(v, { tear: 1, duration: 0.75, ease: "power1.in" }, T(0) - 1.1)
+      .to(v, { badgeR: 1, duration: 0.4, ease: "back.out(2.5)" }, T(0) - 0.6)
       .to(v, { flip: 1, duration: 0.6, ease: "power1.inOut" }, T(0) + 0.1)
       .to(v, { phone: 1, duration: 0.4, ease: "power2.out" }, T(0) + 1.0)
       .to(v, { flashN: 15, duration: 2.9, ease: "none" }, T(0) + 1.5)

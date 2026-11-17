@@ -7,13 +7,14 @@ import { useTimeline } from "../Sleep/timeline";
 import { Book, Mug, Room, SITF } from "./scenes1";
 import { Badge, GY, HAND, INK, lines, PlanLabel, RainCloud, Tear, VH, VW, Window, type SP } from "./stage";
 
-export const TEAR_AT = 5.1; // every PLAN frame rips here (mix_rain.py and the "wah wah" cue use the same time)
+// every PLAN frame rips 1.1 s before the first REALITY line (mix_rain.py and the "wah wah" cue use the same rule)
+export const tearAt = (sc: SP["sc"]) => sc.lines[0].t0 - 1.1;
 
 // PLAN (bright, labelled) torn away to reveal REALITY (grey)
-const PlanReality: React.FC<{ f: number; plan: React.ReactNode; reality: React.ReactNode; en: string; vi: string }> = ({ f, plan, reality, en, vi }) => {
+const PlanReality: React.FC<{ f: number; plan: React.ReactNode; reality: React.ReactNode; en: string; vi: string; tear: number }> = ({ f, plan, reality, en, vi, tear }) => {
   const s = useTimeline({ badgeP: 0, label: 0, tear: 0, badgeR: 0 }, (tl, v) => {
     tl.to(v, { badgeP: 1, duration: 0.4, ease: "back.out(2.5)" }, 0.3).to(v, { label: 1, duration: 0.4 }, 0.6)
-      .to(v, { tear: 1, duration: 0.75, ease: "power1.in" }, TEAR_AT).to(v, { badgeR: 1, duration: 0.4, ease: "back.out(2.5)" }, TEAR_AT + 0.5);
+      .to(v, { tear: 1, duration: 0.75, ease: "power1.in" }, tear).to(v, { badgeR: 1, duration: 0.4, ease: "back.out(2.5)" }, tear + 0.5);
   });
   return (
     <g>
@@ -76,7 +77,7 @@ export const Rain3: React.FC<SP> = ({ sc }) => {
       {s.cover > 0.5 && <Zs x={150} y={GY - 160} f={f} />}
     </Room>
   );
-  return <PlanReality f={f} plan={plan} reality={reality} en="Plan: home workout" vi="Kế hoạch: tập thể dục tại nhà" />;
+  return <PlanReality f={f} tear={tearAt(sc)} plan={plan} reality={reality} en="Plan: home workout" vi="Kế hoạch: tập thể dục tại nhà" />;
 };
 
 /* ---------- 4. Plan: clean my room · Reality: the photo album ---------- */
@@ -96,7 +97,7 @@ const Album: React.FC<{ x: number; y: number; f: number }> = ({ x, y, f }) => (
 export const Rain4: React.FC<SP> = ({ sc }) => {
   const { T } = lines(sc);
   const s = useTimeline({ mess: 0.25, mom: 1260, look: 0, sun: 0 }, (tl, v) => {
-    tl.to(v, { mess: 1, duration: 6, ease: "none" }, 5.5).to(v, { sun: 1, duration: 6, ease: "none" }, 5.5)
+    tl.to(v, { mess: 1, duration: 8, ease: "none" }, tearAt(sc) + 0.4).to(v, { sun: 1, duration: 9, ease: "none" }, tearAt(sc) + 0.4)
       .to(v, { mom: 900, duration: 0.7, ease: "power2.out" }, T(0) - 0.6)
       .to(v, { look: 1, duration: 0.3 }, T(2) - 0.3);
   });
@@ -126,7 +127,7 @@ export const Rain4: React.FC<SP> = ({ sc }) => {
       <Album x={(j.handL[0] + j.handR[0]) / 2 + 30} y={(j.handL[1] + j.handR[1]) / 2 - 30} f={f} />
     </Room>
   );
-  return <PlanReality f={f} plan={plan} reality={reality} en="Plan: clean my room" vi="Kế hoạch: dọn phòng" />;
+  return <PlanReality f={f} tear={tearAt(sc)} plan={plan} reality={reality} en="Plan: clean my room" vi="Kế hoạch: dọn phòng" />;
 };
 
 /* ---------- 5. Plan: cook something healthy · Reality: noodles in a blanket ---------- */
@@ -175,7 +176,7 @@ export const Rain5: React.FC<SP> = ({ sc }) => {
       {s.tea > 0.01 && <g transform={`translate(800 ${GY - 120}) scale(${s.tea})`}><path d="M -26 -100 L 26 -100 L 20 0 L -20 0 Z" fill="#d6b38a" stroke={INK} strokeWidth={4} />{[-10, 4, 14].map((dx, i) => <circle key={i} cx={dx} cy={-14 - i * 6} r={6} fill={INK} />)}<line x1={8} y1={-100} x2={18} y2={-140} stroke="#f472b6" strokeWidth={8} strokeLinecap="round" /></g>}
     </Room>
   );
-  return <PlanReality f={f} plan={plan} reality={reality} en="Plan: cook something healthy" vi="Kế hoạch: nấu món lành mạnh" />;
+  return <PlanReality f={f} tear={tearAt(sc)} plan={plan} reality={reality} en="Plan: cook something healthy" vi="Kế hoạch: nấu món lành mạnh" />;
 };
 
 /* ---------- 6. Max calls: the rain stopped! ---------- */
@@ -217,7 +218,7 @@ export const Rain6: React.FC<SP> = ({ sc }) => {
 };
 
 /* ---------- 7. The rainy-day report ---------- */
-export const RAIN_HOLD = 60; // the closing question holds two more seconds
+export const RAIN_HOLD = 90; // the closing question holds three more seconds
 export const Rain7: React.FC<SP> = ({ sc }) => {
   const { T, E } = lines(sc);
   const s = useTimeline({ board: 0, r0: 0, r1: 0, r2: 0, r3: 0, end: 0 }, (tl, v) => {

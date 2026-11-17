@@ -49,9 +49,10 @@ if os.environ.get('DIALOGUE') == 'rain':   # "Rainy day: plan vs. reality" (DIAL
     RATES = {'Narrator': '-6%', 'Lily': '+0%', 'Mom': '-4%', 'Max': '+6%'}
     NAMES = {'Mẹ': 'Mom'}
     # scenes 2-5 open with a wordless PLAN shot before the REALITY narration; leave room for the gag after the last line
-    LEADS = {2: 6.2, 3: 6.2, 4: 6.2, 5: 6.2, 6: 1.8}
-    TAILS = {1: 1.6, 2: 3.4, 3: 2.6, 4: 2.4, 5: 2.6, 6: 4.2, 7: 3.0}
-    NGAP = {1: 0.6, 2: 1.7, 3: 0.9, 5: 1.1, 7: 0.75}   # deadpan narrator: time for each beat to land
+    # ~2:30 cut: longer wordless PLAN shots, more room for each gag to land; the recordings are reused unchanged
+    LEADS = {1: 2.5, 2: 10.0, 3: 10.0, 4: 10.0, 5: 10.0, 6: 3.0, 7: 3.0}
+    TAILS = {1: 3.5, 2: 6.0, 3: 5.5, 4: 5.5, 5: 5.5, 6: 7.5, 7: 5.0}
+    NGAP = {1: 0.9, 2: 2.4, 3: 1.6, 5: 1.8, 7: 1.3}   # deadpan narrator: time for each beat to land
     FX = {'Max': 'highpass=f=450,lowpass=f=3000,acrusher=bits=10:mix=0.25,volume=0.85'}   # over the phone
 SPLIT = re.compile(r'(?<=[.?!])\s+(?=[^a-z])|(?<=[.?!]["”])\s+')
 
@@ -196,7 +197,7 @@ async def main():
                 t1 = ln['t1'] + 0.35
                 if lang == 'vi':
                     t1 = max(l['t1'] for l in sc['lines'] if l['vi'] == text and l['who'] == ln['who']) + 0.35
-                name = '' if ln['who'] == 'Narrator' else f"{ln['who']}: "
+                name = '' if ln['who'] == 'Narrator' else f"{('Mẹ' if lang == 'vi' and ln['who'] == 'Mom' else ln['who'])}: "
                 rows.append(f"{len(rows) + 1}\n{srt_time(at + ln['t0'])} --> {srt_time(at + t1)}\n{name}{text}\n")
             at += sc['frames'] / FPS
         open(os.path.join(ROOT, 'out', 'srt', f'{SRT}.{lang}.srt'), 'w', encoding='utf-8').write('\n'.join(rows))
