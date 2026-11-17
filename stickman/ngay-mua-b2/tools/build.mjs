@@ -129,7 +129,7 @@ const TEAR = 6.4; // seconds into scene 2 (PLAN lasts until the rip)
   const sleepAt = T(2) + 0.35, yawnAt = T(0) + 0.9, selfieAt = T(1) - 0.6;
   const zee = (d) => keysFrom({ y: 1380, alpha: 0.3 }, (tl, s) => { for (let t = sleepAt + 0.8 + d; t < span; t += 1.8) tl.set(s, { y: 1380, alpha: 0.3 }, t).to(s, { y: 1300, alpha: 1, duration: 0.6 }, t).to(s, { y: 1200, alpha: 0.3, duration: 0.9 }, t + 0.6); }, span, ['y', 'alpha']);
   const pg = (k, from, to) => img(`s2r-page-${k}`, `page-${k}.png`, { x: 470 + OFF[`page-${k}.png`].x, y: 1290 + OFF[`page-${k}.png`].y, from, to });
-  const counter = Array.from({ length: flashes }, (_, k) => ({ type: 'text', id: `s2r-count-${k + 1}`, text: String(k + 1), x: 820, y: 1070, size: 64, from: +(f0 + k * fd / flashes).toFixed(3), to: k === flashes - 1 ? +(sleepAt - 0.1).toFixed(3) : +(f0 + (k + 1) * fd / flashes).toFixed(3) }));
+  const counter = Array.from({ length: flashes }, (_, k) => ({ type: 'text', id: `s2r-count-${k + 1}`, text: String(k + 1), x: 240, y: 1160, size: 64, from: +(f0 + k * fd / flashes).toFixed(3), to: k === flashes - 1 ? +(sleepAt - 0.1).toFixed(3) : +(f0 + (k + 1) * fd / flashes).toFixed(3) }));
   shots.push({
     start, end,
     layers: [
@@ -144,7 +144,7 @@ const TEAR = 6.4; // seconds into scene 2 (PLAN lasts until the rip)
       img('s2r-lily-sleep', 's2-lily-sleep.png', { from: sleepAt, x: OFF['s2-lily-sleep.png'].x + 40, y: OFF['s2-lily-sleep.png'].y - 10 }),
       img('s2r-zee-a', 'zee.png', { x: 120, from: +(sleepAt + 0.8).toFixed(3), keys: zee(0), motion: { role: 'information', reason: 'Snores rise from under the book: zero pages after that' } }),
       img('s2r-zee-b', 'zee.png', { x: 170, from: +(sleepAt + 1.4).toFixed(3), keys: zee(0.6), motion: { role: 'information', reason: 'Snores rise from under the book: zero pages after that' } }),
-      img('s2r-counter', 'counter.png', { x: 690, y: 990, from: +f0.toFixed(3), to: +(sleepAt - 0.1).toFixed(3) }),
+      img('s2r-counter', 'counter.png', { x: 110, y: 1080, from: +f0.toFixed(3), to: +(sleepAt - 0.1).toFixed(3) }),
       ...counter,
       img('s2r-flash', 'flash.png', { keys: flash }),
       img('s2r-badge', 'badge-real.png', { x: 92, keys: badge }),
@@ -157,7 +157,7 @@ const TEAR = 6.4; // seconds into scene 2 (PLAN lasts until the rip)
       regions: [
         { id: 's2r-window', role: 'prop', layer_ids: ['s2r-rain'], region: { x: 540, y: 470, w: 500, h: 770 }, intent: 'Cold rain behind the glass.' },
         { id: 's2r-lily', role: 'actor', layer_ids: ['s2r-lily-tired', 's2r-lily-yawn', 's2r-lily-selfie', 's2r-lily-sleep', 's2r-page-0', 's2r-page-1', 's2r-page-2', 's2r-zee-a', 's2r-zee-b', 's2r-mug'], region: { x: 80, y: 900, w: 1040, h: 768 }, intent: 'Page one turns, then the selfie pose, then asleep with the book on her face; snores rise.' },
-        { id: 's2r-count', role: 'information', layer_ids: ['s2r-counter', ...counter.map(c => c.id), 's2r-badge'], region: { x: 77, y: 190, w: 1040, h: 1000 }, intent: 'The REALITY badge and the photo counter climbing to fifteen.' },
+        { id: 's2r-count', role: 'information', layer_ids: ['s2r-counter', ...counter.map(c => c.id), 's2r-badge'], region: { x: 77, y: 190, w: 1040, h: 1100 }, intent: 'The REALITY badge and the photo counter climbing to fifteen.' },
       ],
     },
   });

@@ -37,30 +37,27 @@ function subtitles(ctx, t) {
   const cue = bilingual.find((c, i) => t >= c.start && t < Math.min(c.end, bilingual[i + 1]?.start ?? 1e9));
   if (!cue) return;
   const end = Math.min(cue.end, bilingual[bilingual.indexOf(cue) + 1]?.start ?? 1e9), a = fade(t, cue.start, end);
+  const name = cue.who === 'Narrator' ? null : cue.who, max = 1040 * S;
+  // lay both languages out first (max two lines each), then stack them as one block inside the caption band
+  const layout = (txt, size) => { let lines; for (;;) { ctx.font = `600 ${size * S}px SubSans`; lines = wrapLine(ctx, txt, max - (name ? 130 * S : 0)); if (lines.length <= 2 || size <= 40) break; size -= 2; } return { lines, size, lh: size * 1.18 * S }; };
+  const en = layout(cue.en, 58), vi = layout(cue.vi, 60);
+  const gap = 10 * S, total = en.lines.length * en.lh + gap + vi.lines.length * vi.lh;
+  const top = Math.min(BAND + 18 * S, 1870 * S - total);
   ctx.save(); ctx.globalAlpha = a; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
-  const max = 1000 * S;
-  // soft dark band behind both lines so pale yellow / white read on warm paper
-  ctx.fillStyle = 'rgba(30,30,28,.55)'; ctx.beginPath(); ctx.roundRect(60 * S, BAND, 1160 * S, 190 * S, 30 * S); ctx.fill();
-  const lineSet = (txt, size, y, fill, stroke, name) => {
-    ctx.font = `600 ${size * S}px SubSans`;
-    let lines = wrapLine(ctx, txt, max - (name ? 150 * S : 0)); while (lines.length > 2) { size -= 3; ctx.font = `600 ${size * S}px SubSans`; lines = wrapLine(ctx, txt, max); }
-    const lh = size * 1.15 * S, y0 = y - (lines.length - 1) * lh / 2;
-    lines.forEach((l, i) => {
-      let x = p.width / 2;
-      if (name && i === 0) {   // a small coloured name tag before the speaker's line
-        ctx.font = `600 ${size * 0.62 * S}px SubSans`; const nw = ctx.measureText(name).width + 24 * S;
-        ctx.font = `600 ${size * S}px SubSans`; const lw = ctx.measureText(l).width;
-        const left = p.width / 2 - (lw + nw + 12 * S) / 2;
-        ctx.fillStyle = NAME[name] ?? '#475569'; ctx.beginPath(); ctx.roundRect(left, y0 + i * lh - size * .42 * S, nw, size * .84 * S, 14 * S); ctx.fill();
-        ctx.font = `600 ${size * 0.62 * S}px SubSans`; ctx.fillStyle = '#fff'; ctx.fillText(name, left + nw / 2, y0 + i * lh);
-        ctx.font = `600 ${size * S}px SubSans`; x = left + nw + 12 * S + lw / 2;
-      }
-      ctx.lineWidth = 7 * S; ctx.strokeStyle = stroke; ctx.strokeText(l, x, y0 + i * lh); ctx.fillStyle = fill; ctx.fillText(l, x, y0 + i * lh);
-    });
-  };
-  const name = cue.who === 'Narrator' ? null : cue.who;
-  lineSet(cue.en, 50, EN_Y, '#fde68a', '#1f2328', name);
-  lineSet(cue.vi, 52, VI_Y, '#ffffff', '#000000', name);
+  ctx.fillStyle = 'rgba(30,30,28,.55)'; ctx.beginPath(); ctx.roundRect(50 * S, top - 16 * S, 1180 * S, total + 32 * S, 30 * S); ctx.fill();
+  const draw = ({ lines, size, lh }, y0, fill, stroke) => lines.forEach((l, i) => {
+    const y = y0 + lh * (i + 0.5); let x = p.width / 2;
+    ctx.font = `600 ${size * S}px SubSans`; const lw = ctx.measureText(l).width;
+    if (name && i === 0) {   // a small coloured name tag before the speaker's line
+      ctx.font = `600 ${size * 0.6 * S}px SubSans`; const nw = ctx.measureText(name).width + 24 * S;
+      const left = p.width / 2 - (lw + nw + 12 * S) / 2;
+      ctx.fillStyle = NAME[name] ?? '#475569'; ctx.beginPath(); ctx.roundRect(left, y - size * .4 * S, nw, size * .8 * S, 14 * S); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.fillText(name, left + nw / 2, y); x = left + nw + 12 * S + lw / 2;
+    }
+    ctx.font = `600 ${size * S}px SubSans`; ctx.lineWidth = 8 * S; ctx.strokeStyle = stroke; ctx.strokeText(l, x, y); ctx.fillStyle = fill; ctx.fillText(l, x, y);
+  });
+  draw(en, top, '#fde68a', '#1f2328');
+  draw(vi, top + en.lines.length * en.lh + gap, '#ffffff', '#000000');
   ctx.restore();
 }
 const silent = path.join(tmp, 'picture.mp4');
@@ -102,7 +99,7 @@ const graph = fc.join(';'), LN = 'loudnorm=I=-14:TP=-1.5:LRA=20';
 const r = spawnSync('ffmpeg', ['-hide_banner', ...inputs, '-filter_complex', `${graph};[mix]${LN}:print_format=json[o]`, '-map', '[o]', '-t', String(dur), '-f', 'null', '-'], { encoding: 'utf8', maxBuffer: 1 << 26 });
 const m = JSON.parse(r.stderr.match(/\{[^{}]+\}/g).at(-1));
 const meas = `measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`;
-const fin = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', silent, ...inputs, '-filter_complex', `${graph.replace(/\[(\d+):a\]/g, (_, n) => `[${+n + 1}:a]`)};[mix]${LN}:${meas},aresample=48000[o]`, '-map', '0:v', '-map', '[o]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-t', String(dur), '-movflags', '+faststart', outFile], { encoding: 'utf8' });
+const fin = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', silent, ...inputs, '-filter_complex', `${graph.replace(/\[(\d+):a\]/g, (_, n) => `[${+n + 1}:a]`)};[mix]${LN}:${meas},aresample=48000[o]`, '-map', '0:v', '-map', '[o]', '-c:v', 'copy', '-dn', '-c:a', 'aac', '-b:a', '192k', '-t', String(dur), '-movflags', '+faststart', outFile], { encoding: 'utf8' });
 if (fin.status !== 0) throw new Error(fin.stderr);
 // sidecar subtitles (EN and VI), from the bilingual cues
 const ts = (s) => { const ms = Math.round(s * 1000); return `${String(Math.floor(ms / 3600000)).padStart(2, '0')}:${String(Math.floor(ms / 60000) % 60).padStart(2, '0')}:${String(Math.floor(ms / 1000) % 60).padStart(2, '0')},${String(ms % 1000).padStart(3, '0')}`; };
