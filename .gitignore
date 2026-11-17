@@ -5,3 +5,7 @@
 # directing-stickman-videos is ~490MB (sample media); restore it from skills-lock.json:
 #   npx skills add kaomei/stickman-video-director -a claude-code -y
 .claude/skills/directing-stickman-videos/
+
+# strudel-music: restore with `cd .claude/skills/strudel-music && npm install && bash scripts/download-samples.sh`
+.claude/skills/strudel-music/node_modules/
+.claude/skills/strudel-music/samples/

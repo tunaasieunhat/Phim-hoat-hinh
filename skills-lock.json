@@ -186,6 +186,13 @@
       "sourceType": "github",
       "skillPath": "skills/remotion-upgrade/SKILL.md",
       "computedHash": "27e2c87253c65d0a8d5b8878a871c9d86814fa89bc4f962b2fbe3f8ad450928c"
+    },
+    "strudel-music": {
+      "source": "LeoYeAI/agent-master-skills",
+      "commit": "671b70de331b75d0ceaa4d4ba06e03f1b4f80b22",
+      "sourceType": "github",
+      "skillPath": "skills/strudel-music/SKILL.md",
+      "computedHash": "b85a8fcbe8784e35d221534f70d5b0419f7d9e3cf8b7a7bd07d6631822090026"
     }
   }
 }

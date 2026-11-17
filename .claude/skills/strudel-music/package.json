@@ -1,0 +1,25 @@
+{
+  "name": "strudel-music",
+  "version": "1.2.1",
+  "type": "module",
+  "scripts": {
+    "setup": "npm install && bash scripts/download-samples.sh",
+    "render": "node src/runtime/offline-render-v2.mjs",
+    "test": "node src/runtime/smoke-test.mjs",
+    "test:render": "node src/runtime/offline-render-v2.mjs assets/compositions/fog-and-starlight.js /tmp/strudel-test.wav 2 72 && echo ✅ Render OK",
+    "download-samples": "bash scripts/download-samples.sh",
+    "samples": "bash scripts/samples-manage.sh",
+    "samples:list": "bash scripts/samples-manage.sh list",
+    "samples:add": "bash scripts/samples-manage.sh add",
+    "dispatch": "bash scripts/dispatch.sh",
+    "list": "bash scripts/dispatch.sh list"
+  },
+  "dependencies": {
+    "@strudel/core": "1.1.0",
+    "@strudel/mini": "1.1.0",
+    "@strudel/tonal": "^1.1.0",
+    "@strudel/webaudio": "1.1.0",
+    "dotenv": "^17.3.1",
+    "node-web-audio-api": "^1.0.8"
+  }
+}
