@@ -30,3 +30,12 @@ SFX: "BounceYoFrankie" (c) Blender Foundation, CC BY 3.0; "Slide whistle down" b
 ## "Tom" (narrated version, src/Tom) — additional music
 - "Quirky Dog" Kevin MacLeod (incompetech.com) — CC BY 4.0 (music-quirky.mp3)
 - "Carefree" Kevin MacLeod (incompetech.com) — CC BY 4.0 (music-bright.mp3, last scene)
+
+## "Rainy day: plan vs. reality" (src/Rain)
+- "Monkeys Spinning Monkeys" Kevin MacLeod (incompetech.com) — CC BY 4.0 (music-plan.mp3)
+- "Impact Moderato" Kevin MacLeod (incompetech.com) — CC BY 4.0 (music-reality.mp3)
+- rain-loop.ogg: Rain (loopable) — Ylmir (OpenGameArt) — CC0
+- shutter.wav, phone-ring.wav: 202 More Sound Effects — OwlishMedia — CC0
+- thunder.ogg: 100 CC0 SFX #2 — rubberduck — CC0
+- page.ogg: RPG Audio — Kenney — CC0
+- wahwah.wav, slurp.wav: synthesized (scripts/make_rain_audio.py)

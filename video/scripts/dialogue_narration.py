@@ -40,6 +40,19 @@ VOICES = {
     'Jake': (M[1], '+4Hz'), 'Kim': (F[2], '+6Hz'), 'Leo': (M[2], '+4Hz'),
     'Mia': (F[0], '-4Hz'), 'Noah': (M[0], '+6Hz'), 'Olivia': (F[1], '-4Hz'),
 }
+NAMES, LEADS, TAILS, FX, RATES, NGAP = {}, {}, {}, {}, {}, {}
+if os.environ.get('DIALOGUE') == 'rain':   # "Rainy day: plan vs. reality" (DIALOGUE=rain)
+    SCRIPT, PUB, DATA, SRT = 'script-ngay-mua.md', 'rain', 'Rain/data.ts', 'ngay-mua'
+    TMP = os.path.join(ROOT, '.kids-tts', 'rain'); OUT = os.path.join(ROOT, 'public', PUB, 'audio')
+    VOICES = {'Narrator': ('en-US-AndrewNeural', '+0Hz'), 'Lily': ('en-US-AvaNeural', '+2Hz'),
+              'Mom': ('en-US-JennyNeural', '-2Hz'), 'Max': ('en-US-BrianNeural', '+0Hz')}
+    RATES = {'Narrator': '-6%', 'Lily': '+0%', 'Mom': '-4%', 'Max': '+6%'}
+    NAMES = {'Mẹ': 'Mom'}
+    # scenes 2-5 open with a wordless PLAN shot before the REALITY narration; leave room for the gag after the last line
+    LEADS = {2: 6.2, 3: 6.2, 4: 6.2, 5: 6.2, 6: 1.8}
+    TAILS = {1: 1.6, 2: 3.4, 3: 2.6, 4: 2.4, 5: 2.6, 6: 4.2, 7: 3.0}
+    NGAP = {1: 0.6, 2: 1.7, 3: 0.9, 5: 1.1, 7: 0.75}   # deadpan narrator: time for each beat to land
+    FX = {'Max': 'highpass=f=450,lowpass=f=3000,acrusher=bits=10:mix=0.25,volume=0.85'}   # over the phone
 SPLIT = re.compile(r'(?<=[.?!])\s+(?=[^a-z])|(?<=[.?!]["”])\s+')
 
 
@@ -61,7 +74,10 @@ def parse():
             last['vi'] = m.group(1).strip(); continue
         m = re.match(r'\*\*(.+?):\*\*\s*(.+)', line)
         if m:
-            who = m.group(1).replace(' (EN)', '').strip()
+            who = re.sub(r'\s*\(.*?\)', '', m.group(1)).strip()
+            who = ' & '.join(NAMES.get(w.strip(), w.strip()) for w in who.split('&'))
+            if any(w.strip() not in VOICES for w in who.split('&')):   # PLAN:, REALITY:, Chữ cuối: … are directions, not lines
+                last = None; continue
             last = {'who': who, 'en': m.group(2).strip()}
             cur['items'].append(last)
     return scenes
@@ -80,9 +96,9 @@ async def say(text, voice, pitch, rate, path):
     raise RuntimeError(f'Edge TTS failed for: {text!r} ({err})')
 
 
-def pcm(path):
+def pcm(path, fx=''):
     trim = 'silenceremove=start_periods=1:start_threshold=-48dB:start_silence=0.03'
-    r = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-af', f'{trim},areverse,{trim},areverse',
+    r = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-af', f'{trim},areverse,{trim},areverse' + (f',{fx}' if fx else ''),
                         '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'], capture_output=True, check=True)
     return r.stdout
 
@@ -108,7 +124,7 @@ async def main():
     os.makedirs(TMP, exist_ok=True); os.makedirs(OUT, exist_ok=True)
     data, k = [], 0
     for sc in parse():
-        t, parts, lines, marks, prev = LEAD, [], [], [], None
+        t, parts, lines, marks, prev = LEADS.get(sc['n'], LEAD), [], [], [], None
         for it in sc['items']:
             if 'jump' in it:
                 t += JUMP - GAP_TALK
@@ -126,14 +142,14 @@ async def main():
                     shout = e.isupper() or e.endswith('!')
                     mp3 = os.path.join(TMP, f"s{sc['n']:02d}_{k:03d}_{nm}.mp3");
                     if not os.path.exists(mp3) or os.path.getsize(mp3) < 1000:
-                        await say(e, voice, pitch, '+8%' if shout and len(names) > 1 else RATE, mp3)
-                    takes.append(pcm(mp3))
+                        await say(e, voice, pitch, '+8%' if shout and len(names) > 1 else RATES.get(nm, RATE), mp3)
+                    takes.append(pcm(mp3, FX.get(nm, '')))
                 k += 1
                 a = takes[0] if len(takes) == 1 else mixpcm(takes)
                 d = len(a) / 2 / SR
                 parts.append((t, a))
                 sents.append({'who': who, 't0': round(t, 3), 't1': round(t + d, 3), 'en': e})
-                t += d + (GAP_NARR if who == 'Narrator' else GAP_TALK)
+                t += d + (NGAP.get(sc['n'], GAP_NARR) if who == 'Narrator' else GAP_TALK)
             # Vietnamese: one cue per English sentence when the counts match, else spread by length
             if len(vi) == len(en):
                 for s, v in zip(sents, vi):
@@ -147,7 +163,7 @@ async def main():
                 for s in sents:  # each English sentence shows the Vietnamese cue that overlaps it most
                     s['vi'] = max(vcues, key=lambda c: min(c[1], s['t1']) - max(c[0], s['t0']))[2]
             lines.extend(sents); prev = who
-        dur = t - GAP_TALK + TAIL
+        dur = t - GAP_TALK + TAILS.get(sc['n'], TAIL)
         frames = round(dur * FPS)
         buf = bytearray(round(frames / FPS * SR) * 2)
         for t0, a in parts:
