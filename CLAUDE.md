@@ -15,12 +15,38 @@ Người dùng giao tiếp bằng tiếng Việt, nên trả lời bằng tiến
 | `video/src/Med/` | "POV: một ngày làm sinh viên Y": `PovMedStudent` (9:16). |
 | `video/src/IT/` | "POV: một ngày của sinh viên CNTT": `PovITStudent` (9:16), giọng BrianNeural; nhạc chiptune tắt 1 giây trước mỗi câu chốt (`make_it_music.py`). |
 | `video/src/Teams/` | "5 kiểu nhóm làm việc": `FiveTypesOfTeams` (9:16), hội thoại nhiều giọng (`scripts/dialogue_narration.py`, xuất cả .srt), nhạc theo từng nhóm (`make_teams_music.py`). |
+| `video/src/Sleep/` | "Không ngủ đủ giấc" (không lời): `NotEnoughSleepPreview` (cảnh 1–3, 9:16). |
+| `video/public/audio/` | **Kho âm thanh chung:** SFX và nhạc nền tải về, có `CREDITS.md` ghi nguồn/giấy phép. |
 | `video/scripts/` | Script tạo lời dẫn, nhạc và ảnh xem thử (xem bên dưới). |
 | `video/public/` | Font, audio và SFX mà video dùng qua `staticFile()`. |
 | `videos/` | **Sản phẩm cuối** (MP4/ảnh bìa) đã commit để giao cho người dùng. |
 | `pieces/` | Dự án làm bằng skill `animate` (video cắt giấy 20/11, dạng canvas). |
 | `stickman/` | Dự án làm bằng skill `directing-stickman-videos` (bản B1 sinh viên Y, gói Google Flow). |
-| `.claude/skills/` | Các skill đã cài: remotion-*, animate, cartoon-3d-short, directing-stickman-videos, find-skills. |
+| `.claude/skills/` | Skill đã cài: remotion-*, gsap-*, motion, strudel-music, generative-music-audio, ffmpeg-* (âm thanh), animate, cartoon-3d-short, directing-stickman-videos, find-skills. Skill `video-nguoi-que` nằm trong tài khoản người dùng. |
+
+## Bộ công cụ mặc định cho video người que
+
+Khi người dùng nhờ làm video người que mà không chỉ định cách khác, dùng bộ này:
+
+| Việc | Công cụ mặc định |
+|---|---|
+| Quy trình chung | Skill **`video-nguoi-que`** + **Remotion** (dự án `video/`), làm theo các bước bên dưới. |
+| Chuyển động | Skill **`gsap-timeline`**: dàn cảnh bằng `gsap.timeline()` có nhãn và tham số vị trí. |
+| Hiệu ứng âm thanh | Lấy từ **`video/public/audio/`**. Thiếu âm nào thì bổ sung vào đó (tải nguồn CC0/CC BY, hoặc tự tổng hợp như `scripts/make_sleep_audio.py`) và ghi vào `CREDITS.md`. |
+| Nhạc nền | **Ưu tiên file tải về** (nhạc miễn phí bản quyền đặt trong `public/audio/`, ghi công nếu là CC BY). Khi cần **nhạc vui, ngắn** (jingle, đoạn chuyển, cảnh hài vài giây) thì viết bằng skill **`strudel-music`**. |
+| Hoàn thiện âm thanh | Bước cuối dùng skill **`ffmpeg-audio-processing`**: chuẩn hóa độ to cho TikTok/YouTube (−14 LUFS, true peak ≤ −1 dBTP). |
+
+**GSAP trong Remotion:** không để GSAP tự chạy theo thời gian thực. Tạo timeline ở trạng thái `paused: true`, rồi mỗi frame gọi `tl.seek(frame / fps)` (hoặc `tl.progress()`). Đọc giá trị từ object được tween để vẽ SVG, nhờ vậy render từng frame luôn ra cùng một kết quả. Rig người que (`rig.tsx`) vẫn dùng cho tư thế; GSAP lo nhịp và easing của chuyển động.
+
+**strudel-music ở phiên mới:** cần cài lại một lần bằng `cd .claude/skills/strudel-music && npm install && bash scripts/download-samples.sh` (không commit `node_modules` và `samples`). Tự viết bài mới, không "clone" nhạc của nghệ sĩ thật. Với video đăng công khai, ưu tiên âm tổng hợp thay cho trống mẫu Dirt-Samples (giấy phép chưa kiểm).
+
+**Chuẩn hóa cuối cùng** (sau khi Remotion render xong):
+```bash
+# đo trước
+ffmpeg -nostats -i out/<file>.mp4 -af ebur128 -f null - 2>&1 | grep -A2 Integrated
+# chuẩn hóa 2 lượt: lượt 1 đo (print_format=json), lượt 2 áp measured_* vào loudnorm, giữ nguyên hình
+ffmpeg -i out/<file>.mp4 -c:v copy -af loudnorm=I=-14:TP=-1:LRA=11:measured_I=..:measured_TP=..:measured_LRA=..:measured_thresh=..:offset=..:linear=true -c:a aac -b:a 192k out/<file>-final.mp4
+```
 
 ## Quy trình làm một video người que mới (Remotion)
 
@@ -31,12 +57,13 @@ Người dùng giao tiếp bằng tiếng Việt, nên trả lời bằng tiến
    ```
    - Script tạo từng câu riêng bằng Edge TTS nên thời gian của mỗi câu là chính xác. Bản tạo được cache ở `.kids-tts/<variant>`; bản hỏng (< 1000 byte) sẽ không được dùng lại.
    - Kết quả: `public/<pub>/audio/sceneN.wav` (đã chuẩn hóa về −16 LUFS) và `src/<Data>.ts` chứa `SCENES` (`frames`, `sentences{t0,t1,en}`, `cues{t0,t1,vi}`).
-3. **Nhạc nền và SFX:** tổng hợp bằng Python (`make_kids_music.py`, `make_med_music.py`); độ dài lấy từ data. SFX miễn phí bản quyền (CC0) ghi nguồn trong `public/<pub>/CREDITS.md`.
+3. **Nhạc nền và SFX:** theo bộ công cụ mặc định ở trên (SFX từ `public/audio/`; nhạc tải về, hoặc `strudel-music` cho đoạn vui ngắn). Các video cũ tự tổng hợp nhạc bằng Python (`make_kids_music.py`, `make_med_music.py`…); vẫn dùng được khi cần nhạc khớp từng mốc thời gian.
 4. **Dựng cảnh:** dùng rig `src/Kids/rig.tsx`.
    - Góc tư thế: `0` = hướng xuống, dương = hướng về +x.
    - Các hàm: `P`, `STAND`, `mix`, `poseAt`, `alive`, `walk`, `tw`, `pop`, `joints()`.
    - Mỗi cảnh là một component SVG nhận `sc: SceneData`. Mốc thời gian lấy theo câu thoại qua `cue(sc)`/`S(i)`.
 5. Đăng ký Composition trong `Root.tsx`, với `durationInFrames = tổng frames + END_HOLD`.
+6. Render, rồi chuẩn hóa âm thanh bằng `ffmpeg-audio-processing` (−14 LUFS). Chép bản cuối vào `videos/`.
 
 ## Lệnh thường dùng (chạy trong `video/`)
 
@@ -46,7 +73,7 @@ npx tsc --noEmit                                              # kiểm tra kiể
 node scripts/stills.mjs <CompId> <outDir> 40 900 --scale 0.4  # xem thử nhiều frame từ một bundle
 npx remotion render <CompId> out/<file>.mp4 --crf=20          # render đầy đủ
 npx remotion still <StillId> out/<file>.png                   # ảnh bìa
-ffmpeg -nostats -i out/<file>.mp4 -af ebur128 -f null - 2>&1 | grep -A2 Integrated  # mục tiêu −14…−16 LUFS
+ffmpeg -nostats -i out/<file>.mp4 -af ebur128 -f null - 2>&1 | grep -A2 Integrated  # mục tiêu −14 LUFS sau chuẩn hóa
 ```
 
 Sau khi render xong: chép file vào `videos/`, rồi commit và push.
@@ -67,5 +94,5 @@ Sau khi render xong: chép file vào `videos/`, rồi commit và push.
 
 - Làm việc trên nhánh được giao (hiện là `ccr-efb10a66-3tamly`) và push bằng `git push -u origin <branch>`.
 - Không tạo PR trừ khi người dùng yêu cầu.
-- Không commit `video/node_modules`, `video/out` hay cache `.kids-tts`.
+- Không commit `video/node_modules`, `video/out`, cache `.kids-tts`, hay `node_modules`/`samples` của strudel-music.
 - Không đưa API key vào chat hay vào repo.
