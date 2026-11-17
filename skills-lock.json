@@ -19,6 +19,27 @@
       "skillPath": "skills/directing-stickman-videos/SKILL.md",
       "computedHash": "a99cbef29a1f5291cbdc7c5a2663e265dae8a440a10923b4868b026bd30d467d"
     },
+    "ffmpeg-audio-processing": {
+      "source": "josiahsiegel/claude-plugin-marketplace",
+      "commit": "5a1b1123b9e50aa9a66a61005ca6fe012cc7442d",
+      "sourceType": "github",
+      "skillPath": "plugins/ffmpeg-core/skills/ffmpeg-audio-processing/SKILL.md",
+      "computedHash": "27557d66491dd939c7fdf1192dff0177bd323f84de65964b7f0190f61e9fcdd2"
+    },
+    "ffmpeg-filter-complex-patterns": {
+      "source": "josiahsiegel/claude-plugin-marketplace",
+      "commit": "5a1b1123b9e50aa9a66a61005ca6fe012cc7442d",
+      "sourceType": "github",
+      "skillPath": "plugins/ffmpeg-core/skills/ffmpeg-filter-complex-patterns/SKILL.md",
+      "computedHash": "114eae8235877468d6ca8ff48c9e9b3a3b2a98db45489860a29d2983f0af498d"
+    },
+    "ffmpeg-noise-reduction": {
+      "source": "josiahsiegel/claude-plugin-marketplace",
+      "commit": "5a1b1123b9e50aa9a66a61005ca6fe012cc7442d",
+      "sourceType": "github",
+      "skillPath": "plugins/ffmpeg-core/skills/ffmpeg-noise-reduction/SKILL.md",
+      "computedHash": "6c6148fa5613ae009e4dad601f71049b15dd0eaef4c42a40aebe278a734b1d55"
+    },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",
