@@ -1,0 +1,51 @@
+[
+ {
+  "who": "Narrator",
+  "start": 1.5,
+  "end": 2.467,
+  "en": "It's raining.",
+  "vi": "Trời mưa."
+ },
+ {
+  "who": "Narrator",
+  "start": 2.667,
+  "end": 3.975,
+  "en": "Lily has a plan.",
+  "vi": "Lily có một kế hoạch."
+ },
+ {
+  "who": "Narrator",
+  "start": 4.175,
+  "end": 5.877,
+  "en": "A very productive plan.",
+  "vi": "Một kế hoạch rất năng suất."
+ },
+ {
+  "who": "Lily",
+  "start": 6.237,
+  "end": 9.295,
+  "en": "Today, I will finally become a better person!",
+  "vi": "Hôm nay, mình sẽ trở thành một người tốt hơn!"
+ },
+ {
+  "who": "Narrator",
+  "start": 17.7,
+  "end": 18.633,
+  "en": "Page one.",
+  "vi": "Trang một."
+ },
+ {
+  "who": "Narrator",
+  "start": 19.933,
+  "end": 21.299,
+  "en": "Fifteen photos.",
+  "vi": "Mười lăm tấm ảnh."
+ },
+ {
+  "who": "Narrator",
+  "start": 22.599,
+  "end": 24.324,
+  "en": "Zero pages after that.",
+  "vi": "Không thêm trang nào nữa."
+ }
+]
