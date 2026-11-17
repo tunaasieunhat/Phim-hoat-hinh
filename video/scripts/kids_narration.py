@@ -17,10 +17,16 @@ import sys
 import edge_tts
 
 PUNCH = set()
+ALT = {}      # (scene, sentence) -> (narrator part, other voice, quoted part): two voices in one sentence
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VARIANT = os.environ.get('KIDS_VARIANT', 'full')
 SR = 44100
-if VARIANT == 'it':   # POV: a day in the life of an IT student (9:16), deadpan
+if VARIANT == 'tom':   # "What happens if you don't get enough sleep?" with a deadpan documentary narrator (9:16)
+    VOICE, RATE, LEAD, TAIL, GAP = 'en-US-AndrewNeural', '-8%', 1.5, 3.0, 1.0
+    SCRIPT, PUB, DATA = 'script-thieu-ngu-co-loi.md', 'tom', 'Tom/data.ts'
+    PUNCH = {(1, 4), (2, 2), (2, 3), (3, 2), (4, 2), (6, 2), (6, 4), (7, 5)}
+    ALT = {(6, 2): ('Tom says,', 'en-US-GuyNeural', 'Yes, chicken.')}   # Tom answers in his own voice
+elif VARIANT == 'it':   # POV: a day in the life of an IT student (9:16), deadpan
     VOICE, RATE, LEAD, TAIL, GAP = 'en-US-BrianNeural', '-4%', 1.4, 2.2, 0.75
     SCRIPT, PUB, DATA = 'script-pov-sinh-vien-cntt.md', 'it', 'IT/data.ts'
     PUNCH = {(1, 4), (2, 8), (3, 4), (4, 6), (5, 3), (5, 6), (6, 4)}  # (scene, sentence): a beat of silence before the joke
@@ -54,10 +60,10 @@ def parse():
     return scenes
 
 
-async def say(text, path):
-    for attempt in range(4):
+async def say(text, path, voice=None):
+    for attempt in range(6):
         try:
-            await edge_tts.Communicate(text, VOICE, rate=RATE, proxy=PROXY).save(path)
+            await edge_tts.Communicate(text, voice or VOICE, rate=RATE, proxy=PROXY).save(path)
             if os.path.getsize(path) > 1000:
                 return
         except Exception as e:  # noqa: BLE001 - retry any transport error
@@ -105,10 +111,16 @@ async def main():
             if not os.path.exists(mp3) or os.path.getsize(mp3) < 1000:   # never reuse a broken partial take
                 await say(e, mp3)
             a = pcm(mp3)
+            if (sc['n'], i) in ALT:           # narrator part + a short pause + the quote in another voice
+                lead, voice2, quote = ALT[(sc['n'], i)]
+                m1, m2 = mp3[:-4] + '_a.mp3', mp3[:-4] + '_b.mp3'
+                if not os.path.exists(m1) or os.path.getsize(m1) < 1000: await say(lead, m1)
+                if not os.path.exists(m2) or os.path.getsize(m2) < 1000: await say(quote, m2, voice2)
+                a = pcm(m1) + bytes(int(SR * 0.4) * 2) + pcm(m2)
             d = len(a) / 2 / SR
             parts.append((t, a))
             sents.append({'t0': round(t, 3), 't1': round(t + d, 3), 'en': e})
-            for c0, c1, text in split_cue(v, t, t + d + GAP * 0.6, {'3min': 64, 'med': 70, 'it': 70}.get(VARIANT, 84)):
+            for c0, c1, text in split_cue(v, t, t + d + GAP * 0.6, {'3min': 64, 'med': 70, 'it': 70, 'tom': 70}.get(VARIANT, 84)):
                 cues.append({'t0': round(c0, 3), 't1': round(c1, 3), 'vi': text})
             t += d + GAP
         dur = t - GAP + TAIL

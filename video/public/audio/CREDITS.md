@@ -26,3 +26,7 @@ Short music cues written for this video with the strudel-music skill (synth only
 For TikTok/YouTube, paste into the description:
 Music: "Merry Go", "Local Forecast - Elevator", "Morning" by Kevin MacLeod (incompetech.com), CC BY 4.0.
 SFX: "BounceYoFrankie" (c) Blender Foundation, CC BY 3.0; "Slide whistle down" by Joe DeShon, CC BY 3.0.
+
+## "Tom" (narrated version, src/Tom) — additional music
+- "Quirky Dog" Kevin MacLeod (incompetech.com) — CC BY 4.0 (music-quirky.mp3)
+- "Carefree" Kevin MacLeod (incompetech.com) — CC BY 4.0 (music-bright.mp3, last scene)
