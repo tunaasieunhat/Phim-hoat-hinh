@@ -10,6 +10,7 @@ import { SLEEP_FRAMES, SLEEP_PREVIEW_FRAMES, SleepFull, SleepPreview } from "./S
 
 import { TOM_FRAMES, TOM_PREVIEW_FRAMES, TomFull, TomPreview } from "./Tom/TomVideo";
 
+import { ToonLilySheet, ToonRoom } from "./Toon/Stills";
 import { RAIN_FRAMES, RAIN_PREVIEW_FRAMES, RainFull, RainPreview } from "./Rain/RainVideo";
 
 export const RemotionRoot: React.FC = () => {
@@ -28,6 +29,8 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RainyDay" component={RainFull} durationInFrames={RAIN_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="RainyDayPreview" component={RainPreview} durationInFrames={RAIN_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
       <Still id="GrownupsVsKidsCover" component={KidsThumbnail} width={1080} height={1920} />
+      <Still id="ToonLilySheet" component={ToonLilySheet} width={1080} height={1920} />
+      <Still id="ToonRoom" component={ToonRoom} width={1080} height={1920} />
     </>
   );
 };
