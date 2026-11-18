@@ -43,3 +43,13 @@ type P = { x: number; y: number; s?: number; flip?: boolean; pose?: ToonPose; ex
 export const Bob: React.FC<P> = (p) => <Toon {...p} outfit={BOB} hair={(r) => <BobHair r={r} />} hairBack={() => null} faceExtra={p.extra} />;
 export const Gus: React.FC<P & { droop?: number }> = ({ droop = 0, ...p }) => <Toon {...p} outfit={GUS} hair={(r) => <GusHair r={r} />} hairBack={() => null} faceExtra={<g><Moustache droop={droop} />{p.extra}</g>} />;
 export const King: React.FC<P> = (p) => <Toon {...p} outfit={KING} hair={(r) => <KingHair r={r} />} hairBack={() => null} faceExtra={<g><KingBeard />{p.extra}</g>} />;
+
+// townsfolk for the crowd scenes: a palette of outfits and simple hair / caps
+const TOPS = ["#22c55e", "#3b82f6", "#a855f7", "#ef4444", "#14b8a6", "#f59e0b", "#ec4899", "#64748b"];
+export const townie = (i: number): Outfit => ({ top: TOPS[i % 8], topDark: TOPS[(i + 3) % 8], legs: ["#1e293b", "#475569", "#78350f"][i % 3], shoes: "#1f2937" });
+export const TownHair = ({ r, i }: { r: number; i: number }) => i % 3 === 0
+  ? <path d={`M ${-r * 0.98} ${-r * 0.28} Q ${-r * 0.92} ${-r * 1.14} 0 ${-r * 1.12} Q ${r * 0.92} ${-r * 1.14} ${r * 0.98} ${-r * 0.28} Z`} fill={TOPS[(i + 5) % 8]} stroke={INK} strokeWidth={r * 0.06} />
+  : <path d={`M ${-r * 0.96} ${-r * 0.2} Q ${-r * 0.9} ${-r * 1.08} 0 ${-r * 1.06} Q ${r * 0.9} ${-r * 1.08} ${r * 0.96} ${-r * 0.2} Q ${r * 0.4} ${-r * 0.62} ${-r * 0.96} ${-r * 0.2} Z`} fill={["#2b1d1a", "#78350f", "#fde68a", "#9ca3af"][i % 4]} stroke={INK} strokeWidth={r * 0.05} />;
+export const Townie: React.FC<P & { i: number }> = ({ i, ...p }) => <Toon {...p} outfit={townie(i)} hair={(r) => <TownHair r={r} i={i} />} hairBack={() => null} faceExtra={p.extra} />;
+export const BAKER: Outfit = { top: "#f8fafc", topDark: "#cbd5e1", legs: "#334155", shoes: "#1f2937", apron: "#fde68a" };
+export const FARMER: Outfit = { top: "#ef4444", topDark: "#b91c1c", legs: "#2563eb", shoes: "#78350f", apron: "#3b82f6" };

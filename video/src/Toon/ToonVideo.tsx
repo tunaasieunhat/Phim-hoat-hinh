@@ -28,7 +28,7 @@ const chunks = (ln: SceneData["lines"][number]) => {
   if (cur.length) out.push(cur);
   return out;
 };
-const Captions: React.FC<{ sc: SceneData }> = ({ sc }) => {
+export const Captions: React.FC<{ sc: SceneData }> = ({ sc }) => {
   const t = useCurrentFrame() / FPS;
   const ln = sc.lines.find((l, i) => t >= l.t0 - 0.02 && t < Math.min(l.t1 + 0.35, sc.lines[i + 1]?.t0 ?? 1e9));
   if (!ln) return null;
@@ -49,7 +49,7 @@ const Captions: React.FC<{ sc: SceneData }> = ({ sc }) => {
   );
 };
 
-const Cue: React.FC<{ at: number; src: string; volume?: number; len?: number }> = ({ at, src, volume = 0.5, len = 3 }) => (
+export const Cue: React.FC<{ at: number; src: string; volume?: number; len?: number }> = ({ at, src, volume = 0.5, len = 3 }) => (
   <Sequence from={Math.max(0, Math.round(at * FPS))} durationInFrames={Math.round(len * FPS)} layout="none"><Audio src={staticFile(`audio/${src}`)} volume={volume} /></Sequence>
 );
 const SFX: React.FC<{ n: number; sc: SceneData }> = ({ n, sc }) => {

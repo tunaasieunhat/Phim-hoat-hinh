@@ -12,6 +12,8 @@ import { TOM_FRAMES, TOM_PREVIEW_FRAMES, TomFull, TomPreview } from "./Tom/TomVi
 
 import { ToonLilySheet, ToonRoom } from "./Toon/Stills";
 import { FreeBobSheet, FreeShop } from "./Free/Stills";
+import { FREE_FRAMES, FreeFull } from "./Free/FreeVideo";
+import { FreeThumb } from "./Free/Thumbnail";
 import { TOON_FRAMES, TOON_PREVIEW_FRAMES, ToonFull, ToonPreview } from "./Toon/ToonVideo";
 import { RAIN_FRAMES, RAIN_PREVIEW_FRAMES, RainFull, RainPreview } from "./Rain/RainVideo";
 
@@ -35,6 +37,8 @@ export const RemotionRoot: React.FC = () => {
       <Still id="ToonRoom" component={ToonRoom} width={1080} height={1920} />
       <Still id="FreeBobSheet" component={FreeBobSheet} width={1080} height={1920} />
       <Still id="FreeShop" component={FreeShop} width={1080} height={1920} />
+      <Still id="EverythingFreeCover" component={FreeThumb} width={1080} height={1920} />
+      <Composition id="EverythingFree" component={FreeFull} durationInFrames={FREE_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="ToonRain" component={ToonFull} durationInFrames={TOON_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="ToonRainPreview" component={ToonPreview} durationInFrames={TOON_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
     </>
