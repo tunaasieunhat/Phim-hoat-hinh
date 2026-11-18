@@ -13,17 +13,38 @@ const Big: React.FC<{ text: string; x?: number; y?: number; k: number; c?: strin
 );
 const Hearts: React.FC<{ x: number; y: number; t: number; k?: number }> = ({ x, y, t, k = 1 }) => <g>{[0, 1, 2].map((i) => { const q = ((t * 0.7 + i * 0.33) % 1); return <text key={i} x={x + i * 40 + Math.sin(t * 3 + i) * 10} y={y - q * 170} fontFamily="ToonSans" fontWeight={800} fontSize={56} fill="#f472b6" stroke={INK} strokeWidth={5} paintOrder="stroke fill" opacity={k * (1 - q)}>♥</text>; })}</g>;
 // Lily on the sofa, arms tucked inside a purple blanket wrap; only the hands peek out (hold = what they hold)
+// Lily wrapped in the blanket like a cosy burrito: a hood behind her head, the front wrap closed from the chin down
+// to the knees (shins and slippers peek out underneath), hands out at the opening. hood 0 → 1 pulls the whole
+// blanket over her head until only her eyes peek out of a dark gap.
 const Burrito: React.FC<{ f: number; expr: Expr; mouth?: number; hold?: React.ReactNode; hood?: number; head?: number; id: string }> = ({ f, expr, mouth = 0, hold, hood = 0, head = 0, id }) => {
   const pose = { ...SIT, head };
   const j = toonJoints(250, 1360, 0.98, pose);
-  const n = j.neck, hp = j.hip;
+  const n = j.neck, hp = j.hip, h = j.head, r = j.r;
+  const base = hp[1] + 34, L = hp[0] - 175, R = hp[0] + 205;
+  const breathe = Math.sin(f / 16) * 4;
+  // the closed cocoon (head covered), rising from the seat as hood goes 0 → 1
+  const cocoon = (
+    <g clipPath={`url(#cc${id})`}><clipPath id={`cc${id}`}><rect x={L - 200} y={h[1] - r * 3} width={R - L + 400} height={base - h[1] + r * 3 + 12} /></clipPath><g transform={`translate(0 ${(1 - hood) * (base - h[1] + r * 1.6)})`}>
+      <path d={`M ${L} ${base} Q ${L - 30} ${n[1]} ${h[0] - r * 1.25} ${h[1] - r * 0.2} Q ${h[0] - r * 1.1} ${h[1] - r * 1.55 + breathe} ${h[0] + r * 0.1} ${h[1] - r * 1.5 + breathe} Q ${h[0] + r * 1.4} ${h[1] - r * 1.4} ${h[0] + r * 1.3} ${h[1] + r * 0.2} Q ${R + 20} ${n[1] + 80} ${R} ${base} Z`} fill="#8b5cf6" stroke={INK} strokeWidth={9} strokeLinejoin="round" />
+      <path d={`M ${h[0] - r * 0.95} ${h[1] - r * 0.95} Q ${h[0] - r * 0.2} ${h[1] - r * 1.25} ${h[0] + r * 0.6} ${h[1] - r * 0.9}`} stroke="#a78bfa" strokeWidth={10} fill="none" strokeLinecap="round" />
+      {[[-0.7, 0.9], [0.1, 1.4], [0.9, 1.0], [-0.3, 2.0], [0.6, 2.1]].map(([dx, dy], i) => <circle key={i} cx={h[0] + r * dx} cy={h[1] + r * dy} r={8} fill="#ddd6fe" />)}
+      {/* the gap the eyes peek through */}
+      <ellipse cx={h[0] + 8} cy={h[1] - 4} rx={r * 0.62} ry={r * 0.26} fill="#1e1b4b" stroke={INK} strokeWidth={6} />
+      {hood > 0.85 && [-1, 1].map((sd) => <g key={sd}><ellipse cx={h[0] + 8 + sd * r * 0.26} cy={h[1] - 4} rx={r * 0.1} ry={r * 0.13 * (f % 90 < 4 ? 0.15 : 1)} fill="#fff" /><circle cx={h[0] + 11 + sd * r * 0.26} cy={h[1] - 2} r={r * 0.05} fill={INK} /></g>)}
+    </g></g>
+  );
   return (
     <g>
+      {/* hood behind the head */}
+      <path d={`M ${h[0] - r * 1.32} ${h[1] + r * 0.5} Q ${h[0] - r * 1.45} ${h[1] - r * 1.35} ${h[0]} ${h[1] - r * 1.42} Q ${h[0] + r * 1.45} ${h[1] - r * 1.35} ${h[0] + r * 1.32} ${h[1] + r * 0.5} Q ${R} ${n[1] + 40} ${R} ${base} L ${L} ${base} Q ${L} ${n[1] + 40} ${h[0] - r * 1.32} ${h[1] + r * 0.5} Z`} fill="#6d28d9" stroke={INK} strokeWidth={9} strokeLinejoin="round" />
       <Toon id={id} x={250} y={1360} s={0.98} pose={pose} expr={expr} blush look={{ mouth, look: 0.4 }} arms={false} />
-      <path d={`M ${hp[0] - 120} ${hp[1] + 30} Q ${hp[0] - 150} ${n[1] + 40 - hood * 230} ${n[0] - 50} ${n[1] + 30 - hood * 260} Q ${n[0] + 40} ${n[1] + 10 - hood * 260} ${n[0] + 110} ${n[1] + 60 - hood * 190} Q ${hp[0] + 240} ${hp[1] - 20} ${hp[0] + 220} ${hp[1] + 40} Z`} fill="#8b5cf6" stroke={INK} strokeWidth={9} strokeLinejoin="round" />
-      {[0, 1, 2].map((i) => <circle key={i} cx={hp[0] - 40 + i * 70} cy={hp[1] - 40 - (i % 2) * 30} r={8} fill="#ddd6fe" />)}
-      {hood > 0.8 && <g transform={`translate(${j.head[0] + 20} ${j.head[1] + 10})`}><ellipse cx={-18} cy={0} rx={9} ry={12} fill={INK} /><ellipse cx={18} cy={0} rx={9} ry={12} fill={INK} /></g>}
-      {hold && <g transform={`translate(${n[0] + 100} ${n[1] + 150})`}>{hold}<circle cx={-46} cy={-30} r={17} fill="#fff" stroke={INK} strokeWidth={7} /><circle cx={46} cy={-34} r={17} fill="#fff" stroke={INK} strokeWidth={7} /></g>}
+      {/* the front wrap: closed from the chin down to the knees, with a folded lapel */}
+      <path d={`M ${h[0] - r * 1.25} ${h[1] + r * 0.55} Q ${h[0]} ${h[1] + r * 1.25} ${h[0] + r * 1.25} ${h[1] + r * 0.55} Q ${R + 30} ${n[1] + 60 + breathe} ${R} ${base} Q ${hp[0] + 10} ${base + 26} ${L} ${base} Q ${L - 20} ${n[1] + 60 + breathe} ${h[0] - r * 1.25} ${h[1] + r * 0.55} Z`} fill="#8b5cf6" stroke={INK} strokeWidth={9} strokeLinejoin="round" />
+      <path d={`M ${h[0] + r * 0.35} ${h[1] + r * 1.1} Q ${h[0] + r * 0.8} ${n[1] + 140} ${hp[0] + 60} ${base + 8}`} stroke={INK} strokeWidth={7} fill="none" strokeLinecap="round" />
+      <path d={`M ${h[0] - r * 1.05} ${h[1] + r * 0.75} Q ${h[0]} ${h[1] + r * 1.35} ${h[0] + r * 1.05} ${h[1] + r * 0.75}`} stroke="#c4b5fd" strokeWidth={9} fill="none" strokeLinecap="round" />
+      {[[-110, 40], [-40, 90], [130, 60], [-120, 150], [150, 160]].map(([dx, dy], i) => <circle key={i} cx={hp[0] + dx} cy={n[1] + dy + 60} r={8} fill="#ddd6fe" />)}
+      {hold && hood < 0.5 && <g transform={`translate(${n[0] + 70} ${n[1] + 150})`}>{hold}<circle cx={-46} cy={-30} r={17} fill="#fff" stroke={INK} strokeWidth={7} /><circle cx={46} cy={-34} r={17} fill="#fff" stroke={INK} strokeWidth={7} /></g>}
+      {hood > 0.02 && cocoon}
     </g>
   );
 };
@@ -228,13 +249,22 @@ export const Toon7: React.FC<SP> = ({ sc }) => {
   const { f } = s, t = f / 30;
   const night = (z: number, x: number, y: number, kids: React.ReactNode, lamp = 1) => <Cam x={x} y={y} z={z}><Bedroom f={f} night={1} lamp={lamp} />{kids}</Cam>;
   // Lily in bed: head on the pillow, the duvet pulled up to the chin
-  const inBed = (expr: Expr, mouth = 0) => (
-    <g>
-      <g transform="translate(130 1035) rotate(-70)"><Head id="h7" r={74} expr={expr} look={{ mouth }} blush hair={<LilyHair r={74} />} back={<LilyHairBack r={74} />} /></g>
-      <path d="M 160 1110 Q 300 1050 470 1110 L 470 1260 L 150 1260 Z" fill="#f472b6" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
-      {[230, 320, 400].map((x) => <circle key={x} cx={x} cy={1170} r={10} fill="#fbcfe8" />)}
-    </g>
-  );
+  // Lily in bed: head upright on a big pillow, the duvet pulled up to her chin over a body-shaped bump,
+  // both hands holding its edge
+  const inBed = (expr: Expr, mouth = 0) => {
+    const hx = 118, hy = 1012, rr = 74, br = Math.sin(f / 18) * 3;
+    return (
+      <g>
+        <ellipse cx={hx} cy={hy + 38} rx={112} ry={58} fill="#f8fafc" stroke={INK} strokeWidth={8} />
+        <path d={`M ${hx - 70} ${hy + 50} q 70 -26 140 0`} stroke="#cbd5e1" strokeWidth={6} fill="none" />
+        <g transform={`translate(${hx} ${hy}) rotate(-12)`}><Head id="h7" r={rr} expr={expr} look={{ mouth, look: 0.3 }} blush hair={<LilyHair r={rr} />} back={<LilyHairBack r={rr} />} /></g>
+        <path d={`M 36 ${1078 + br} Q ${hx} ${1062 + br} 200 ${1074 + br} Q 300 ${1040 + br} 360 ${1070 + br} Q 410 1050 446 1080 L 470 1262 L 20 1262 Z`} fill="#f472b6" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
+        <path d={`M 40 ${1100 + br} Q ${hx} ${1086 + br} 200 ${1096 + br}`} stroke="#fbcfe8" strokeWidth={14} fill="none" strokeLinecap="round" />
+        {[[150, 1170], [260, 1140], [350, 1190], [420, 1140]].map(([x, y]) => <circle key={x} cx={x} cy={y} r={10} fill="#fbcfe8" />)}
+        {[hx - 38, hx + 34].map((x, i) => <circle key={i} cx={x} cy={1090 + br + i * 2} r={15} fill="#fff" stroke={INK} strokeWidth={6} />)}
+      </g>
+    );
+  };
   let shot: React.ReactNode;
   if (t < 2.9) shot = <Cam x={600} y={1150} z={s.zA}><NightHouse f={f} /></Cam>;
   else if (t < 6.0) {
