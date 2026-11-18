@@ -45,6 +45,6 @@ graph, LN = ';'.join(fc), 'loudnorm=I=-14:TP=-1.5:LRA=20'
 r = subprocess.run(['ffmpeg', '-hide_banner', *inputs, '-filter_complex', f'{graph};[mix]{LN}:print_format=json[o]', '-map', '[o]', '-t', f'{total:.2f}', '-f', 'null', '-'], capture_output=True, text=True)
 m = json.loads(re.findall(r'\{[^{}]+\}', r.stderr)[-1])
 meas = f"measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true"
-subprocess.run(['ffmpeg', '-v', 'error', '-y', *inputs, '-filter_complex', f'{graph};[mix]{LN}:{meas},aresample=48000[o]', '-map', '0:v', '-map', '[o]',
+subprocess.run(['ffmpeg', '-v', 'error', '-y', *inputs, '-filter_complex', f'{graph};[mix]{LN}:{meas},aresample=48000,alimiter=limit=0.79:level=false:attack=1:release=60[o]', '-map', '0:v', '-map', '[o]',
                 '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-t', f'{total:.2f}', '-movflags', '+faststart', dst], check=True)
 print(f"mixed {total:.1f}s: " + ', '.join(f'{k} {a:.1f}-{b:.1f}' for a, b, k in merged) + f" -> {dst}")
