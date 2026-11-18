@@ -1,8 +1,7 @@
-"""Final audio for "What if everything was free?" (adapted from mix_toon.py) (skills: ffmpeg-filter-complex-patterns, ffmpeg-audio-processing).
-Remotion renders picture + voices + SFX ("stem"); this adds music that follows
-the story (upbeat PLAN track until each tear, deflated REALITY track after it, warm lo-fi in the last scene),
-ducks both under the stem with a sidechain compressor, limits, and normalizes to −14 LUFS / −1.5 dBTP.
-usage: python3 scripts/mix_toon.py out/<stem>.mp4 out/<final>.mp4 [number of scenes in the stem]
+"""Final audio for "What if everything was free?" (adapted from mix_toon.py; skills: ffmpeg-filter-complex-patterns,
+ffmpeg-audio-processing). Remotion renders picture + voices + SFX ("stem"); this adds the per-scene music (TRACK below),
+ducks it under the stem with a sidechain compressor, limits, and normalizes to -14 LUFS / -1.5 dBTP.
+usage: python3 scripts/mix_free.py out/<stem>.mp4 out/<final>.mp4 [number of scenes in the stem]
 """
 import json, os, re, subprocess, sys
 
