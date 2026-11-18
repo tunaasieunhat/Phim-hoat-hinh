@@ -9,7 +9,7 @@ import { Book, Cam, Cloud, Grade, Mug, Phone, Rays, Spark, Stamp, Zs } from "./p
 import { Desk, H, RainyRoom, W } from "./sets";
 
 export type SP = { sc: SceneData };
-const lines = (sc: SceneData) => ({
+export const lines = (sc: SceneData) => ({
   T: (i: number) => sc.lines[i].t0, E: (i: number) => sc.lines[i].t1,
   word: (w: string) => sc.lines.flatMap((l) => l.words).find((x) => x.w.toLowerCase().startsWith(w))?.t0 ?? 0,
 });
@@ -18,17 +18,17 @@ export const talking = (sc: SceneData, who: string, t: number) => {
   const w = sc.lines.filter((l) => l.who === who).flatMap((l) => l.words).find((x) => t >= x.t0 && t < x.t1 + 0.04);
   return w ? 0.35 + 0.65 * Math.abs(Math.sin((t - w.t0) * 18)) : 0;
 };
-const Flash: React.FC<{ k: number; color?: string }> = ({ k, color = "#fff" }) => k <= 0.01 ? null : <rect width={W} height={H} fill={color} opacity={k} />;
-const Label: React.FC<{ en: string; vi: string; k: number }> = ({ en, vi, k }) => k <= 0.01 ? null : (
+export const Flash: React.FC<{ k: number; color?: string }> = ({ k, color = "#fff" }) => k <= 0.01 ? null : <rect width={W} height={H} fill={color} opacity={k} />;
+export const Label: React.FC<{ en: string; vi: string; k: number }> = ({ en, vi, k }) => k <= 0.01 ? null : (
   <g transform={`translate(540 480) scale(${0.85 + 0.15 * k})`} opacity={k} textAnchor="middle" fontFamily="ToonSans" fontWeight={800}>
     <rect x={-440} y={-64} width={880} height={140} rx={30} fill="rgba(23,22,28,0.72)" />
     <text y={-6} fontSize={56} fill="#fde68a">{en}</text><text y={50} fontSize={42} fill="#fff">{vi}</text>
   </g>
 );
-const SIT: ToonPose = { sit: 1.235, lB: [80, 6], lF: [86, 10] };
+export const SIT: ToonPose = { sit: 1.235, lB: [80, 6], lF: [86, 10] };
 
 export const cuts1 = (sc: SceneData) => ({ cB: sc.lines[1].t0 - 0.25, cC: sc.lines[2].t0 - 0.05, cD: sc.lines[3].t0 - 0.1, better: lines(sc).word("better") });
-export const cuts2 = (sc: SceneData) => ({ tear: sc.lines[0].t0 - 0.8, cF: 1.9, cH: sc.lines[1].t0 - 0.2, cH2: 8.0, cI: sc.lines[2].t0 - 0.15, cI2: 11.4 });
+export const cuts2 = (sc: SceneData) => ({ tear: sc.tear ?? sc.lines[0].t0 - 0.8, cF: 1.9, cH: sc.lines[1].t0 - 0.2, cH2: 8.0, cI: sc.lines[2].t0 - 0.15, cI2: 11.4 });
 
 /* ---------- 1. It's raining. Lily has a plan. ---------- */
 export const Toon1: React.FC<SP> = ({ sc }) => {
@@ -109,7 +109,7 @@ export const Toon1: React.FC<SP> = ({ sc }) => {
 /* ---------- 2. Plan: read a book · Reality: page one, fifteen photos, asleep ---------- */
 export const Toon2: React.FC<SP> = ({ sc }) => {
   const { T } = lines(sc);
-  const tear = T(0) - 0.8, cF = 1.9, cH = T(1) - 0.2, cH2 = 8.0, cI = T(2) - 0.15, cI2 = 11.4;
+  const tear = sc.tear ?? T(0) - 0.8, cF = 1.9, cH = T(1) - 0.2, cH2 = 8.0, cI = T(2) - 0.15, cI2 = 11.4;
   const s = useTimeline({ stampP: 0, label: 0, pan: 0, turn: 0, sip: 0, tear: 0, stampR: 0, zG: 1.55, yawn: 0, flashN: 0, grid: 0, zI: 1.25, breathe: 0 }, (tl, v) => {
     tl.to(v, { stampP: 1, duration: 0.3, ease: "back.out(3)" }, 0.15).to(v, { label: 1, duration: 0.3 }, 0.4).to(v, { pan: 1, duration: cF, ease: "none" }, 0)
       .to(v, { turn: 1, duration: 0.6, ease: "power1.inOut" }, 0.9)
@@ -253,3 +253,14 @@ export const Toon2: React.FC<SP> = ({ sc }) => {
   return <g>{world}<Stamp kind="REALITY" k={t < cH ? s.stampR : 0} />{top}</g>;
 };
 
+
+// PLAN (bright, stamped, labelled) torn away at sc.tear to reveal REALITY underneath
+export const PlanReality: React.FC<{ sc: SceneData; plan: React.ReactNode; reality: React.ReactNode; en: string; vi: string }> = ({ sc, plan, reality, en, vi }) => {
+  const tear = sc.tear ?? 0;
+  const s = useTimeline({ stampP: 0, label: 0, tear: 0, stampR: 0 }, (tl, v) => {
+    tl.to(v, { stampP: 1, duration: 0.3, ease: "back.out(3)" }, 0.15).to(v, { label: 1, duration: 0.3 }, 0.4)
+      .to(v, { tear: 1, duration: 0.75, ease: "power1.in" }, tear).to(v, { stampR: 1, duration: 0.3, ease: "back.out(3)" }, tear + 0.45).to(v, { stampR: 0, duration: 0.25 }, tear + 3.2);
+  });
+  const t = s.f / 30;
+  return <g>{t >= tear - 0.02 && reality}<Stamp kind="REALITY" k={s.stampR} />{t < tear + 0.8 && <Tear p={s.tear}>{plan}<Stamp kind="PLAN" k={s.stampP} /><Label en={en} vi={vi} k={s.label} /></Tear>}</g>;
+};

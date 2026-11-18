@@ -4,7 +4,7 @@
 import React from "react";
 
 export const INK = "#17161c";
-export type Expr = "smug" | "happy" | "sleepy" | "shock" | "determined" | "chew" | "talk";
+export type Expr = "smug" | "happy" | "sleepy" | "shock" | "determined" | "chew" | "talk" | "stern" | "deadpan" | "worried";
 export type ToonPose = {
   lean?: number;              // torso tilt (deg, + = toward +x)
   head?: number;              // extra head tilt
@@ -35,6 +35,9 @@ export const Head: React.FC<{ r: number; hair: React.ReactNode; back?: React.Rea
     determined: { eyes: [0.95, 0.95], brow: [14, 8, -8, -14], mouth: `M ${-r * 0.26} ${r * 0.4} Q 0 ${r * 0.6} ${r * 0.26} ${r * 0.4} Z` },
     chew: { eyes: [0.15, 0.15], brow: [-8, -6, 6, 8], mouth: "" },
     talk: { eyes: [1, 1], brow: [-8, -4, 4, 8], mouth: "" },
+    stern: { eyes: [0.7, 0.7], brow: [-4, 16, 16, -4], mouth: `M ${-r * 0.2} ${r * 0.46} L ${r * 0.2} ${r * 0.46}` },
+    deadpan: { eyes: [0.55, 0.55], brow: [2, 2, 2, 2], mouth: `M ${-r * 0.16} ${r * 0.46} L ${r * 0.16} ${r * 0.46}` },
+    worried: { eyes: [1.1, 1.1], brow: [10, -14, -14, 10], mouth: `M ${-r * 0.22} ${r * 0.48} Q ${-r * 0.1} ${r * 0.4} 0 ${r * 0.48} Q ${r * 0.1} ${r * 0.56} ${r * 0.22} ${r * 0.48}` },
   };
   const e = E[expr];
   const mo = look.mouth ?? 0;

@@ -53,7 +53,7 @@ export const RainyRoom: React.FC<{ f: number; rain?: number; sunny?: number; lam
         <filter id="rrSoft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40" /></filter>
       </defs>
       {/* wall + faint wallpaper */}
-      <rect width={W} height={H} fill="url(#rrWall)" />
+      <rect x={-800} y={-800} width={W + 1600} height={H + 1600} fill="url(#rrWall)" />
       {Array.from({ length: 14 }).map((_, i) => <rect key={i} x={i * 80 + 30} y={0} width={14} height={1360} fill="#fff" opacity={0.025} />)}
       {/* picture frames */}
       <g transform="translate(110 360)"><rect x={-70} y={-90} width={140} height={180} rx={6} fill="#c79a6b" stroke={INK} strokeWidth={6} /><rect x={-52} y={-72} width={104} height={144} fill="#f8e7c9" /><circle cx={0} cy={-14} r={26} fill="#f472b6" opacity={0.7} /><path d="M -40 60 Q 0 0 40 60 Z" fill="#60a5fa" opacity={0.7} /></g>
@@ -78,7 +78,7 @@ export const RainyRoom: React.FC<{ f: number; rain?: number; sunny?: number; lam
       {/* shelf with books, right */}
       <g transform="translate(985 450)"><rect x={-110} y={0} width={220} height={18} fill="#7a5038" stroke={INK} strokeWidth={5} />{[["#ef4444", 26, 100], ["#60a5fa", 22, 88], ["#facc15", 30, 110], ["#34d399", 20, 80]].map(([c, w, h], i) => <rect key={i} x={-96 + i * 34} y={-(h as number)} width={w as number} height={h as number} fill={c as string} stroke={INK} strokeWidth={4} />)}<path d="M 60 0 L 66 -40 L 100 -40 L 106 0 Z" fill="#e2725b" stroke={INK} strokeWidth={4} /><path d="M 83 -40 Q 70 40 50 120 M 83 -40 Q 100 50 90 140" stroke="#3f8f4f" strokeWidth={8} fill="none" strokeLinecap="round" /></g>
       {/* floor with perspective planks */}
-      <rect x={0} y={1300} width={W} height={H - 1300} fill="url(#rrFloor)" />
+      <rect x={-800} y={1300} width={W + 1600} height={H} fill="url(#rrFloor)" />
       <rect x={0} y={1290} width={W} height={22} fill="#2a1e17" />
       {Array.from({ length: 13 }).map((_, i) => { const bx = -300 + i * 140; return <line key={i} x1={540 + (bx - 540) * 0.35} y1={1312} x2={bx} y2={H} stroke="#2e1f17" strokeWidth={4} opacity={0.6} />; })}
       {[1420, 1580, 1780].map((y, i) => <line key={i} x1={0} y1={y} x2={W} y2={y} stroke="#2e1f17" strokeWidth={3} opacity={0.35} />)}

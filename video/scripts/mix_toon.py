@@ -15,7 +15,7 @@ starts, t = [], 0.0
 for sc in scenes:
     starts.append(t); t += sc['frames'] / 30
 total = starts[upto - 1] + scenes[upto - 1]['frames'] / 30
-tear = lambda n: scenes[n - 1]['lines'][0]['t0'] - 0.8          # same rule as scenes.tsx (cuts2)
+tear = lambda n: scenes[n - 1]['tear']          # written by toon_narration.py, used by the scenes too
 A = os.path.join(ROOT, 'public', 'audio')
 seg = []
 for n in range(1, upto + 1):

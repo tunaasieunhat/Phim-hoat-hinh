@@ -11,7 +11,7 @@ import { SLEEP_FRAMES, SLEEP_PREVIEW_FRAMES, SleepFull, SleepPreview } from "./S
 import { TOM_FRAMES, TOM_PREVIEW_FRAMES, TomFull, TomPreview } from "./Tom/TomVideo";
 
 import { ToonLilySheet, ToonRoom } from "./Toon/Stills";
-import { TOON_PREVIEW_FRAMES, ToonPreview } from "./Toon/ToonVideo";
+import { TOON_FRAMES, TOON_PREVIEW_FRAMES, ToonFull, ToonPreview } from "./Toon/ToonVideo";
 import { RAIN_FRAMES, RAIN_PREVIEW_FRAMES, RainFull, RainPreview } from "./Rain/RainVideo";
 
 export const RemotionRoot: React.FC = () => {
@@ -32,6 +32,7 @@ export const RemotionRoot: React.FC = () => {
       <Still id="GrownupsVsKidsCover" component={KidsThumbnail} width={1080} height={1920} />
       <Still id="ToonLilySheet" component={ToonLilySheet} width={1080} height={1920} />
       <Still id="ToonRoom" component={ToonRoom} width={1080} height={1920} />
+      <Composition id="ToonRain" component={ToonFull} durationInFrames={TOON_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="ToonRainPreview" component={ToonPreview} durationInFrames={TOON_PREVIEW_FRAMES} fps={30} width={1080} height={1920} />
     </>
   );
