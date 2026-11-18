@@ -84,14 +84,14 @@ export const Free2: React.FC<FP> = ({ sc }) => {
   let shot: React.ReactNode;
   if (t < cB) {
     shot = <Cam x={540} y={1100} z={1.15}><Street f={f}>
-      {s.dash < 0.95 && <><Speed x={-200 + 1100 * s.dash} y={1300} dir={-1} k={s.dash > 0.05 ? 1 : 0} /><Bob id="b2a" x={-200 + 1100 * s.dash} y={1480} s={0.95} expr="determined" pose={{ lean: 18 * s.dash, aF: [100, 60], aB: [-60, -100], lF: [50, -20], lB: [-40, 10] }} /></>}
+      {s.dash < 0.95 && <><Speed x={-200 + 1100 * s.dash} y={1300} dir={-1} k={s.dash > 0.05 ? 1 : 0} /><Bob look={{ look: 0.7 }} id="b2a" x={-200 + 1100 * s.dash} y={1480} s={0.95} expr="determined" pose={{ lean: -18 * s.dash, aF: [100, 60], aB: [-60, -100], lF: [50, -20], lB: [-40, 10] }} /></>}
       {s.dash >= 0.95 && [0, 1, 2].map((i) => <circle key={i} cx={810 + (i - 1) * 90} cy={1320 - i * 20} r={60 + i * 10} fill="#e7e5e4" opacity={0.85} stroke={INK} strokeWidth={4} />)}
     </Street></Cam>;
   } else if (t < tTV - 0.1) {
     const x = 120 + 760 * s.run;
     shot = <Cam x={540} y={1150} z={1.2}><Shop f={f} behind={<Gus id="g2b" x={330} y={1240} s={0.95} expr="shock" pose={{ aB: [-130, -160], aF: [130, 160] }} />}>
       <Speed x={x - 200} y={1500} dir={-1} /><g transform={`translate(${x + 200} 1700)`}><Cart s={0.9} /></g>
-      <Bob id="b2b" x={x} y={1700} s={0.9} expr="determined" pose={{ lean: 14, aF: [80, 70], aB: [70, 60], lF: [40, -10], lB: [-30, 10] }} /></Shop>
+      <Bob look={{ look: 0.7 }} id="b2b" x={x} y={1700} s={0.9} expr="determined" pose={{ lean: -14, aF: [80, 70], aB: [70, 60], lF: [40, -10], lB: [-30, 10] }} /></Shop>
       <g transform="translate(860 560)"><circle r={100} fill="#fff" stroke={INK} strokeWidth={10} /><line x1={0} y1={0} x2={0} y2={-70} stroke="#ef4444" strokeWidth={10} strokeLinecap="round" transform={`rotate(${t * 900})`} /><text y={160} textAnchor="middle" fontFamily="ToonSans" fontWeight={800} fontSize={54} fill="#fff" stroke={INK} strokeWidth={10} paintOrder="stroke fill">0.5 sec</text></g></Cam>;
   } else if (t < cG) {
     // TV / car / horse / piano: each lands in the cart with a ka-ching; the camera angle changes on every item
@@ -107,7 +107,7 @@ export const Free2: React.FC<FP> = ({ sc }) => {
     shot = <Cam x={560} y={1150} z={1.05} r={-3}><Street f={f}>
       <Gus id="g2g" x={810} y={1330} s={0.85} expr="shock" pose={{ aB: [-120, -170], aF: [120, 170] }} />
       <g transform={`translate(${300 + 160 * s.push} 1650) rotate(${wob})`}><Cart s={1.25}><Loot n={4} /></Cart></g>
-      <Bob id="b2g" x={60 + 160 * s.push} y={1650} s={1.0} expr="determined" pose={{ lean: 16, aF: [80, 80], aB: [70, 70], lF: [30, -10], lB: [-26, 6] }} />
+      <Bob look={{ look: 0.7 }} id="b2g" x={60 + 160 * s.push} y={1650} s={1.0} expr="determined" pose={{ lean: -16, aF: [80, 80], aB: [70, 70], lF: [30, -10], lB: [-26, 6] }} />
       <Sweat x={70 + 160 * s.push} y={760} t={t} />
     </Street></Cam>;
   } else if (t < cI) {

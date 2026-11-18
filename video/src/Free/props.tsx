@@ -38,11 +38,13 @@ export const Piano: React.FC<{ s?: number; press?: number }> = ({ s = 1, press =
 export const Cart: React.FC<{ s?: number; children?: React.ReactNode }> = ({ s = 1, children }) => (
   <g transform={`scale(${s})`}>
     {children}
+    <g transform="scale(-1 1)">{/* basket mirrored: the handle is at the back (left), where the shopper pushes */}
     <path d="M -160 -170 L 150 -170 L 120 -50 L -130 -50 Z" fill="#cbd5e1" fillOpacity={0.6} stroke={INK} strokeWidth={9} strokeLinejoin="round" />
     {[-100, -40, 20, 80].map((x) => <line key={x} x1={x} y1={-170} x2={x - 6} y2={-50} stroke={INK} strokeWidth={4} />)}
     <path d="M 150 -170 L 210 -230" stroke={INK} strokeWidth={10} strokeLinecap="round" />
     <line x1={-130} y1={-50} x2={-130} y2={-10} stroke={INK} strokeWidth={8} /><line x1={110} y1={-50} x2={110} y2={-10} stroke={INK} strokeWidth={8} />
     {[-120, 100].map((x) => <circle key={x} cx={x} cy={0} r={18} fill="#1f2937" stroke={INK} strokeWidth={6} />)}
+    </g>
   </g>
 );
 export const Notice: React.FC<{ s?: number }> = ({ s = 1 }) => (

@@ -46,13 +46,17 @@ export const Free4: React.FC<FP> = ({ sc }) => {
       <Gus id="g4f" x={60} y={1230} s={0.9} expr="happy" droop={0} pose={{ sit: 1.235, lB: [80, 6], lF: [86, 10], aF: [80, 120], aB: [60, 100] }} extra={<StrawHat />} holdF={<g transform="rotate(-10)"><Rod bob={s.bob} /></g>} />
     </Lake></Cam>;
   } else {
-    shot = <Cam x={460} y={1000} z={s.zG}><Lake f={f} sunset={1}>
+    const sw = Math.sin(f / 15) * 10;
+    shot = <Cam x={500} y={960} z={s.zG}><Lake f={f} sunset={1}>
       <path d="M 160 520 L 160 1240 M 880 520 L 880 1240" stroke="#78350f" strokeWidth={22} />
       {[160, 880].map((x) => <circle key={x} cx={x} cy={500} r={110} fill="#166534" stroke={INK} strokeWidth={6} />)}
-      <path d={`M 160 760 Q 520 ${1020 + Math.sin(f / 15) * 10} 880 760`} stroke="#fde68a" strokeWidth={70} fill="none" />
-      <Lying x={620} y={960}><Gus id="g4g" x={620} y={960} s={0.75} expr="sleepy" pose={{ aB: [-150, -170], aF: [-150, -170], lB: [-4, -2], lF: [6, 2] }} extra={<StrawHat />} /></Lying>
-      <path d={`M 160 760 Q 520 ${1060 + Math.sin(f / 15) * 10} 880 760`} stroke="#fcd34d" strokeWidth={30} fill="none" opacity={0.8} />
-      <Zs x={320} y={780} f={f} />
+      {/* hammock: back canvas, Gus lying in the sag, front canvas wrapping over his body */}
+      <path d={`M 160 760 Q 520 ${1200 + sw} 880 760`} stroke="#d97706" strokeWidth={10} fill="none" />
+      <path d={`M 160 760 Q 520 ${1180 + sw} 880 760 Q 520 ${1100 + sw} 160 760 Z`} fill="#fde68a" stroke={INK} strokeWidth={7} strokeLinejoin="round" />
+      <g transform={`rotate(${8 + sw * 0.2} 600 ${900 + sw})`}><Lying x={760} y={900 + sw}><Gus id="g4g" x={760} y={900 + sw} s={0.62} expr="sleepy" pose={{ aB: [-20, -10], aF: [20, 10], lB: [-4, -2], lF: [6, 2] }} extra={<StrawHat />} /></Lying></g>
+      <path d={`M 175 772 Q 520 ${1230 + sw} 865 772 Q 520 ${1080 + sw} 175 772 Z`} fill="#fcd34d" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
+      {[0, 1, 2, 3, 4].map((i) => <line key={i} x1={300 + i * 110} y1={935 + sw - Math.abs(i - 2) * 26} x2={300 + i * 110} y2={995 + sw - Math.abs(i - 2) * 34} stroke="#d97706" strokeWidth={5} />)}
+      <Zs x={260} y={720} f={f} />
     </Lake></Cam>;
   }
   return <g>{shot}</g>;
@@ -174,7 +178,7 @@ export const Free7: React.FC<FP> = ({ sc }) => {
   } else if (t < cE) {
     shot = <Cam x={520} y={1150} z={1.2}><Street f={f}>
       <g transform={`translate(${260 + 420 * s.push} 1640)`}><Piano s={1.0} /></g>
-      <Bob id="b7d" x={-30 + 420 * s.push} y={1640} s={1.0} expr="determined" pose={{ lean: 20, aF: [80, 80], aB: [70, 70], lF: [30, -10], lB: [-30, 8] }} />
+      <Bob look={{ look: 0.7 }} id="b7d" x={-30 + 420 * s.push} y={1640} s={1.0} expr="determined" pose={{ lean: -20, aF: [80, 80], aB: [70, 70], lF: [30, -10], lB: [-30, 8] }} />
       <Sweat x={-20 + 420 * s.push} y={780} t={t} />
     </Street></Cam>;
   } else if (t < cF) {
