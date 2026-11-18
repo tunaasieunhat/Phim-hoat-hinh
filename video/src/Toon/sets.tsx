@@ -37,7 +37,7 @@ export const Outside: React.FC<{ x: number; y: number; w: number; h: number; f: 
 );
 
 // cozy rainy-day living room: big rainy window, mustard curtains, sofa + knitted blanket, floor lamp, shelf, rug
-export const RainyRoom: React.FC<{ f: number; rain?: number; sunny?: number; lamp?: number; children?: React.ReactNode; fg?: boolean }> = ({ f, rain = 1, sunny = 0, lamp = 1, children, fg = true }) => {
+export const RainyRoom: React.FC<{ f: number; rain?: number; sunny?: number; lamp?: number; curtain?: number; cloud?: React.ReactNode; children?: React.ReactNode; fg?: boolean }> = ({ f, rain = 1, sunny = 0, lamp = 1, curtain = 1, cloud, children, fg = true }) => {
   const flick = 0.96 + 0.04 * Math.sin(f / 3.7) * Math.sin(f / 5.3);
   return (
     <g>
@@ -60,15 +60,16 @@ export const RainyRoom: React.FC<{ f: number; rain?: number; sunny?: number; lam
       {/* the window */}
       <rect x={250} y={300} width={580} height={720} rx={16} fill="#5b3a29" stroke={INK} strokeWidth={8} />
       <Outside id="rr" x={276} y={326} w={528} h={668} f={f} rain={rain} sunny={sunny} />
+      {cloud && <g clipPath="url(#winrr)">{cloud}</g>}
       <rect x={530} y={326} width={20} height={668} fill="#6d4631" stroke={INK} strokeWidth={5} /><rect x={276} y={650} width={528} height={18} fill="#6d4631" stroke={INK} strokeWidth={5} />
       <rect x={220} y={1010} width={640} height={40} rx={8} fill="#7a5038" stroke={INK} strokeWidth={7} />
       {/* sill: plant, candle with glow, a mug */}
       <g transform="translate(400 1010)"><path d="M -36 0 L -28 -60 L 28 -60 L 36 0 Z" fill="#e2725b" stroke={INK} strokeWidth={6} strokeLinejoin="round" />{[-50, -20, 10, 40].map((a, i) => <path key={i} d={`M 0 -60 Q ${a} -120 ${a * 1.6} ${-150 - (i % 2) * 30}`} stroke="#3f8f4f" strokeWidth={14} fill="none" strokeLinecap="round" />)}</g>
       <g transform="translate(660 1010)"><circle cx={0} cy={-90} r={70} fill="#ffcf7a" opacity={0.25 * flick} filter="url(#rrSoft)" /><rect x={-20} y={-60} width={40} height={60} rx={6} fill="#fef3c7" stroke={INK} strokeWidth={5} /><path d={`M 0 -62 q -12 -18 0 -40 q 12 22 0 40`} fill="#fbbf24" stroke={INK} strokeWidth={3} transform={`scale(${1 + 0.05 * Math.sin(f / 2.3)} 1)`} /></g>
       {/* curtains with folds and a tie-back */}
-      <path d="M 160 250 L 330 250 Q 300 600 360 820 Q 300 900 330 1200 L 140 1200 Z" fill="url(#rrCurt)" stroke={INK} strokeWidth={7} strokeLinejoin="round" />
-      <path d="M 920 250 L 750 250 Q 780 600 720 820 Q 780 900 750 1200 L 940 1200 Z" fill="url(#rrCurt)" stroke={INK} strokeWidth={7} strokeLinejoin="round" />
-      {[[330, 820], [750, 820]].map(([cx, cy], i) => <ellipse key={i} cx={cx} cy={cy} rx={30} ry={14} fill="#7c2d12" stroke={INK} strokeWidth={5} />)}
+      <g transform={`translate(140 0) scale(${1 + (1 - curtain) * 1.15} 1) translate(-140 0)`}><path d="M 160 250 L 330 250 Q 300 600 360 820 Q 300 900 330 1200 L 140 1200 Z" fill="url(#rrCurt)" stroke={INK} strokeWidth={7} strokeLinejoin="round" /></g>
+      <g transform={`translate(940 0) scale(${1 + (1 - curtain) * 1.15} 1) translate(-940 0)`}><path d="M 920 250 L 750 250 Q 780 600 720 820 Q 780 900 750 1200 L 940 1200 Z" fill="url(#rrCurt)" stroke={INK} strokeWidth={7} strokeLinejoin="round" /></g>
+      {curtain > 0.9 && [[330, 820], [750, 820]].map(([cx, cy], i) => <ellipse key={i} cx={cx} cy={cy} rx={30} ry={14} fill="#7c2d12" stroke={INK} strokeWidth={5} />)}
       <rect x={120} y={226} width={840} height={26} rx={13} fill="#3b2a20" stroke={INK} strokeWidth={6} />
       <path d="M 130 262 Q 330 330 540 268 Q 750 330 950 262" stroke="#3b2a20" strokeWidth={3} fill="none" />
       {Array.from({ length: 15 }).map((_, i) => { const t = i / 14, bx = 130 + t * 820, by = 262 + Math.abs(Math.sin(t * Math.PI * 2)) * 60 - 4; const on = 0.6 + 0.4 * Math.sin(f / 9 + i * 1.7); return <g key={i}><circle cx={bx} cy={by + 8} r={16} fill="#ffd27f" opacity={0.35 * on} /><circle cx={bx} cy={by + 8} r={7} fill={["#fde68a", "#fbcfe8", "#a5f3fc"][i % 3]} stroke={INK} strokeWidth={2} /></g>; })}
@@ -118,3 +119,16 @@ export const RainyRoom: React.FC<{ f: number; rain?: number; sunny?: number; lam
     </g>
   );
 };
+
+// top-down desk: wood grain, rain-shadow from the window drifting across it
+export const Desk: React.FC<{ f: number; children?: React.ReactNode }> = ({ f, children }) => (
+  <g>
+    <defs><linearGradient id="dkW" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#9a6a45" /><stop offset="1" stopColor="#6e4630" /></linearGradient></defs>
+    <rect width={W} height={H} fill="url(#dkW)" />
+    {Array.from({ length: 22 }).map((_, i) => <path key={i} d={`M 0 ${i * 90 + 20} Q 300 ${i * 90 + 40 + Math.sin(i) * 20} 600 ${i * 90 + 18} T 1080 ${i * 90 + 30}`} stroke="#5b3a26" strokeWidth={3} fill="none" opacity={0.35} />)}
+    {/* cool window light with sliding raindrop shadows */}
+    <path d="M 0 0 L 760 0 L 1080 520 L 1080 1500 L 0 900 Z" fill="#c7dcf5" opacity={0.18} />
+    {Array.from({ length: 30 }).map((_, i) => { const y0 = (rnd(i) * 1500 + f * (1 + rnd(i + 5) * 2)) % 1500; return <ellipse key={i} cx={rnd(i + 40) * 900} cy={y0} rx={8 + rnd(i) * 8} ry={12 + rnd(i) * 10} fill="#2b2f3a" opacity={0.12} />; })}
+    {children}
+  </g>
+);

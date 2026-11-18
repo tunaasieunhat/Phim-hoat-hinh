@@ -91,8 +91,8 @@ export const LILY: Outfit = { top: "#f472b6", topDark: "#db2777", legs: "#9ca3af
 export const Toon: React.FC<{
   x: number; y: number; s?: number; flip?: boolean; pose?: ToonPose; expr?: Expr; look?: Look; blush?: boolean; id: string;
   outfit?: Outfit; hair?: (r: number) => React.ReactNode; hairBack?: (r: number) => React.ReactNode;
-  holdF?: React.ReactNode; holdB?: React.ReactNode; faceExtra?: React.ReactNode; arms?: boolean;
-}> = ({ x, y, s = 1, flip, pose = {}, expr = "happy", look, blush, id, outfit = LILY, hair = (r) => <LilyHair r={r} />, hairBack = (r) => <LilyHairBack r={r} />, holdF, holdB, faceExtra, arms = true }) => {
+  holdF?: React.ReactNode; holdB?: React.ReactNode; faceExtra?: React.ReactNode; arms?: boolean; fistF?: boolean;
+}> = ({ x, y, s = 1, flip, pose = {}, expr = "happy", look, blush, id, outfit = LILY, hair = (r) => <LilyHair r={r} />, hairBack = (r) => <LilyHairBack r={r} />, holdF, holdB, faceExtra, arms = true, fistF }) => {
   const p = { lean: 0, head: 0, aB: [-14, -6] as [number, number], aF: [14, 6] as [number, number], lB: [-6, -2] as [number, number], lF: [6, 2] as [number, number], sit: 0, dy: 0, ...pose };
   const LEG = 105, UA = 88, FA = 82, TORSO = 205, R = 112;
   const hip: [number, number] = [0, -2 * LEG + p.sit * 170 + p.dy];
@@ -113,11 +113,11 @@ export const Toon: React.FC<{
   const pants = (q: [number, number][]) => { const end = [q[1][0] + (q[2][0] - q[1][0]) * 0.72, q[1][1] + (q[2][1] - q[1][1]) * 0.72] as [number, number]; const pp = poly([q[0], q[1], end]); return <g><polyline points={pp} fill="none" stroke={INK} strokeWidth={46} strokeLinecap="round" strokeLinejoin="round" /><polyline points={pp} fill="none" stroke={outfit.legs} strokeWidth={34} strokeLinecap="round" strokeLinejoin="round" /></g>; };
   const shoe = (q: [number, number][]) => { const f = q[2]; return <g transform={`translate(${f[0]} ${f[1]})`}><ellipse cx={14} cy={-6} rx={38} ry={20} fill={outfit.shoes} stroke={INK} strokeWidth={7} />{outfit.shoeTrim && <path d="M -14 -16 q 10 -10 22 -2 q 10 -10 22 2" stroke={outfit.shoeTrim} strokeWidth={9} fill="none" strokeLinecap="round" />}</g>; };
   // short puffy sleeve, then the black stick arm, then a white mitten hand
-  const limbArm = (q: [number, number][], hold?: React.ReactNode) => {
+  const limbArm = (q: [number, number][], hold?: React.ReactNode, fist?: boolean) => {
     const cuff = [q[0][0] + (q[1][0] - q[0][0]) * 0.55, q[0][1] + (q[1][1] - q[0][1]) * 0.55] as [number, number];
     return <g>{stick(q)}<polyline points={poly([q[0], cuff])} fill="none" stroke={INK} strokeWidth={50} strokeLinecap="round" /><polyline points={poly([q[0], cuff])} fill="none" stroke={outfit.top} strokeWidth={38} strokeLinecap="round" />
       {hold && <g transform={`translate(${q[2][0]} ${q[2][1]})`}>{hold}</g>}
-      <circle cx={q[2][0]} cy={q[2][1]} r={17} fill="#fff" stroke={INK} strokeWidth={7} /></g>;
+      {fist ? <g transform={`translate(${q[2][0]} ${q[2][1]})`}><circle r={30} fill="#fff" stroke={INK} strokeWidth={8} /><path d="M -14 -10 q 6 -8 12 0 M 2 -10 q 6 -8 12 0" stroke={INK} strokeWidth={5} fill="none" strokeLinecap="round" /></g> : <circle cx={q[2][0]} cy={q[2][1]} r={17} fill="#fff" stroke={INK} strokeWidth={7} />}</g>;
   };
   // the hoodie: a soft trapezoid that follows the torso lean
   const torso = (() => {
@@ -144,10 +144,22 @@ export const Toon: React.FC<{
       {pants(LF)}{shoe(LF)}
       {stick([neck, pt(neck[0], neck[1], 180 + p.lean, 30)], 12)}
       {torso}
-      {arms && limbArm(AF, holdF)}
+      {arms && limbArm(AF, holdF, fistF)}
       <g transform={`translate(${head[0]} ${head[1]}) rotate(${p.lean * 0.5 + p.head})`}>
         <Head id={id} r={R} expr={expr} look={look} blush={blush} hair={hair(R)} back={hairBack(R)} extra={faceExtra} />
       </g>
     </g>
   );
+};
+
+// joint positions in scene space for a Toon drawn at (x, y) with scale s (same geometry as <Toon>)
+export const toonJoints = (x: number, y: number, s: number, pose: ToonPose, flip = false) => {
+  const p = { lean: 0, head: 0, aB: [-14, -6] as [number, number], aF: [14, 6] as [number, number], sit: 0, dy: 0, ...pose };
+  const hip: [number, number] = [0, -210 + p.sit * 170 + p.dy];
+  const neck = pt(hip[0], hip[1], 180 + p.lean, 205), sh = pt(hip[0], hip[1], 180 + p.lean, 171);
+  const head = pt(neck[0], neck[1], 180 + p.lean + p.head * 0.3, 112 * 0.92);
+  const perp: [number, number] = [Math.cos(rad(p.lean)), -Math.sin(rad(p.lean))];
+  const hand = (side: number, a: [number, number]) => { const o: [number, number] = [sh[0] + side * perp[0] * 46, sh[1] + side * perp[1] * 46]; const e = pt(o[0], o[1], a[0], 88); return pt(e[0], e[1], a[1], 82); };
+  const T = (q: [number, number]): [number, number] => [x + (flip ? -1 : 1) * s * q[0], y + s * q[1]];
+  return { hip: T(hip), neck: T(neck), head: T(head), handB: T(hand(-1, p.aB)), handF: T(hand(1, p.aF)), r: 112 * s };
 };

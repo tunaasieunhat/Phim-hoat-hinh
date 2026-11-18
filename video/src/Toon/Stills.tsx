@@ -9,6 +9,7 @@ export const useToonFonts = () => {
   const [h] = useState(() => delayRender("toon fonts"));
   useEffect(() => {
     const faces = [
+      new FontFace("KidsHand", `url(${staticFile("fonts/PatrickHand-Regular.ttf")})`),
       new FontFace("ToonSans", `url(${staticFile("fonts/be-vietnam-pro-latin-800-normal.woff2")}) format("woff2")`, { weight: "800" }),
       new FontFace("ToonSans", `url(${staticFile("fonts/be-vietnam-pro-vietnamese-800-normal.woff2")}) format("woff2")`, { weight: "800", unicodeRange: VI }),
     ];
