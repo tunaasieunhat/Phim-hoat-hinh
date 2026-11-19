@@ -14,6 +14,8 @@ import { ToonLilySheet, ToonRoom } from "./Toon/Stills";
 import { FreeBobSheet, FreeShop } from "./Free/Stills";
 import { FREE_FRAMES, FreeFull } from "./Free/FreeVideo";
 import { FreeThumb } from "./Free/Thumbnail";
+import { SPEND_FRAMES, SpendFull } from "./Spend/SpendVideo";
+import { SpendThumb } from "./Spend/Thumbnail";
 import { StyleExplainer, StyleHandDrawn, StyleMeme, StyleMinimal } from "./Spend/StyleFrames";
 import { TOON_FRAMES, TOON_PREVIEW_FRAMES, ToonFull, ToonPreview } from "./Toon/ToonVideo";
 import { RAIN_FRAMES, RAIN_PREVIEW_FRAMES, RainFull, RainPreview } from "./Rain/RainVideo";
@@ -38,6 +40,8 @@ export const RemotionRoot: React.FC = () => {
       <Still id="ToonRoom" component={ToonRoom} width={1080} height={1920} />
       <Still id="FreeBobSheet" component={FreeBobSheet} width={1080} height={1920} />
       <Still id="FreeShop" component={FreeShop} width={1080} height={1920} />
+      <Still id="StudentSpendingCover" component={SpendThumb} width={1080} height={1920} />
+      <Composition id="StudentSpending" component={SpendFull} durationInFrames={SPEND_FRAMES} fps={30} width={1080} height={1920} />
       <Still id="SpendStyleMeme" component={StyleMeme} width={1080} height={1920} />
       <Still id="SpendStyleHandDrawn" component={StyleHandDrawn} width={1080} height={1920} />
       <Still id="SpendStyleExplainer" component={StyleExplainer} width={1080} height={1920} />

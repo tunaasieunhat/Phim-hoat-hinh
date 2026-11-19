@@ -1,137 +1,125 @@
 # 6 Types of Students When Spending Money
 # 6 kiểu sinh viên khi tiêu tiền
 
-Video người que hài kiểu "phân loại" · ~2 phút 40 giây · ~380 từ
-Khung dọc 9:16 (1080×1920) · Lời dẫn + thoại: tiếng Anh
+Video người que HÀI có lời dẫn + hội thoại · ~2 phút 40 giây · ~400 từ
+Khung dọc 9:16 (1080×1920)
+Lời dẫn + thoại: tiếng Anh, giọng kể nhanh, bình thản, ngắt nhẹ trước câu chốt hài
 Phụ đề: tiếng Anh ở TRÊN, tiếng Việt ở DƯỚI
 
----
-
-## 🎨 CHỌN PHONG CÁCH HÌNH ẢNH (chọn 1 trước khi làm video)
-
-Các phong cách lấy từ skill **directing-stickman-videos**.
-
-**Chế độ B – Code Engine (dựng bằng code trên máy, phần lớn miễn phí)**
-
-| Phong cách | Trông như thế nào | Hợp với video này |
-|---|---|---|
-| **Dynamic Meme Animation** ⭐ | Hoạt hình kiểu meme, nhịp nhanh, biểu cảm phóng đại | Hợp nhất: hài, phân loại, dễ viral |
-| **Colorful Hand-Drawn** ⭐ | Nét mực mảnh, màu nhẹ, chữ trên nền giấy | Ấm áp, đúng chất sinh viên |
-| **Character Explainer** | Một nhân vật dẫn chuyện nổi bật, các người que biểu cảm | Ví tiền làm người dẫn chuyện |
-| **Minimal Line Art** | Nền giấy trắng, nét đen, mặt biểu cảm, vài đạo cụ có màu | Nhanh, rẻ, giống video cũ |
-| Retro TV | Phong cách tivi cổ, nhân vật tròn màu trắng | Ít hợp |
-| Survival Thriller | Phong cách giật gân | Không hợp |
-| Pixel Theater | Sân khấu pixel art | Lạ mắt, hợp nếu muốn kiểu game |
-
-**Chế độ A – Model Engine (dùng AI tạo video, cần credit, thường tốn phí)**
-
-| Phong cách | Trông như thế nào |
-|---|---|
-| Classic Black & White | Nét đen trắng, giải thích bằng hình ẩn dụ |
-| Modern Pop | Nhân vật đội mũ len đỏ, cảnh công nghệ, thành phố |
-| Prehistoric Cave | Người tiền sử vẽ thô, chuyện đời thường hài |
-| Cozy Storytelling | Bối cảnh ấm áp như quán cà phê, ga tàu |
-| Historical Cartoon | Người que đầu tròn viền đậm, bối cảnh nhiều màu (gần kiểu RicksClips) |
-| Amber Noir | Ánh vàng, bóng tối kiểu điện ảnh |
-| Rubber Hose Animation | Hoạt hình cổ điển, động tác dẻo |
-
-**Gợi ý:** Dynamic Meme Animation hoặc Colorful Hand-Drawn (chế độ B, miễn phí).
-
----
+## Ý tưởng
+Một tháng, sáu sinh viên ở chung một khu trọ, mỗi người nhận đúng **3.000.000đ**. Video đi theo dòng thời gian từ **ngày 1 đến ngày 30**, mỗi cảnh giới thiệu một kiểu sinh viên. Lịch tháng ở góc trên lật dần qua từng cảnh. Cuối tháng tất cả gặp lại nhau ở cùng một bàn ăn.
 
 ## Nhân vật
-- Sáu sinh viên người que, mỗi người một màu riêng, đứng cạnh **ví tiền** của mình. Ví tiền có mặt và biết cảm xúc (vui, sợ, khóc).
-- Số dư tài khoản hiện góc trên mỗi cảnh, ví dụ "💰 3,000,000đ".
+- **Ray (Đỏ)**: Đại gia ngày đầu tháng, hoodie đỏ, kính râm.
+- **Gus (Xanh lá)**: Thánh tiết kiệm, áo xanh lá, kính tròn, luôn cầm sổ và máy tính.
+- **Pia (Tím)**: Tín đồ săn sale, áo len tím, tóc đuôi ngựa, dán mắt vào điện thoại.
+- **Yuki (Vàng)**: Người "mai tính", áo thun vàng, dép tổ ong, mắt lim dim.
+- **Bea (Xanh dương)**: "Đầu tư vào bản thân", áo blazer xanh, tóc bob.
+- **Otto (Cam)**: Người đi vay, áo khoác cam, tóc rối, điện thoại xịn nhất nhóm.
+- **Ví tiền**: mỗi người một chiếc, có mặt, biết cười, run, khóc, ngất.
+- Góc trên mỗi cảnh: lịch "Day X" và số dư tài khoản của nhân vật đang được nói tới.
 
 ---
 
-## Scene 1 – Mở đầu (0:00–0:15)
-**Visual:** Ngày đầu tháng. Điện thoại sáu sinh viên cùng rung: "Tiền gửi từ Mẹ: +3,000,000đ". Sáu ví tiền mỉm cười.
+## Scene 1 – Ngày nhận tiền (0:00–0:15)
+**Visual:** Góc nhìn từ trên cao xuống khu trọ sáu phòng. Cùng lúc, sáu chiếc điện thoại rung: "+3,000,000đ". Sáu ví tiền bật dậy, cười toe toét. Lịch: "Day 1".
 
-**Narrator:** Day one of the month. Six students just got their money. Six very different ways to lose it.
-*VI: Ngày đầu tháng. Sáu sinh viên vừa nhận tiền. Và sáu cách hoàn toàn khác nhau để tiêu sạch nó.*
-
----
-
-## Scene 2 – Đại gia ngày đầu tháng / The First-Week Millionaire (0:15–0:40)
-**Visual:** Sinh viên đỏ đeo kính râm, khao cả lớp trà sữa, gọi lẩu. Số dư tụt vèo vèo. Ngày 5, ngồi ăn mì gói, ví tiền khóc.
-
-**Red:** Bubble tea for everyone! It's on me!
-*VI: Trà sữa cả lớp! Mình bao!*
-
-**Narrator:** Day one: a king. Day five: instant noodles. For the next twenty-five days.
-*VI: Ngày một: như ông hoàng. Ngày năm: mì gói. Trong suốt hai mươi lăm ngày tiếp theo.*
+**Narrator:** Day one. Six students. Three million dong each. Thirty days to survive. Let's see how that goes.
+*VI: Ngày một. Sáu sinh viên. Mỗi người ba triệu đồng. Ba mươi ngày để sống sót. Xem thử thế nào nhé.*
 
 ---
 
-## Scene 3 – Thánh tiết kiệm / The Super Saver (0:40–1:05)
-**Visual:** Sinh viên xanh lá ghi từng đồng vào sổ, đi bộ 5km để tiết kiệm tiền xe, chia gói mì làm ba bữa. Ví tiền béo tròn, hạnh phúc.
+## Scene 2 – Ray: Đại gia ngày đầu tháng (0:15–0:40)
+**Visual:** Ray đứng giữa quán trà sữa, giơ thẻ lên như nhà vua. Cả quán reo hò. Số dư tụt vèo vèo. Lịch lật nhanh tới "Day 5": Ray ngồi một mình ăn mì gói, ví tiền khóc.
 
-**Green:** Two thousand dong for parking? I'll just walk. Five kilometers.
-*VI: Gửi xe hai nghìn hả? Thôi mình đi bộ. Năm cây số.*
+**Ray:** Bubble tea for everyone! It's on me!
+*VI: Trà sữa cả quán! Mình bao!*
 
-**Narrator:** Saves every coin. Has a spreadsheet for his spreadsheet. Richest student in class. Also the most tired.
-*VI: Tiết kiệm từng đồng. Có cả bảng tính để quản lý bảng tính. Sinh viên giàu nhất lớp. Cũng là người mệt nhất lớp.*
-
----
-
-## Scene 4 – Tín đồ săn sale / The Sale Hunter (1:05–1:25)
-**Visual:** 0 giờ đêm, sinh viên tím bấm điện thoại liên tục, chữ "FLASH SALE 11.11" chớp. Ba ngày sau, phòng chất đầy hộp: 7 cái ốp lưng, đèn hình con vịt, một cái nồi chiên không dầu dù phòng không có ổ điện.
-
-**Purple:** It was seventy percent off! I saved money!
-*VI: Giảm bảy mươi phần trăm lận! Mình đã tiết kiệm được tiền đó!*
-
-**Narrator:** She didn't need any of it. But she "saved" money. Seven times.
-*VI: Cô ấy không cần món nào cả. Nhưng cô ấy đã "tiết kiệm" được tiền. Bảy lần.*
+**Narrator:** Day one, Ray was a king. Day five, Ray was eating instant noodles. Day six… also instant noodles.
+*VI: Ngày một, Ray là ông hoàng. Ngày năm, Ray ăn mì gói. Ngày sáu… vẫn mì gói.*
 
 ---
 
-## Scene 5 – Người "mai tính" / The "I'll Check Later" Student (1:25–1:45)
-**Visual:** Sinh viên vàng quẹt thẻ, chuyển khoản liên tục nhưng không bao giờ mở app ngân hàng. Ngày 20 mở ra xem: "Số dư: 12,000đ". Ví tiền ngất xỉu.
+## Scene 3 – Pia: Tín đồ săn sale (0:40–1:05)
+**Visual:** 0 giờ đêm, phòng Pia tối, chỉ sáng màn hình điện thoại. Chữ "FLASH SALE" chớp liên tục. Lịch: "Day 8". Ba ngày sau, cửa phòng mở ra: hộp hàng tràn ra hành lang. Bên trong có 7 cái ốp lưng, một cây đèn hình con vịt.
 
-**Yellow:** I never check my balance. Ignorance is peace.
-*VI: Mình không bao giờ xem số dư. Không biết thì không buồn.*
+**Pia:** It was seventy percent off! I basically made money!
+*VI: Giảm bảy mươi phần trăm lận! Coi như mình kiếm được tiền luôn!*
 
-**Narrator:** Day twenty. He finally checked. Peace is over.
-*VI: Ngày hai mươi. Cuối cùng cậu ấy cũng xem. Hết bình yên rồi.*
+**Narrator:** Pia doesn't own a duck. Pia doesn't need a duck lamp. But Pia "saved" money. Seven times.
+*VI: Pia không nuôi vịt. Pia không cần đèn hình con vịt. Nhưng Pia đã "tiết kiệm" được tiền. Bảy lần.*
 
 ---
 
-## Scene 6 – Đầu tư vào bản thân / The "Self-Investment" Student (1:45–2:05)
-**Visual:** Sinh viên xanh dương mua khóa học tiếng Anh, khóa học lập trình, sách kỹ năng, gói gym 12 tháng. Cảnh sau: tất cả còn nguyên seal, phủ bụi, sinh viên nằm xem phim.
+## Scene 4 – Bea: Đầu tư vào bản thân (1:05–1:25)
+**Visual:** Lịch: "Day 12". Bea ôm một chồng khóa học: tiếng Anh, lập trình, gym 12 tháng. Cảnh chuyển: chồng sách vẫn còn nguyên seal, mạng nhện giăng kín. Bea nằm trên giường xem phim.
 
-**Blue:** It's not spending. It's investing in myself.
+**Bea:** It's not spending. It's investing in myself.
 *VI: Đây không phải tiêu tiền. Đây là đầu tư vào bản thân.*
 
-**Narrator:** Courses opened: zero. Gym visits: one. To take a selfie.
-*VI: Số khóa học đã mở: không. Số lần đến phòng gym: một. Để chụp ảnh tự sướng.*
+**Narrator:** Courses opened: zero. Gym visits: one. To take a selfie in the mirror.
+*VI: Số khóa học đã mở: không. Số lần đi gym: một. Để chụp ảnh trước gương.*
 
 ---
 
-## Scene 7 – Người đi vay / The Borrower (2:05–2:20)
-**Visual:** Sinh viên cam cười tươi, đi một vòng quanh năm bạn. Mỗi người đưa ví ra, ví ai cũng run sợ.
+## Scene 5 – Yuki: Người "mai tính" (1:25–1:45)
+**Visual:** Yuki nằm võng, quẹt thẻ liên tục mà không thèm nhìn. App ngân hàng trên điện thoại phủ bụi. Lịch lật tới "Day 20". Yuki cuối cùng cũng mở app: "Số dư: 12,000đ". Ví tiền ngất xỉu. Nhạc tắt.
 
-**Orange:** Bro… can I borrow fifty? I'll pay you back next month. Probably.
+**Yuki:** I never check my balance. If I don't look, it can't hurt me.
+*VI: Mình không bao giờ xem số dư. Không nhìn thì không đau.*
+
+**Narrator:** Day twenty. Yuki looked. It hurt.
+*VI: Ngày hai mươi. Yuki đã nhìn. Và nó đau thật.*
+
+---
+
+## Scene 6 – Otto: Người đi vay (1:45–2:05)
+**Visual:** Lịch: "Day 23". Otto gõ cửa từng phòng, cười tươi rói. Phòng nào cũng có một chiếc ví tiền run cầm cập trốn sau lưng chủ. Cảnh cuối: Otto bỏ tiền vay được vào túi, rút ra cái điện thoại xịn nhất nhóm để chụp ảnh tự sướng.
+
+**Otto:** Bro… can I borrow fifty? I'll pay you back next month. Probably.
 *VI: Ê… cho mượn năm chục được không? Tháng sau trả. Chắc vậy.*
 
-**Narrator:** Has no money. Somehow has the best phone in the group.
-*VI: Không có tiền. Nhưng không hiểu sao lại có cái điện thoại xịn nhất nhóm.*
+**Narrator:** Otto never has money. Somehow, Otto has the best phone in the building.
+*VI: Otto chưa bao giờ có tiền. Không hiểu sao, Otto lại có cái điện thoại xịn nhất khu trọ.*
 
 ---
 
-## Scene 8 – Kết (2:20–2:40)
-**Visual:** Cuối tháng, cả sáu ngồi chung ăn mì gói. Thánh tiết kiệm mở hộp cơm của mình ra chia cho cả nhóm. Chữ cuối hiện lần lượt: "Tip: Save first, spend later." / "Mẹo: Để dành trước, tiêu sau." Rồi: "Which one are you? 👇" / "Bạn là kiểu nào? 👇"
+## Scene 7 – Gus: Thánh tiết kiệm (2:05–2:20)
+**Visual:** Lịch: "Day 28". Gus đi bộ trên đường dài, mồ hôi nhễ nhại, xe buýt chạy vụt qua. Về phòng, mở cuốn sổ chi tiêu dày cộp, bảng tính chằng chịt. Ví tiền của Gus béo tròn, nằm ngủ ngon lành.
 
-**Narrator:** End of the month. Six students, one pack of noodles each. Different spending styles, same ending. Here's the trick: save a little first, then spend what's left. Which one are you? Be honest.
-*VI: Cuối tháng. Sáu sinh viên, mỗi người một gói mì. Cách tiêu khác nhau, kết thúc như nhau. Mẹo nhỏ: để dành một chút trước, rồi tiêu phần còn lại. Bạn là kiểu nào? Thành thật đi nhé.*
+**Gus:** Two thousand dong for parking? No way. I'll walk. Five kilometers.
+*VI: Gửi xe hai nghìn hả? Không đời nào. Mình đi bộ. Năm cây số.*
+
+**Narrator:** Gus has a spreadsheet to track his spreadsheets. Richest student in the building. Also the most tired.
+*VI: Gus có cả bảng tính để quản lý bảng tính. Sinh viên giàu nhất khu trọ. Cũng là người mệt nhất.*
+
+---
+
+## Scene 8 – Cuối tháng (2:20–2:40)
+**Visual:** Lịch: "Day 30". Đêm, sáu người ngồi quanh một chiếc bàn tròn, trước mặt mỗi người một ly mì gói. Gus thở dài, mở hộp cơm của mình ra, chia đều cho cả nhóm. Sáu ví tiền ngồi cạnh nhau, cùng mỉm cười. Bảng tổng kết hiện lên:
+- Bubble teas bought: 47 / Ly trà sữa đã mua: 47
+- Duck lamps: 1 / Đèn con vịt: 1
+- Courses finished: 0 / Khóa học đã hoàn thành: 0
+- Money left: Gus only / Còn tiền: chỉ mình Gus
+
+**Narrator:** Day thirty. Six different spending styles. Same ending. Here's the trick: save a little first, then spend what's left.
+*VI: Ngày ba mươi. Sáu cách tiêu tiền khác nhau. Cùng một cái kết. Mẹo nhỏ là: để dành một chút trước, rồi tiêu phần còn lại.*
+
+**Ray:** So… who's treating bubble tea next month?
+*VI: Vậy… tháng sau ai bao trà sữa đây?*
+
+**Chữ cuối:** "Which one are YOU? 👇" / "Bạn là kiểu nào? 👇"
 
 ---
 
 ## Ghi chú sản xuất
 - Khung 9:16, 1080×1920, 30fps; hành động chính ở 2/3 giữa, chừa trên/dưới cho giao diện TikTok/Shorts.
-- Giọng Edge TTS: Narrator en-US-AndrewNeural; Red en-US-BrianNeural; Green en-US-GuyNeural; Purple en-US-AvaNeural; Yellow en-US-ChristopherNeural; Blue en-US-JennyNeural; Orange en-US-EricNeural.
-- Phụ đề: tiếng Anh ở trên (vàng nhạt), tiếng Việt ở dưới (trắng viền đen), có tên nhân vật nhỏ khi nhân vật nói.
-- Số dư tài khoản góc trên: đếm lùi có hiệu ứng, đổi màu đỏ khi gần hết.
-- Ví tiền là "nhân vật phụ": cười, run, khóc, ngất theo tình huống.
-- Nhạc nền: vui nhộn, nhịp nhanh; tắt 1 giây trước mỗi câu chốt hài.
-- Hiệu ứng âm thanh: "ka-ching" khi nhận tiền (cảnh 1), tiếng tiền bay "whoosh" (cảnh 2), tiếng bấm điện thoại liên tục (cảnh 4), tiếng ngất "thịch" (cảnh 5), tiếng dế kêu (cảnh 6), tiếng ví run (cảnh 7).
+- Giọng Edge TTS: Narrator en-US-AndrewNeural (bình thản, tốc độ +5%); Ray en-US-BrianNeural; Gus en-US-GuyNeural; Pia en-US-AvaNeural; Yuki en-US-ChristopherNeural; Bea en-US-JennyNeural; Otto en-US-EricNeural.
+- Phụ đề: tiếng Anh ở trên (vàng nhạt), tiếng Việt ở dưới (trắng viền đen); khi nhân vật nói thì thêm tên nhỏ trước phụ đề.
+- Lịch "Day X" và số dư tài khoản ở góc trên: lật lịch và đếm lùi số dư có hiệu ứng, số dư chuyển đỏ khi gần hết.
+- Ví tiền là nhân vật phụ: cười, run, khóc, ngất theo tình huống.
+- Máy quay: góc nhìn từ trên cao ở cảnh 1 và 8; zoom nhanh vào mặt nhân vật ở câu chốt.
+- Nhạc nền: vui nhộn, nhịp nhanh; tắt 1 giây trước mỗi câu chốt hài; cảnh 8 chuyển sang nhạc ấm áp.
+- Hiệu ứng âm thanh: "ka-ching" khi nhận tiền (cảnh 1), tiếng reo hò và tiền bay "whoosh" (cảnh 2), tiếng bấm điện thoại liên tục và tiếng chuông cửa giao hàng (cảnh 3), tiếng dế kêu (cảnh 4), tiếng ngất "thịch" (cảnh 5), tiếng gõ cửa và ví run (cảnh 6), tiếng xe buýt vụt qua (cảnh 7), tiếng xì xụp ăn mì (cảnh 8).
+- Ảnh nhân vật và bối cảnh có thể dùng bộ prompt Gemini trong file prompt-anh-gemini_sinh-vien-tieu-tien.md (đổi tên nhân vật theo kịch bản này).
+- Skill gợi ý: video-nguoi-que + Remotion, gsap-timeline cho lật lịch, đếm số dư và chuyển cảnh; ffmpeg để hạ nhạc khi có lời và chuẩn hóa âm lượng.

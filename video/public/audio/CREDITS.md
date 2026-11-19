@@ -43,3 +43,4 @@ SFX: "BounceYoFrankie" (c) Blender Foundation, CC BY 3.0; "Slide whistle down" b
 - music-rain-lofi.wav: written for this video with the strudel-music skill (synth only; scripts/strudel/rain-lofi.js)
 
 - fanfare.wav, kaching.wav, crowd.wav: synthesized by scripts/make_free_sfx.py (no samples) — free to use
+- taps.wav, doorbell.wav, knock.wav, rattle.wav, bus.wav, cheer.wav: synthesized by scripts/make_spend_sfx.py (no samples) — free to use
