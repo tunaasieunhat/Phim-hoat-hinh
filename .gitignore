@@ -9,3 +9,7 @@
 # strudel-music: restore with `cd .claude/skills/strudel-music && npm install && bash scripts/download-samples.sh`
 .claude/skills/strudel-music/node_modules/
 .claude/skills/strudel-music/samples/
+
+# secrets: never commit API keys (GEMINI_API_KEY lives in the cloud environment settings)
+.env
+.env.*
