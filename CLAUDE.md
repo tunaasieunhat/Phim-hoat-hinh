@@ -27,7 +27,7 @@ Người dùng giao tiếp bằng tiếng Việt, nên trả lời bằng tiến
 | `videos/` | **Sản phẩm cuối** (MP4/ảnh bìa) đã commit để giao cho người dùng. |
 | `pieces/` | Dự án làm bằng skill `animate` (video cắt giấy 20/11, dạng canvas). |
 | `stickman/` | Dự án làm bằng skill `directing-stickman-videos` (bản B1 sinh viên Y, gói Google Flow). |
-| `.claude/skills/` | Skill đã cài: remotion-*, gsap-*, motion, strudel-music, generative-music-audio, ffmpeg-* (âm thanh), animate, cartoon-3d-short, directing-stickman-videos, find-skills. Skill `video-nguoi-que` nằm trong tài khoản người dùng. |
+| `.claude/skills/` | Skill đã cài: remotion-*, gsap-*, motion, strudel-music, generative-music-audio, ffmpeg-* (âm thanh), animate, cartoon-3d-short, directing-stickman-videos, lemo-opuscar (thư viện style ở `~/lemo-opuscar`, tải lại bằng `sh .claude/skills/lemo-opuscar/scripts/setup.sh` rồi `… deps`), find-skills. Skill `video-nguoi-que` nằm trong tài khoản người dùng. |
 
 ## Bộ công cụ mặc định cho video người que
 
