@@ -19,8 +19,13 @@ export const S5: React.FC<SP> = ({ sc }) => {
       .to(v, { faint: 1, duration: 0.3, ease: "power2.in" }, cF + 0.1).to(v, { zF: 2.3, duration: 0.2, ease: "power4.out" }, T(sc, 4) - 0.05);
   });
   const { f } = s, t = f / 30, mo = mouth(sc, "Yuki", t);
-  const hammock = (kids: React.ReactNode) => <g><path d="M 120 900 L 120 1300 M 960 900 L 960 1300" stroke="#78350f" strokeWidth={22} /><path d={`M 120 960 Q 540 ${1240 + Math.sin(f / 18) * 8} 960 960`} stroke="#d97706" strokeWidth={8} fill="none" />{kids}<path d={`M 135 972 Q 540 ${1300 + Math.sin(f / 18) * 8} 945 972 Q 540 ${1160 + Math.sin(f / 18) * 8} 135 972 Z`} fill="#fde68a" stroke={INK} strokeWidth={8} /></g>;
-  const lying = (expr: React.ComponentProps<typeof Student>["expr"], arm: [number, number]) => <g transform={`rotate(${6} 540 1080)`}><g transform="rotate(-90 760 1080)"><Student who="Yuki" id="y5" x={760} y={1080} s={0.62} expr={expr} look={{ mouth: mo }} pose={{ aF: arm, aB: [-20, -10], lB: [-4, -2], lF: [6, 2] }} holdF={s.swipe > 0.1 && t < cC ? <rect x={-30} y={-20} width={60} height={40} rx={5} fill="#facc15" stroke={INK} strokeWidth={5} /> : undefined} /></g></g>;
+  // hammock: back canvas, Yuki lying in the sag (head end raised), front canvas wrapping over his body
+  const sw = Math.sin(f / 18) * 8;
+  const hammock = (kids: React.ReactNode) => <g><path d="M 120 880 L 120 1320 M 960 880 L 960 1320" stroke="#78350f" strokeWidth={22} />{[120, 960].map((x) => <circle key={x} cx={x} cy={880} r={16} fill="#78350f" />)}
+    <path d={`M 120 960 Q 540 ${1360 + sw} 960 960 Q 540 ${1290 + sw} 120 960 Z`} fill="#eab308" stroke={INK} strokeWidth={7} strokeLinejoin="round" />{kids}
+    <path d={`M 135 972 Q 540 ${1400 + sw} 945 972 Q 540 ${1260 + sw} 135 972 Z`} fill="#fde68a" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
+    {[0, 1, 2, 3, 4].map((i) => <line key={i} x1={300 + i * 120} y1={1100 + sw - Math.abs(i - 2) * 26} x2={300 + i * 120} y2={1170 + sw - Math.abs(i - 2) * 34} stroke="#d97706" strokeWidth={5} />)}</g>;
+  const lying = (expr: React.ComponentProps<typeof Student>["expr"], arm: [number, number]) => <g transform={`rotate(${8} 600 ${1100 + sw})`}><g transform={`rotate(-90 760 ${1100 + sw})`}><Student who="Yuki" id="y5" x={760} y={1100 + sw} s={0.62} expr={expr} look={{ mouth: mo }} pose={{ aF: arm, aB: [-20, -10], lB: [-4, -2], lF: [6, 2] }} holdF={s.swipe > 0.1 && t < cC ? <rect x={-30} y={-20} width={60} height={40} rx={5} fill="#facc15" stroke={INK} strokeWidth={5} /> : undefined} /></g></g>;
   const dustyPhone = (k: number) => <g transform="translate(830 1320)"><rect x={-110} y={-20} width={220} height={20} fill="#a16207" stroke={INK} strokeWidth={5} /><g transform="translate(0 -110)"><PhoneP s={0.7} screen="#dbeafe"><rect x={-40} y={-50} width={80} height={80} rx={14} fill="#16a34a" /><text y={6} textAnchor="middle" fontFamily="ToonSans" fontWeight={800} fontSize={26} fill="#fff">BANK</text><rect x={-50} y={-100} width={100} height={190} fill="#9ca3af" opacity={0.55 * (1 - k)} /></PhoneP></g></g>;
   let shot: React.ReactNode;
   if (t < cB) shot = <Cam x={540} y={1050} z={1.25}><Room f={f} wall="#fef08a">{hammock(lying("sleepy", [90 + 40 * s.swipe, 120]))}{dustyPhone(0)}</Room>{s.swipe > 0.5 && <Big text="BEEP" x={820} y={760} k={1} size={70} c="#86efac" />}</Cam>;
@@ -93,19 +98,27 @@ export const S8: React.FC<SP> = ({ sc }) => {
       .to(v, { rows: 4, duration: 1.6, ease: "none" }, cD).to(v, { zE: 2.1, duration: 0.2, ease: "power4.out" }, T(sc, 4) + 1.4).to(v, { end: 1, duration: 0.45, ease: "back.out(1.8)" }, cF + 0.2);
   });
   const { f } = s, t = f / 30;
-  const seats: [Who, number, number][] = [["Pia", 160, 1500], ["Ray", 330, 1560], ["Bea", 520, 1580], ["Yuki", 710, 1560], ["Otto", 880, 1500], ["Gus", 1010, 1430]];
-  const table = (gusShare: number, expr: (w: Who) => React.ComponentProps<typeof Student>["expr"]) => (
+  // the round table: four students along the back, Gus and Otto at the near corners turned inward; the tabletop hides
+  // their legs, a hanging lamp lights the middle, a noodle cup in front of everyone
+  const seats: [Who, number, number, number, boolean][] = [["Gus", 120, 1270, 0.72, false], ["Pia", 300, 1180, 0.62, false], ["Ray", 450, 1170, 0.62, false], ["Bea", 630, 1170, 0.62, true], ["Yuki", 780, 1180, 0.62, true], ["Otto", 960, 1270, 0.72, true]];
+  const table = (gusShare: number, expr: (w: Who) => React.ComponentProps<typeof Student>["expr"], wallets = false) => (
     <Table f={f}>
-      {seats.map(([w, x, y]) => <Student key={w} who={w} id={`t8${w}`} x={x} y={y - 120} s={0.6} flip={x > 540} expr={expr(w)} pose={{ sit: 1.235, lB: [80, 6], lF: [86, 10], aF: [60, 110], aB: [-30, -10] }} />)}
-      <ellipse cx={540} cy={1500} rx={460} ry={120} fill="#a16207" stroke={INK} strokeWidth={9} /><ellipse cx={540} cy={1492} rx={430} ry={100} fill="#ca8a04" />
-      {seats.map(([w, x], i) => <g key={w} transform={`translate(${x * 0.85 + 80} ${1500 - (i % 2) * 20})`}><Noodle s={0.45} f={f} /></g>)}
-      {gusShare > 0 && <g transform={`translate(${880 - 340 * gusShare} 1440)`}><rect x={-80} y={-40} width={160} height={60} rx={10} fill="#fef3c7" stroke={INK} strokeWidth={6} />{[-40, 0, 40].map((dx) => <circle key={dx} cx={dx} cy={-34} r={18} fill="#fff" stroke={INK} strokeWidth={4} />)}</g>}
+      <rect x={-900} y={1290} width={2900} height={1500} fill="#2a2347" />
+      <line x1={540} y1={-200} x2={540} y2={560} stroke={INK} strokeWidth={6} />
+      <path d="M 450 640 Q 540 520 630 640 Z" fill="#f59e0b" stroke={INK} strokeWidth={8} /><ellipse cx={540} cy={642} rx={34} ry={12} fill="#fff7d6" />
+      <path d="M 470 646 L 110 1250 L 970 1250 L 610 646 Z" fill="#ffd27f" opacity={0.12} />
+      {seats.map(([w, x, y, sz, fl]) => <Student key={w} who={w} id={`t8${w}`} x={x} y={y} s={sz} flip={fl} expr={expr(w)} look={{ look: 0.3 }} pose={{ sit: 1.235, lB: [80, 6], lF: [86, 10], aF: [70, 120], aB: [50, 100] }} />)}
+      <path d="M 40 1270 Q 40 1340 540 1350 Q 1040 1340 1040 1270 L 1040 1310 Q 1040 1400 540 1410 Q 40 1400 40 1310 Z" fill="#92400e" stroke={INK} strokeWidth={9} strokeLinejoin="round" />
+      <ellipse cx={540} cy={1270} rx={500} ry={90} fill="#ca8a04" stroke={INK} strokeWidth={9} /><ellipse cx={540} cy={1262} rx={330} ry={52} fill="#fbbf24" opacity={0.45} />
+      {seats.map(([w, x], i) => <g key={w} transform={`translate(${x + (x < 540 ? 70 : -70) * (i === 0 || i === 5 ? 1 : 0.3)} ${1290 - (i === 0 || i === 5 ? 10 : 50)})`}><Noodle s={0.36} f={f} /></g>)}
+      {gusShare > 0 && <g transform={`translate(${200 + 340 * gusShare} 1270)`}><rect x={-80} y={-40} width={160} height={60} rx={10} fill="#fef3c7" stroke={INK} strokeWidth={6} />{[-40, 0, 40].map((dx) => <circle key={dx} cx={dx} cy={-34} r={18} fill="#fff" stroke={INK} strokeWidth={4} />)}</g>}
+      {wallets && seats.map(([w], i) => <Wallet key={w} x={330 + i * 76} y={1220 + (i % 2) * 8} s={0.2} mood="smile" strap={COLOR[w]} f={f} />)}
     </Table>
   );
   let shot: React.ReactNode;
   if (t < cB) shot = <Cam x={540} y={960} z={s.zA} r={-4}><DormTop f={f} night={1} middle={<g><circle cx={540} cy={960} r={150} fill="#a16207" stroke={INK} strokeWidth={8} />{ORDER.map((w, i) => { const a = (i / 6) * Math.PI * 2; return <g key={w}><circle cx={540 + Math.cos(a) * 190} cy={960 + Math.sin(a) * 190} r={46} fill="#fff" stroke={INK} strokeWidth={6} /><path d={`M ${540 + Math.cos(a) * 190 - 44} ${960 + Math.sin(a) * 190 - 6} A 44 44 0 0 1 ${540 + Math.cos(a) * 190 + 44} ${960 + Math.sin(a) * 190 - 6} Z`} fill={COLOR[w]} /><circle cx={540 + Math.cos(a) * 95} cy={960 + Math.sin(a) * 95} r={24} fill="#fcd34d" stroke={INK} strokeWidth={4} /></g>; })}</g>} /></Cam>;
-  else if (t < cC) shot = <Cam x={540} y={1250} z={1.25}>{table(0, () => "sleepy")}</Cam>;
-  else if (t < cD) shot = <Cam x={620} y={1250} z={1.35}>{table(s.share, (w) => (w === "Gus" ? "deadpan" : s.share > 0.5 ? "happy" : "worried"))}{ORDER.map((w, i) => <Wallet key={w} x={190 + i * 140} y={1455 - (i % 2) * 18} s={0.26} mood="smile" strap={COLOR[w]} f={f} />)}</Cam>;
+  else if (t < cC) shot = <Cam x={540} y={1120} z={1.15}>{table(0, () => "sleepy")}</Cam>;
+  else if (t < cD) shot = <Cam x={460} y={1100} z={1.3}>{table(s.share, (w) => (w === "Gus" ? "deadpan" : s.share > 0.5 ? "happy" : "worried"), s.share > 0.6)}</Cam>;
   else if (t < cE) {
     const rows: [string, string, string][] = [["Bubble teas bought", "Ly trà sữa đã mua", "47"], ["Duck lamps", "Đèn con vịt", "1"], ["Courses finished", "Khóa học hoàn thành", "0"], ["Money left", "Còn tiền", "Gus only"]];
     shot = <g><rect x={-100} y={-100} width={1280} height={2120} fill="#312e81" /><g transform="translate(540 820)"><rect x={-480} y={-420} width={960} height={840} rx={40} fill="#fffdf5" stroke={INK} strokeWidth={12} /><text y={-320} textAnchor="middle" fontFamily="ToonSans" fontWeight={800} fontSize={62} fill="#db2777">END-OF-MONTH REPORT</text>
@@ -113,8 +126,8 @@ export const S8: React.FC<SP> = ({ sc }) => {
   } else if (t < cF) {
     const mo = mouth(sc, "Ray", t);
     const stare = t > T(sc, 4) + 1.4;
-    shot = stare ? <Cam x={540} y={1250} z={1.25}>{table(1, (w) => (w === "Ray" ? "smug" : "deadpan"))}</Cam>
-      : <Cam x={330} y={1050} z={s.zE}>{table(1, (w) => (w === "Ray" ? (mo ? "talk" : "smug") : "happy"))}</Cam>;
+    shot = stare ? <Cam x={540} y={1120} z={1.15}>{table(1, (w) => (w === "Ray" ? "smug" : "deadpan"))}</Cam>
+      : <Cam x={450} y={1020} z={s.zE}>{table(1, (w) => (w === "Ray" ? (mo ? "talk" : "smug") : "happy"))}</Cam>;
   } else {
     shot = <g><Rays x={540} y={1200} f={f} a="#c7d2fe" b="#a5b4fc" />
       {(["Ray", "Pia", "Bea", "Yuki", "Otto", "Gus"] as Who[]).map((w, i) => <Student key={w} who={w} id={`e8${w}`} x={110 + i * 172} y={1640} s={0.55} expr="smug" pose={{ aF: [20, 10], aB: [-20, -10] }} />)}
